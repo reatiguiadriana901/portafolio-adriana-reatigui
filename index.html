@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Adriana Reatigui - Portfolio Personal</title>
+  <meta name="description"
+    content="Portfolio personal de Adriana Reatigui. Estudiante de geología y estudiante en desarrollo de software">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Diplomata&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+
+
+</head>
+
+<body>
+  <!-- Header con navegación -->
+  <header class="header">
+    <div class="header__container">
+      <div class="header__brand">
+        <h1 class="header__name">Adriana Reatigui</h1>
+        <p class="header__tagline">Geóloga y técnica en desarrollo de software</p>
+      </div>
+
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a href="#inicio" class="nav__link nav__link--active">Inicio</a>
+          </li>
+          <li class="nav__item">
+            <a href="#sobre-mi" class="nav__link">Sobre mí</a>
+          </li>
+          <li class="nav__item">
+            <a href="#proyectos" class="nav__link">Proyectos</a>
+          </li>
+          <li class="nav__item">
+            <a href="#habilidades" class="nav__link">Habilidades</a>
+          </li>
+          <li class="nav__item">
+            <a href="#contacto" class="nav__link">Contacto</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Contenido principal -->
+  <main class="main">
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+      <div class="hero__container">
+        <div class="hero__images reveal" id="heroImages" tabindex="0">
+          <img src="./foto_acuarela.png" alt="Foto de Adriana Reatigui" class="hero__img_foto">
+          <div class="hero__images-side">
+            <img src="https://thumbs.dreamstime.com/b/una-hermosa-pintura-acuarela-de-laptop-en-un-escritorio-para-inspirar-an%C3%A1lisis-datos-y-crecimiento-negocios-esta-impresionante-380428971.jpg" alt="Laptop" class="hero__img hero__img--satellite hero__img--laptop">
+            <img src="https://img.freepik.com/foto-gratis/volcan-arte-digital-ilustrado_23-2151778824.jpg?semt=ais_hybrid&w=740&q=80" alt="Volcán" class="hero__img hero__img--satellite hero__img--volcano">
+          </div>
+        </div>
+
+        <div class="hero__copy">
+          <h2 class="hero__title reveal">¡Hola! Soy Adriana Reatigui</h2>
+          <p class="hero__subtitle reveal">Geóloga y técnica en desarrollo de software</p>
+
+          <p class="hero__description reveal">
+           Soy estudiante de Geología y Desarrollo de Software, dos caminos que para mí no son opuestos sino complementarios. Me apasiona entender cómo funciona el mundo, desde las rocas que lo forman hasta el código que lo conecta. Soy curiosa por naturaleza, disfruto retarme a mí misma y nunca dejo de aprender. Creo que la combinación de ciencia y tecnología me permite ver los problemas desde ángulos únicos.
+          </p>
+
+          <div class="hero__actions reveal">
+            <a href="#proyectos" class="button button--primary">Ver Mis Proyectos</a>
+            <a href="#contacto" class="button button--secondary">Contáctame</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sobre Mí -->
+    <section class="about" id="sobre-mi">
+      <div class="about__container">
+        <h2 class="about__title reveal">Mi Viaje en la programación y la geología</h2>
+
+        <p class="about__intro reveal">
+          Soy <strong>Estudiante de Geología y Técnico en Desarrollo de Software</strong>, Actualmente me encuentro fortaleciendo mis habilidades en programación, y desarrollando mi tesís de pregrado de geología.
+        </p>
+
+        <p class="about__text reveal">
+          La combinación entre la geología y la tecnología puede hacer que la investigación científica evolucione y con ello el mundo también lo haga.
+        </p>
+
+        <blockquote class="quote reveal">
+          <p class="quote__text">
+            "Así como la geología descifra la historia del planeta capa por capa, la programación construye el futuro línea por línea. En ambos, los detalles hacen la diferencia."
+          </p>
+          <cite class="quote__author">— Mi filosofía de aprendizaje</cite>
+        </blockquote>
+
+        <div class="values reveal">
+          <h3 class="values__title">Mis Valores</h3>
+          <ul class="values__list">
+            <li class="values__item">
+              <span class="values__icon">🎯</span>
+              <strong>Dedicación</strong>
+              <span>Comprometida con mi aprendizaje diario.</span>
+            </li>
+            <li class="values__item">
+              <span class="values__icon">📚</span>
+              <strong>Curiosidad</strong>
+              <span>Siempre explorando, actualizandome y aprendiendo. </span>
+            </li>
+            <li class="values__item">
+              <span class="values__icon">🤝</span>
+              <strong>Reto personal</strong>
+              <span>Me gusta salir de mi zona de confort y retarme.</span>
+            </li>
+            <li class="values__item">
+              <span class="values__icon">💡</span>
+              <strong>Creatividad</strong>
+              <span>Buscando soluciones innovadoras</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Proyectos -->
+    <section class="projects" id="proyectos">
+      <div class="projects__container">
+        <h2 class="projects__title reveal">Mis Proyectos de Práctica</h2>
+        <p class="projects__description reveal">
+          Cada proyecto representa mi progreso aprendiendo y fortaleciendo mis habilidades en programación.
+        </p>
+
+        <div class="projects__grid">
+          <article class="project reveal">
+            <h3 class="project__title">Proyecto con python</h3>
+            <p class="project__description">
+              Mi primer proyecto completo usando python fue una aplicación de consola que permite registrar, listar y analizar gastos personales. Permite filtrar por categoría y fechas, calcular totales diarios, semanales y mensuales, y generar reportes en pantalla o en formato JSON. Los datos se almacenan en un archivo JSON para mantener el historial entre sesiones
+            </p>
+
+            <h4 class="project__subtitle">Lo que aprendí:</h4>
+            <ul class="project__learnings">
+              <li>Manejo de archivos JSON para almacenamiento de datos</li>
+              <li>Estructuras de datos con listas y diccionarios</li>
+              <li>Filtrado y procesamiento de datos por categoría y fechas</li>
+              <li>Cálculo de totales y generación de reportes</li>
+              <li>Programación modular y organización de funciones</li>
+            </ul>
+
+            <div class="project__technologies">
+              <span class="tag">Python</span>
+            </div>
+
+            <div class="project__links">
+              <a href="#" class="project__link">Ver proyecto</a>
+              <a href="#" class="project__link">Ver código</a>
+            </div>
+          </article>
+
+          <article class="project project--featured reveal">
+            <span class="project__badge">Trabajo en equipo</span>
+            <h3 class="project__title">Acme School — Plataforma de Exámenes</h3>
+            <p class="project__description">
+              App web para gestionar y resolver exámenes en línea, hecha con HTML, CSS y JavaScript puro (sin frameworks). Desarrollada en equipo. Tiene un módulo privado para administradores (crear exámenes, gestionar usuarios) y un módulo público donde los estudiantes se registran y presentan el examen con temporizador.
+            </p>
+
+            <h4 class="project__subtitle">Lo que aprendí:</h4>
+            <ul class="project__learnings">
+              <li>Módulos JS con import/export (ES6+)</li>
+              <li>Autenticación y protección de rutas</li>
+              <li>CRUD completo con localStorage</li>
+              <li>Formularios con validaciones y temporizador</li>
+              <li>Organización de un proyecto multi-página</li>
+            </ul>
+
+            <div class="project__technologies">
+              <span class="tag">HTML5</span>
+              <span class="tag">CSS3</span>
+              <span class="tag">JavaScript</span>
+            </div>
+
+            <div class="project__links">
+              <a href="https://github.com/reatiguiadriana901/ProyectoAcmesSchool_JavaScript_Becerra_Reatigui_Solano" class="project__link" target="_blank" rel="noopener">Ver código ↗</a>
+            </div>
+          </article>
+
+          <article class="project project--featured reveal">
+            <span class="project__badge">Automatización + IA</span>
+            <h3 class="project__title">TalentFlow AI</h3>
+            <p class="project__description">
+              Plataforma de automatización para la recepción, evaluación con IA (Google Gemini) y gestión centralizada de postulaciones laborales. El sistema valida duplicados, extrae texto de hojas de vida en PDF, evalúa la compatibilidad del candidato frente a las vacantes, registra métricas en PostgreSQL y Google Sheets, y notifica a RRHH vía Gmail y Telegram.
+            </p>
+
+            <h4 class="project__subtitle">Lo que aprendí:</h4>
+            <ul class="project__learnings">
+              <li>Automatización de flujos con n8n (webhooks, agentes IA, ruteo condicional)</li>
+              <li>Integración con Google Gemini para evaluar candidatos</li>
+              <li>Extracción de texto de PDF y validación de duplicados</li>
+              <li>Gestión de datos en PostgreSQL y Google Sheets</li>
+              <li>Notificaciones vía Gmail OAuth2 y Telegram Bot API</li>
+            </ul>
+
+            <div class="project__technologies">
+              <span class="tag">n8n</span>
+              <span class="tag">Google Gemini</span>
+              <span class="tag">PostgreSQL</span>
+            </div>
+
+            <div class="project__links">
+              <a href="https://github.com/reatiguiadriana901/proyecto-N8N-" class="project__link" target="_blank" rel="noopener">Ver código ↗</a>
+            </div>
+          </article>
+
+          <article class="project reveal">
+            <h3 class="project__title">Portfolio Personal</h3>
+            <p class="project__description">
+              Este mismo portfolio que estás viendo. Mi proyecto donde aplico todo lo aprendido en HTML y CSS.
+            </p>
+
+            <h4 class="project__subtitle">Características:</h4>
+            <ul class="project__learnings">
+              <li>HTML semántico y accesible</li>
+              <li>CSS moderno y organizado</li>
+              <li>Diseño responsivo</li>
+              <li>Metodología BEM</li>
+              <li>Optimización de rendimiento</li>
+            </ul>
+
+            <div class="project__technologies">
+              <span class="tag">HTML5</span>
+              <span class="tag">CSS3</span>
+              <span class="tag">BEM</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Habilidades -->
+    <section class="skills" id="habilidades">
+      <div class="skills__container">
+        <h2 class="skills__title reveal">Mis Habilidades</h2>
+
+        <h3 class="skills__subtitle reveal">Tecnologías que he aprendido y estoy aprendiendo</h3>
+
+        <div class="skills__category reveal">
+          <h3>Programación</h3>
+          <div class="skills__list">
+            <div class="skill">
+              <h4 class="skill__name">Python</h4>
+              <div class="skill__bar">
+                <div class="skill__progress" data-width="80%"></div>
+              </div>
+              <span class="skill__percentage">80%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="skills__category reveal">
+          <h3>Control de versiones</h3>
+          <div class="skills__list">
+            <div class="skill">
+              <h4 class="skill__name">Git y Github</h4>
+              <div class="skill__bar">
+                <div class="skill__progress" data-width="80%"></div>
+              </div>
+              <span class="skill__percentage">80%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="skills__category reveal">
+          <h3>Desarrollo web</h3>
+          <div class="skills__list">
+            <div class="skill">
+              <h4 class="skill__name">HTML5</h4>
+              <div class="skill__bar">
+                <div class="skill__progress" data-width="75%"></div>
+              </div>
+              <span class="skill__percentage">75%</span>
+            </div>
+            <div class="skill">
+              <h4 class="skill__name">CSS3</h4>
+              <div class="skill__bar">
+                <div class="skill__progress" data-width="75%"></div>
+              </div>
+              <span class="skill__percentage">75%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="skills__category reveal">
+          <h3>Bases de datos</h3>
+          <div class="skills__list">
+            <div class="skill">
+              <h4 class="skill__name">MySQL</h4>
+              <div class="skill__bar">
+                <div class="skill__progress" data-width="70%"></div>
+              </div>
+              <span class="skill__percentage">70%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="skills__category reveal">
+          <h3>Automatización</h3>
+          <div class="skills__list">
+            <div class="skill">
+              <h4 class="skill__name">n8n</h4>
+              <div class="skill__bar">
+                <div class="skill__progress" data-width="70%"></div>
+              </div>
+              <span class="skill__percentage">70%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="skills__category reveal">
+          <h3>Geoespacial</h3>
+          <div class="skills__list">
+            <div class="skill">
+              <h4 class="skill__name">Argis Pro</h4>
+              <div class="skill__bar">
+                <div class="skill__progress" data-width="90%"></div>
+              </div>
+              <span class="skill__percentage">90%</span>
+            </div>
+            <div class="skill">
+              <h4 class="skill__name">Qgis</h4>
+              <div class="skill__bar">
+                <div class="skill__progress" data-width="70%"></div>
+              </div>
+              <span class="skill__percentage">70%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="learning reveal">
+          <h3 class="learning__title">Actualmente aprendiendo:</h3>
+          <ul class="learning__list">
+            <li class="learning__item">Bases de datos</li>
+            <li class="learning__item">Inglés</li>
+            <li class="learning__item">Mi tesis de investigación</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="contact" id="contacto">
+      <div class="contact__container">
+        <h2 class="contact__title reveal">¿Te gustaría conectar?</h2>
+        <p class="contact__description reveal">
+          Siempre estoy buscando aprender,compartir experiencias y colaborar en proyectos interesantes que contribuyan a mi crecimeinto profesional.
+        </p>
+
+        <div class="contact__methods reveal">
+          <div class="contact__method">
+            <h3 class="contact__method-title">📧 Email</h3>
+            <a href="mailto:reatiguiadriana901@gmail.com" class="contact__link">
+              reatiguiadriana901@gmail.com
+            </a>
+          </div>
+
+          <div class="contact__method">
+            <h3 class="contact__method-title">💻 GitHub</h3>
+            <a href="https://github.com/reatiguiadriana901" class="contact__link" target="_blank" rel="noopener">
+              @reatiguiadriana901
+            </a>
+          </div>
+
+          <div class="contact__method">
+            <h3 class="contact__method-title">💼 LinkedIn</h3>
+            <a href="https://www.linkedin.com/in/adriana-reatigui-333655322/" class="contact__link" target="_blank" rel="noopener">
+              /in/Adriana-Reatigui
+            </a>
+          </div>
+        </div>
+
+        <a  href="https://drive.google.com/file/d/1ZBZfrvd6slu5K-ElF_vAASkcMWQdgIEA/view?usp=sharing"  href="#" class="button button--primary button--large reveal">
+          📄 Descargar CV (PDF)
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__container">
+      <nav class="footer__nav">
+        <a href="#inicio" class="footer__link">Inicio</a>
+        <a href="#sobre-mi" class="footer__link">Sobre mí</a>
+        <a href="#proyectos" class="footer__link">Proyectos</a>
+        <a href="#habilidades" class="footer__link">Habilidades</a>
+        <a href="#contacto" class="footer__link">Contacto</a>
+      </nav>
+
+      <p class="footer__copyright">
+        © 2026 Adriana Reatigui - Portfolio Personal
+      </p>
+
+      <p class="footer__credits">
+        Investigando y programando con ❤️ mientras pienso en como hacer del mundo un lugar mejor
+      </p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
