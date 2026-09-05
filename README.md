@@ -2,7 +2,7 @@
 
 One page personal portfolio: geóloga (UIS) y técnica en desarrollo de software. Presenta mi perfil, proyectos, habilidades y contacto en un solo lugar.
 
-🔗 **Demo en vivo:** https://github.com/reatiguiadriana901/portafolio-adriana-reatigui
+🔗 **Demo en vivo:** https://reatiguiadriana901.github.io/portafolio-adriana-reatigui/
 
 ## Características
 
