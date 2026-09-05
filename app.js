@@ -23,7 +23,7 @@ const revealObserver = new IntersectionObserver(
 
 revealElements.forEach((el) => revealObserver.observe(el));
 
-// Animación de las barras de habilidades: se llenan al entrar en pantalla
+
 const skillBars = document.querySelectorAll('.skill__progress');
 
 const skillObserver = new IntersectionObserver(
