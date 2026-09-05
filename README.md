@@ -25,8 +25,7 @@ portfolio/
 ├── index.html
 ├── styles.css
 ├── script.js
-├── assets/
-│   ├── foto_acuarela.png
+├── foto_acuarela.png
 └── README.md
 ```
 
