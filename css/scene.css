@@ -1,0 +1,90 @@
+/* ==========================================================================
+   Escena del viaje: la ruta de Lapilli en escritorio (modo ruta) y el
+   escenario inferior en celular y tableta (modo escenario). JS: js/scene/
+   ========================================================================== */
+
+/* Sonda invisible: layout.js lee su alto para conocer el alto estable de la ventana */
+.viewport-probe {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100vh; /* respaldo para navegadores sin la unidad svh */
+  height: 100svh;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* ---------- Ruta (html[data-mode="route"]) ---------- */
+
+/* Cubre todo el documento: route.js le pone el alto de la página */
+.scene {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: var(--z-scene);
+  display: none;
+  width: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+html[data-mode="route"] .scene {
+  display: block;
+}
+
+/* Huellas tenues (icnitas): cuadritos de 4 px cada 16 px */
+.scene__trail {
+  fill: none;
+  stroke: color-mix(in oklab, var(--color-heading) 28%, transparent);
+  stroke-width: 4;
+  stroke-linecap: butt;
+  stroke-dasharray: 4 12;
+}
+
+/* Lo recorrido: route.js alarga este trazo con stroke-dasharray según el avance */
+.scene__trail--done {
+  stroke: color-mix(in oklab, var(--color-heading) 60%, transparent);
+  stroke-width: 2;
+  stroke-dasharray: 0 100000;
+}
+
+/* ---------- Escenario inferior (html[data-mode="stage"]) ---------- */
+
+.stage {
+  --ground-color: var(--sage);
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: var(--z-stage);
+  height: calc(var(--stage-h) + env(safe-area-inset-bottom, 0px));
+  border-top: 1px solid var(--color-border);
+  background: linear-gradient(to bottom, var(--color-bg) 35%, color-mix(in oklab, var(--ground-color) 14%, var(--color-bg)));
+  pointer-events: none;
+}
+
+.stage[hidden] {
+  display: none;
+}
+
+/* Suelo pixelado: una fila del color del periodo sobre un tablero de tierra.
+   Los cuadritos miden --px, igual que los píxeles de Lapilli. */
+.stage__ground {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: calc(var(--px) * 4 + env(safe-area-inset-bottom, 0px));
+  background:
+    linear-gradient(var(--ground-color) 0 var(--px), transparent var(--px)),
+    repeating-conic-gradient(
+      color-mix(in oklab, var(--ground-color) 22%, var(--color-stratum-3)) 0 25%,
+      color-mix(in oklab, var(--ground-color) 12%, var(--color-stratum-4)) 0 50%
+    ) 0 var(--px) / calc(var(--px) * 2) calc(var(--px) * 2);
+}
+
+/* Con el escenario visible, ningún texto queda escondido debajo de él al final */
+html[data-mode="stage"] body {
+  padding-bottom: calc(var(--stage-h) + env(safe-area-inset-bottom, 0px));
+}

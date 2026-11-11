@@ -1,0 +1,101 @@
+/* ==========================================================================
+   Tokens: paleta de Adriana (crema vainilla, rosa pétalo, palo de rosa,
+   salvia, azul niebla y azul medianoche), los colores de Lapilli,
+   tipografías y medidas.
+   El sitio es claro; .theme-dark (cabecera, inicio, contacto y pie) usa los
+   mismos tokens con valores invertidos.
+   ========================================================================== */
+
+:root {
+  color-scheme: light;
+
+  /* Paleta */
+  --vanilla: #fff7e6;
+  --blush: #f7c8d3;
+  --rosewood: #b46a72;
+  --sage: #a8b58a;
+  --misty: #a9b7c6;
+  --midnight: #2d3a47;
+
+  /* Fondos */
+  --color-bg: var(--vanilla);
+  --color-surface: #fffcf5;
+  --color-surface-raised: #f6ead6;
+  --color-border: #ebdcc8;
+
+  /* Texto (contraste AA sobre el fondo y las tarjetas) */
+  --color-text: var(--midnight);
+  --color-text-muted: #55606c;
+  --color-heading: #9a4f58; /* palo de rosa oscuro: el de la paleta no da contraste para texto */
+  --color-label: #5f6e45; /* salvia oscura, por la misma razón */
+
+  /* Acentos */
+  --color-accent: #9a4f58;
+  --color-accent-strong: #84424a;
+  --color-chip: color-mix(in oklab, var(--sage) 24%, var(--color-surface));
+  --color-highlight: var(--rosewood); /* solo decoración */
+
+  /* Estratos de la columna de habilidades y del pie */
+  --color-stratum-1: var(--blush);
+  --color-stratum-2: var(--sage);
+  --color-stratum-3: var(--misty);
+  --color-stratum-4: var(--midnight);
+
+  /* Lapilli, el T-Rex verde olivino */
+  --color-olivine: #7a9a3a;
+  --color-olivine-shadow: #556b2a;
+  --color-olivine-belly: #c9d98a;
+  --color-eye: #1f1a17;
+
+  /* Tipografías: Fraunces (títulos), DM Sans (texto), Fira Code (etiquetas) */
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-body: "DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "Fira Code", ui-monospace, "Cascadia Code", Consolas, monospace;
+
+  /* Espacios y medidas */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4.5rem;
+  --column: 760px;
+  --gutter: clamp(1rem, 4vw, 2rem);
+  --header-h: 3.5rem;
+  --radius-sm: 6px;
+  --radius: 12px;
+  --shadow: 0 12px 32px rgb(45 58 71 / 0.12);
+
+  /* Escena de la mascota (layout.js actualiza --px y --lane-w) */
+  --px: 4px;
+  --lane-w: 0px;
+  --stage-h: 72px;
+
+  /* Capas */
+  --z-scene: 5;
+  --z-content: 10;
+  --z-mascot: 20;
+  --z-fx: 30;
+  --z-stage: 40;
+  --z-header: 50;
+}
+
+/* Secciones oscuras: azul medianoche con texto vainilla y acento rosa pétalo */
+.theme-dark {
+  color-scheme: dark;
+  --color-bg: var(--midnight);
+  --color-surface: #344352;
+  --color-surface-raised: #3c4b5b;
+  --color-border: #4a5a6b;
+  --color-text: var(--vanilla);
+  --color-text-muted: var(--misty);
+  --color-heading: var(--sage);
+  --color-label: var(--sage);
+  --color-accent: var(--blush);
+  --color-accent-strong: #fbdde4;
+  --color-chip: color-mix(in oklab, var(--sage) 24%, var(--color-bg));
+  background: var(--color-bg);
+  color: var(--color-text);
+}

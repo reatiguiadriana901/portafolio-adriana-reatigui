@@ -1,0 +1,147 @@
+{
+  "fuente": "Reatigui Mateus, A. M. (2026). Trabajo de grado, Universidad Industrial de Santander. Solo valores agregados.",
+  "elongacion": {
+    "n": 20,
+    "intervalo": 30,
+    "conteos": [
+      1,
+      4,
+      8,
+      5,
+      1,
+      1
+    ],
+    "mediaAxial": 72.3,
+    "r": 0.654
+  },
+  "shmax": {
+    "azimut": 104,
+    "incertidumbre": 15,
+    "clases": {
+      "alineados": 4,
+      "oblicuos": 9,
+      "ortogonales": 6
+    }
+  },
+  "asociacion": {
+    "aptos": 19,
+    "asociados": 15,
+    "desfaseMedio": 6.6,
+    "porEstructura": {
+      "Falla La Plata": 3,
+      "Falla Oritoguaz": 4,
+      "Lineamiento E-W": 7,
+      "Falla San Agustín": 1
+    }
+  },
+  "familias": [
+    {
+      "id": "F1",
+      "direccion": "NNE-NE",
+      "rango": [
+        10,
+        60
+      ],
+      "n": 25,
+      "km": 73.7
+    },
+    {
+      "id": "F2",
+      "direccion": "ENE-E",
+      "rango": [
+        60,
+        100
+      ],
+      "n": 10,
+      "km": 61.3
+    },
+    {
+      "id": "F3",
+      "direccion": "WNW",
+      "rango": [
+        100,
+        130
+      ],
+      "n": 6,
+      "km": 16.9
+    },
+    {
+      "id": "F4",
+      "direccion": "NW-NNW",
+      "rango": [
+        130,
+        10
+      ],
+      "n": 17,
+      "km": 51.5
+    }
+  ],
+  "estructuras": [
+    {
+      "nombre": "Falla Bordones",
+      "tipo": "Transversal",
+      "rumbo": 136
+    },
+    {
+      "nombre": "Falla Granadillo-Timaná",
+      "tipo": "Longitudinal",
+      "rumbo": 71
+    },
+    {
+      "nombre": "Falla Inzá",
+      "tipo": "Longitudinal",
+      "rumbo": 31
+    },
+    {
+      "nombre": "Falla La Plata",
+      "tipo": "Longitudinal",
+      "rumbo": 48
+    },
+    {
+      "nombre": "Falla Oritoguaz",
+      "tipo": "Longitudinal",
+      "rumbo": 67
+    },
+    {
+      "nombre": "Falla San Agustín",
+      "tipo": "Transversal",
+      "rumbo": 148
+    },
+    {
+      "nombre": "Lineamiento E-W",
+      "tipo": "Lineamiento",
+      "rumbo": 86
+    }
+  ],
+  "depuracion": [
+    {
+      "etapa": "Trazos dibujados",
+      "n": 526,
+      "km": 816.7
+    },
+    {
+      "etapa": "Lineamientos distintos",
+      "n": 476,
+      "km": null
+    },
+    {
+      "etapa": "Coinciden en 2 o más técnicas",
+      "n": 41,
+      "km": 88.7
+    },
+    {
+      "etapa": "Continuos (1 km o más)",
+      "n": 37,
+      "km": 85.6
+    },
+    {
+      "etapa": "Con expresión en el relieve",
+      "n": 32,
+      "km": 76.6
+    }
+  ],
+  "capaFinal": {
+    "n": 58,
+    "km": 203.5
+  }
+}
