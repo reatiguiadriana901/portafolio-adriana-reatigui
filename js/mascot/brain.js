@@ -15,7 +15,7 @@ const spoken = new Set(); // segmentos que ya comentó en esta visita
 let lastChat = 0;
 let factIndex = 0;
 
-// Lapilli empieza oculto (css/scene.css): solo aparece si se activa en Ajustes
+// Lapilli se puede ocultar en Ajustes (css/scene.css): oculto no habla
 const isHidden = () => document.documentElement.classList.contains('no-lapilli');
 
 // Las burbujas automáticas no aparecen si Lapilli está oculto, si el scroll va

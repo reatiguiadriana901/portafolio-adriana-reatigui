@@ -85,7 +85,7 @@ html.has-intro body > :not(.intro) {
   opacity: 0;
 }
 
-/* Sin Lapilli (lo normal) el nombre queda en el centro del cielo */
+/* Sin Lapilli (oculto en Ajustes) el nombre queda en el centro del cielo */
 .intro.is-plain .intro__title {
   top: 24vh;
 }

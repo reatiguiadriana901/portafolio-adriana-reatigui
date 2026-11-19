@@ -22,16 +22,15 @@
   <link rel="stylesheet" href="css/mascot.css">
   <link rel="stylesheet" href="css/intro.css">
   <script>
-    // Lapilli empieza oculto y se muestra desde Ajustes (ui/settings.js).
+    // Lapilli se ve, salvo que el visitante lo oculte en Ajustes (ui/settings.js).
     // Presentación a pantalla completa (js/intro.js): una vez por sesión, nunca con
     // movimiento reducido o con las animaciones en pausa; ?intro la fuerza.
     // Mientras tanto la página espera escondida; si el JavaScript no arranca en
     // 6 s, se muestra igual.
     (function () {
       var root = document.documentElement;
-      root.classList.add('no-lapilli');
       try {
-        if (localStorage.getItem('portafolio:mascota') === 'visible') root.classList.remove('no-lapilli');
+        if (localStorage.getItem('portafolio:mascota') === 'oculto') root.classList.add('no-lapilli');
         var force = /[?&]intro\b/.test(location.search);
         var seen = sessionStorage.getItem('portafolio:intro') === 'visto';
         var paused = localStorage.getItem('portafolio:animaciones') === 'off' || /[?&]motion=off\b/.test(location.search);
