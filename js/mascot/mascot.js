@@ -11,7 +11,7 @@ import { drawPixels } from '../pixel.js';
 import { FRAME_W, FRAME_H, PALETTE, ANIMATIONS } from './sprites.js';
 import { BUBBLE_MS, IDLE_TAP_MS, IDLE_SLEEP_MS } from '../config.js';
 
-const TRANSIENT_MS = { jump: 350, roar: 800, look: 1200, wave: 2000 };
+const TRANSIENT_MS = { jump: 350, roar: 800, look: 1200, wave: 2000, egg: 1700, crack: 650 };
 const JUMP_HEIGHT = 12; // en píxeles del sprite
 
 const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
@@ -23,6 +23,7 @@ let bubble;
 let bubbleText;
 let announcer;
 let slot;
+let stageEl;
 
 let transient = null; // animación corta con prioridad: { name, start, end, face }
 let animation = '';
@@ -45,6 +46,7 @@ export function initMascot() {
   bubbleText = bubble.querySelector('.bubble__text');
   announcer = document.querySelector('#sr-announcer');
   slot = document.querySelector('.hero__mascot-slot');
+  stageEl = document.querySelector('.stage');
 
   // event.detail es 0 cuando el clic viene del teclado (Enter o Espacio)
   button.addEventListener('click', (event) => {
@@ -58,6 +60,30 @@ export function play(name, { face } = {}) {
   const now = performance.now();
   transient = { name, start: now, end: now + (TRANSIENT_MS[name] ?? 800), face };
   wake('mascot');
+}
+
+/**
+ * Entrada al abrir la página: un huevo que se bambolea, se agrieta y se rompe;
+ * salen pedazos de cáscara, Lapilli salta y ruge, y luego llama a onDone.
+ */
+export function hatch(onDone) {
+  play('egg');
+  setTimeout(() => play('crack'), TRANSIENT_MS.egg);
+  setTimeout(() => {
+    const { pose, layout, mode } = state;
+    // Los pedazos salen del centro del huevo, en coordenadas del documento
+    const inViewport = mode === 'stage';
+    emit('mascot:hatch', {
+      x: pose.x + (inViewport ? scrollX : 0),
+      y: pose.y - (layout?.spriteH ?? 64) * 0.45 + (inViewport ? scrollY : 0),
+      w: layout?.spriteW ?? 80,
+    });
+    play('jump');
+    setTimeout(() => {
+      play('roar');
+      onDone?.();
+    }, TRANSIENT_MS.jump);
+  }, TRANSIENT_MS.egg + TRANSIENT_MS.crack);
 }
 
 /** Muestra un texto en la burbuja. Con announce también lo lee el lector de pantalla. */
@@ -101,7 +127,7 @@ function pickAnimation(now) {
 
 function update(dt, now) {
   const name = pickAnimation(now);
-  const { frames, fps } = ANIMATIONS[name];
+  const { frames, fps, palette } = ANIMATIONS[name];
   if (name !== animation) {
     animation = name;
     frame = 0;
@@ -119,7 +145,7 @@ function update(dt, now) {
       frame++;
     }
   }
-  draw(frames[frame % frames.length], `${name}${frame % frames.length}`);
+  draw(frames[frame % frames.length], `${name}${frame % frames.length}`, palette);
   place(now);
 
   if (bubbleUntil && now > bubbleUntil) hideBubble();
@@ -130,11 +156,11 @@ function update(dt, now) {
   return Math.min(1000 / fps, bubbleUntil ? 100 : 1000);
 }
 
-function draw(rows, key) {
+function draw(rows, key, palette = PALETTE) {
   if (key === drawnKey) return;
   drawnKey = key;
   ctx.clearRect(0, 0, FRAME_W, FRAME_H);
-  drawPixels(ctx, rows, PALETTE);
+  drawPixels(ctx, rows, palette);
 }
 
 function place(now) {
@@ -203,8 +229,8 @@ function placeBubble() {
     const toRight = pose.x < layout.viewport.w / 2;
     left = toRight ? pose.x + layout.spriteW / 2 + 8 : pose.x - layout.spriteW / 2 - 8 - w;
     left = clamp(left, 8, layout.viewport.w - w - 8);
-    const stageTop = pose.y + 10 - 72;
-    top = stageTop + Math.max(0, (72 - h) / 2);
+    const stage = stageEl.getBoundingClientRect();
+    top = stage.top + Math.max(0, (stage.height - h) / 2);
   } else {
     // Modo estático: a la derecha de Lapilli, en el inicio
     const rect = button.getBoundingClientRect();

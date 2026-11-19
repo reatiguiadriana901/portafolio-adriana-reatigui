@@ -17,6 +17,7 @@ html {
 body {
   position: relative; /* origen de las coordenadas del documento para la escena */
   margin: 0;
+  /* Detrás va el corte geológico animado (fx/cross-section.js) */
   background: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-body);
@@ -104,7 +105,7 @@ a:hover {
 .section {
   position: relative;
   z-index: var(--z-content);
-  padding-block: clamp(4rem, 9vw, 7rem);
+  padding-block: clamp(3.5rem, 7vw, 5.5rem);
   padding-inline: var(--gutter);
 }
 
@@ -123,6 +124,14 @@ a:hover {
   font-family: var(--font-mono);
   font-size: 0.85rem;
   letter-spacing: 0.02em;
+}
+
+/* Número de sección, como el de una pestaña de archivo */
+.eyebrow__index {
+  padding: 0 0.45rem;
+  border: 1px solid currentColor;
+  border-radius: 4px;
+  font-size: 0.75rem;
 }
 
 .chips {
@@ -249,7 +258,8 @@ a:hover {
   color: var(--color-text);
 }
 
-.motion-toggle {
+.motion-toggle,
+.lang-toggle {
   flex: none;
   display: inline-flex;
   align-items: center;
@@ -264,9 +274,146 @@ a:hover {
   cursor: pointer;
 }
 
-.motion-toggle:hover {
+.motion-toggle:hover,
+.lang-toggle:hover {
   border-color: var(--color-accent);
   color: var(--color-text);
+}
+
+/* Botón de idioma: muestra el idioma al que cambia (EN o ES) */
+.lang-toggle {
+  justify-content: center;
+  min-width: 2.75rem;
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+/* Sin JavaScript no hay traducción ni ajustes */
+html:not(.js) .lang-toggle,
+html:not(.js) .settings {
+  display: none;
+}
+
+/* ---------- Panel de ajustes (ui/settings.js): un <details> ---------- */
+
+.settings {
+  position: relative;
+  flex: none;
+}
+
+.settings__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.35rem 0.7rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  list-style: none;
+  cursor: pointer;
+}
+
+.settings__toggle::-webkit-details-marker {
+  display: none;
+}
+
+.settings__toggle::after {
+  content: "▾";
+}
+
+.settings[open] .settings__toggle,
+.settings__toggle:hover {
+  border-color: var(--color-accent);
+  color: var(--color-text);
+}
+
+.settings__panel {
+  position: absolute;
+  top: calc(100% + var(--space-2));
+  right: 0;
+  z-index: 1;
+  display: grid;
+  gap: var(--space-2);
+  width: 270px;
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+  box-shadow: 0 18px 40px rgb(0 0 0 / 0.35);
+}
+
+.settings__label {
+  margin: var(--space-2) 0 0;
+  color: var(--color-label);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.settings__panel .motion-toggle,
+.settings__lapilli {
+  justify-content: center;
+  width: 100%;
+}
+
+.settings__lapilli {
+  display: inline-flex;
+  padding: 0.35rem 0.7rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--color-text);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+
+.settings__lapilli:hover {
+  border-color: var(--color-accent);
+}
+
+.settings__palettes {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.settings__palette {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+  padding: 0.35rem 0.5rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.settings__palette:hover,
+.settings__palette[aria-pressed="true"] {
+  border-color: var(--color-accent);
+  background: var(--color-surface-raised);
+}
+
+/* Los cinco colores de cada paleta, en círculos que se montan un poco */
+.settings__swatches {
+  display: flex;
+  flex: none;
+}
+
+.settings__swatches span {
+  width: 16px;
+  height: 16px;
+  margin-right: -4px;
+  border: 1px solid rgb(255 255 255 / 0.3);
+  border-radius: 50%;
 }
 
 .motion-toggle[disabled] {

@@ -1,0 +1,302 @@
+/* ==========================================================================
+   Presentación a pantalla completa (js/intro.js): una terminal que arranca,
+   estratos que suben con su etiqueta y el nombre de Adriana. Con Lapilli
+   visible (Ajustes), además cae un huevo y Lapilli nace en grande.
+   ========================================================================== */
+
+/* Mientras dura, la página espera escondida y sin scroll */
+html.has-intro {
+  overflow: hidden;
+}
+
+html.has-intro body {
+  background: var(--midnight);
+}
+
+html.has-intro body > :not(.intro) {
+  visibility: hidden;
+}
+
+.intro {
+  --ground: 36vh; /* alto de los estratos */
+  --size: clamp(140px, min(20vw, 30vh), 250px); /* ancho de Lapilli */
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  overflow: hidden;
+  background:
+    radial-gradient(70% 55% at 50% 100%, rgb(180 106 114 / 0.45), transparent 70%),
+    var(--midnight);
+  color: var(--vanilla);
+  cursor: pointer;
+  transition: transform 0.9s cubic-bezier(0.7, 0, 0.25, 1);
+}
+
+/* Al terminar sube como un telón */
+.intro.is-leaving {
+  transform: translateY(-100%);
+}
+
+/* ---------- Terminal que arranca ---------- */
+
+.intro__boot {
+  position: absolute;
+  top: 5vh;
+  left: 50%;
+  margin: 0;
+  color: var(--sage);
+  font-family: var(--font-mono);
+  font-size: clamp(0.8rem, 1.6vw, 1rem);
+  white-space: nowrap;
+  transform: translateX(-50%);
+  clip-path: inset(0 100% 0 0);
+  animation: intro-type 0.7s steps(24, end) 0.15s forwards;
+}
+
+.intro__prompt {
+  color: var(--blush);
+}
+
+/* ---------- Nombre y rol: aparecen cuando Lapilli ya nació ---------- */
+
+.intro__title {
+  position: absolute;
+  top: 12vh;
+  left: 50%;
+  width: min(92vw, 960px);
+  text-align: center;
+  transform: translateX(-50%);
+}
+
+.intro__name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 8vw, 5.5rem);
+  font-weight: 600;
+  line-height: 1.05;
+  clip-path: inset(125% -5% -25% -5%);
+}
+
+.intro__role {
+  margin: var(--space-3) 0 0;
+  color: var(--sage);
+  font-family: var(--font-mono);
+  font-size: clamp(0.9rem, 2vw, 1.15rem);
+  opacity: 0;
+}
+
+/* Sin Lapilli (lo normal) el nombre queda en el centro del cielo */
+.intro.is-plain .intro__title {
+  top: 24vh;
+}
+
+.intro.is-named .intro__name {
+  animation: intro-uncover 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+}
+
+.intro.is-named .intro__role {
+  animation: intro-fade 0.6s ease 0.35s forwards;
+}
+
+/* ---------- Estratos que suben desde abajo ---------- */
+
+.intro__strata {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  height: var(--ground);
+  border-top: 8px solid var(--color-soil);
+  animation: intro-rise 1s cubic-bezier(0.2, 0.7, 0.2, 1) 0.2s both;
+}
+
+.intro__strata span:nth-child(1) { background: var(--litho-sandstone), var(--color-sandstone); }
+.intro__strata span:nth-child(2) { background: var(--litho-shale), var(--color-shale); }
+.intro__strata span:nth-child(3) { background: var(--litho-limestone), var(--color-limestone); }
+.intro__strata span:nth-child(4) { background: var(--litho-conglomerate), var(--color-conglomerate); }
+
+/* Cada capa lleva su etiqueta, como en una columna estratigráfica */
+.intro__strata span {
+  display: flex;
+  align-items: center;
+  padding-inline: clamp(1rem, 5vw, 4rem);
+}
+
+.intro__strata em {
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--midnight) 82%, transparent);
+  color: var(--vanilla);
+  font-family: var(--font-mono);
+  font-size: clamp(0.7rem, 1.4vw, 0.85rem);
+  font-style: normal;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(-8px);
+  animation: intro-label 0.5s ease calc(0.9s + var(--i) * 0.15s) forwards;
+}
+
+/* ---------- Lapilli: primero un huevo que cae del cielo ---------- */
+
+.intro__lapilli {
+  position: absolute;
+  bottom: calc(var(--ground) - 4px);
+  left: 50%;
+  width: var(--size);
+  transform: translate(-50%, -120vh);
+}
+
+.intro.is-dropping .intro__lapilli {
+  animation: intro-drop 0.8s cubic-bezier(0.45, 0, 0.55, 1) forwards;
+}
+
+.intro__lapilli canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  image-rendering: pixelated;
+}
+
+.intro.is-hatched .intro__lapilli canvas {
+  animation: intro-jump 0.45s ease-out;
+}
+
+/* Pedazos de cáscara (intro.js les pone --dx, --dy, --r, --s y --c) */
+.intro__shell {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.intro__shell span {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  width: var(--s, 10px);
+  height: var(--s, 10px);
+  background: var(--c, #f6e7c8);
+  animation: intro-shell 0.9s cubic-bezier(0.2, 0.7, 0.3, 1) forwards;
+}
+
+/* Globo con la presentación, arriba a la derecha de su cabeza */
+.intro__bubble {
+  position: absolute;
+  bottom: 92%;
+  left: 62%;
+  width: max-content;
+  max-width: min(70vw, 320px);
+  margin: 0;
+  padding: 0.55rem 0.8rem;
+  border: 3px solid var(--midnight);
+  box-shadow: 0 0 0 3px var(--vanilla), 6px 6px 0 3px rgb(0 0 0 / 0.35);
+  background: var(--vanilla);
+  color: var(--midnight);
+  font-family: var(--font-mono);
+  font-size: clamp(0.78rem, 1.5vw, 0.95rem);
+  line-height: 1.4;
+  text-align: left;
+  opacity: 0;
+  transform: translateY(10px) scale(0.9);
+  transform-origin: bottom left;
+  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.2, 0.9, 0.3, 1.3);
+}
+
+.intro.is-talking .intro__bubble {
+  opacity: 1;
+  transform: none;
+}
+
+/* En celular el globo va centrado encima de Lapilli */
+@media (max-width: 600px) {
+  .intro__bubble {
+    left: 50%;
+    translate: -50% 0;
+    transform-origin: bottom center;
+  }
+}
+
+/* ---------- Botón para saltarla ---------- */
+
+.intro__skip {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  padding: 0.4rem 0.8rem;
+  border: 1px solid rgb(247 200 211 / 0.5);
+  border-radius: var(--radius-sm);
+  background: rgb(45 58 71 / 0.6);
+  color: var(--vanilla);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.intro__skip:hover {
+  border-color: var(--blush);
+}
+
+.intro__skip:focus-visible {
+  outline: 3px solid var(--blush);
+  outline-offset: 2px;
+}
+
+@keyframes intro-type {
+  to {
+    clip-path: inset(0);
+  }
+}
+
+@keyframes intro-rise {
+  from {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes intro-drop {
+  0% {
+    transform: translate(-50%, -120vh);
+  }
+  70% {
+    transform: translate(-50%, 0);
+  }
+  82% {
+    transform: translate(-50%, -6%);
+  }
+  100% {
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes intro-jump {
+  40% {
+    transform: translateY(-18%);
+  }
+}
+
+@keyframes intro-shell {
+  to {
+    opacity: 0;
+    transform: translate(var(--dx), var(--dy)) rotate(var(--r));
+  }
+}
+
+@keyframes intro-uncover {
+  to {
+    clip-path: inset(-10% -5% -25% -5%);
+  }
+}
+
+@keyframes intro-label {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes intro-fade {
+  to {
+    opacity: 1;
+  }
+}

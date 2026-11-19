@@ -12,7 +12,7 @@ export const LANE_MIN = 192;
 // Tamaño del dibujo de Lapilli (en píxeles del sprite) y su escala en cada modo
 export const SPRITE_W = 20;
 export const SPRITE_H = 16;
-export const SPRITE_SCALE = { route: 4, stage: 3, static: 4 };
+export const SPRITE_SCALE = { route: 6, stage: 4, static: 6 };
 
 // Comportamiento de la mascota
 export const IDLE_TAP_MS = 8000; // empieza a golpear la roca con la piqueta

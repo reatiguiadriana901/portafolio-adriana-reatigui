@@ -1,59 +1,52 @@
-# Viaje por el tiempo geológico — Portafolio de Adriana Reatigui
+# Portafolio de Adriana Reatigui
 
-Soy geóloga (Universidad Industrial de Santander) y desarrolladora de software junior (Campuslands). Este portafolio es un viaje por el tiempo geológico: al bajar por la página avanzas desde el Precámbrico hasta hoy, y en cada periodo te cuento algo de mí. Te acompaña **Lapilli**, un T-Rex pixelado con piqueta de geóloga que recorre una ruta, reacciona a lo que haces y hace erupcionar volcanes a su paso.
+Soy geóloga (Universidad Industrial de Santander) y estoy terminando el Técnico en Desarrollo de Software en Campuslands. Este portafolio reúne mi perfil, mis proyectos de software y de geociencias, mis habilidades y mis datos de contacto.
 
 🔗 **Sitio en vivo:** https://reatiguiadriana901.github.io/portafolio-adriana-reatigui/
 
 ## Qué tiene
 
-- **Recorrido cronológico** con los colores oficiales de la carta cronoestratigráfica internacional (ICS v2026/06) y la columna geológica real de la zona de mi tesis.
-- **Lapilli**, dibujado en pixel art como texto dentro del código: camina, golpea rocas con la piqueta, se duerme si dejas de bajar, ruge si le haces clic y comenta mis proyectos.
-- **Volcanes** que erupcionan al paso de Lapilli. Los conos monogenéticos de mi tesis erupcionan una sola vez, como en la realidad.
-- **Mi tesis** con un gráfico interactivo hecho a mano en SVG a partir de datos agregados.
-- **Accesible**: se lee completo sin JavaScript, respeta "reducir movimiento" del sistema y tiene un botón para pausar las animaciones.
+- **Un corte geológico animado de fondo**: capas plegadas y fallas normales que avanzan despacio. Al bajar por la página bajas también por el subsuelo.
+- **Una presentación al abrir la página**: suben los estratos, cada uno con una parte de mi stack, y aparecen mi nombre y mi rol. Sale una vez por sesión y se puede saltar.
+- **Proyectos en una caja de núcleos de perforación**: cada núcleo abre la ficha de un proyecto de software o de geociencias.
+- **Habilidades como una columna estratigráfica**, de la superficie (frontend) al núcleo (datos y automatización).
+- **Español e inglés**, con un botón para cambiar de idioma.
+- **Ajustes**: pausar las animaciones, probar paletas de colores y mostrar a Lapilli, un T-Rex en pixel art que acompaña el recorrido. Está oculto por defecto.
+- **Accesible**: se lee completo sin JavaScript, respeta la opción "reducir movimiento" del sistema y funciona con teclado.
 
 ## Cómo funciona
 
-Es HTML, CSS y JavaScript sin frameworks ni dependencias, con módulos ES.
+Es HTML, CSS y JavaScript sin frameworks ni dependencias, con módulos ES y sin paso de compilación.
 
 ```
-index.html            todo el contenido (se lee incluso sin JavaScript)
-css/                  tokens (paleta y colores ICS), base, secciones, bandas, tesis, escena y mascota
-js/main.js            arranca cada módulo en orden
-js/state.js · bus.js · loop.js · motion.js   estado compartido, eventos, un solo requestAnimationFrame y pausa
-js/scene/             mide la página, construye la ruta y convierte el scroll en la posición de Lapilli
-js/mascot/            sprites de Lapilli, su animación y lo que dice
-js/fx/                volcanes, asteroide, partículas e íconos pixelados
-js/ui/                cabecera, apariciones y gráfico de la tesis
-js/data/              periodos geológicos, frases y datos agregados de la tesis
-tools/                scripts de Python para generar los datos de la tesis y las imágenes WebP
+index.html          todo el contenido (se lee incluso sin JavaScript)
+css/                tokens (paleta), base, secciones, franjas, escena, mascota y presentación
+js/main.js          arranca cada módulo en orden
+js/state.js · bus.js · loop.js · motion.js · i18n.js
+                    estado compartido, eventos, un solo requestAnimationFrame, pausa e idiomas
+js/intro.js         presentación a pantalla completa
+js/fx/              corte geológico de fondo, hallazgos del recorrido, íconos y partículas
+js/ui/              navegación, caja de núcleos, apariciones y ajustes
+js/scene/           mide la página y convierte el scroll en la ruta de Lapilli
+js/mascot/          sprites de Lapilli, su animación y lo que dice
+js/data/            textos en inglés, frases de Lapilli y paletas
+tools/              servidor local sin caché y scripts de Python para datos e imágenes
 ```
-
-- En computador (1200 px o más), Lapilli camina en zigzag por los márgenes y cruza de lado en las bandas entre secciones, así nunca tapa el texto.
-- En celular y tableta camina por una franja fija en la parte de abajo.
 
 ## Verlo en local
 
 Los módulos ES necesitan un servidor (no basta con abrir el archivo). Desde la carpeta del proyecto:
 
 ```bash
-py -3.12 -m http.server 5500
+py -3.12 tools/serve.py
 ```
 
-Luego abre http://localhost:5500. También sirve la extensión Live Server de VS Code.
+Luego abre http://127.0.0.1:5501. Este servidor no guarda caché, así que siempre ves la última versión de los archivos.
 
-Para revisar el viaje, agrega `?debug` a la URL y en la consola quedan `window.__pf.state`, `bus` y `loop`. Con `?motion=off` ves el modo sin animaciones.
-
-## Datos de la tesis
-
-Los datos de mi tesis no se publican: el sitio solo usa valores agregados (conteos por clase angular, medias y totales). Para regenerarlos desde el repositorio privado de la tesis:
-
-```bash
-py -3.12 tools/export_thesis.py --resultados "ruta/a/tesis/resultados"
-py -3.12 tools/optimize_images.py --tesis-docs "ruta/a/tesis/docs"
-```
-
-El primer script comprueba que las cifras coincidan con las de la tesis antes de escribir `js/data/thesis.json`.
+- `?intro` vuelve a mostrar la presentación.
+- `?lang=en` abre el sitio en inglés.
+- `?motion=off` lo muestra sin animaciones.
+- `?debug` deja `window.__pf.state`, `bus` y `loop` en la consola.
 
 ## Contacto
 

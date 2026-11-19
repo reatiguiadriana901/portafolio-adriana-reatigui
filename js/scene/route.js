@@ -1,5 +1,7 @@
 // Ruta de Lapilli en escritorio (solo en modo 'route'): baja en zigzag por un carril
 // lateral y en cada banda cruza al otro carril, siempre dentro de .band__scene.
+// Bajo cada cruce dibuja el terreno de la banda (con estratos): así Lapilli camina
+// sobre su superficie.
 // Cada tramo P -> Q es una curva en S con tangentes verticales, así la altura (y)
 // siempre crece. Por eso a cada altura le corresponde un solo punto de la ruta.
 
@@ -16,7 +18,10 @@ let scene = null;
 let svg = null;
 let trail = null;
 let done = null;
+let terrainPath = null;
+let groundPath = null;
 let route = null; // { xs, ys, ss, startY, endY, length }
+let terrains = []; // uno por banda cruzada: { top, bottom, surface: [{ x, y }] ordenada por x }
 let lastProgress = -1;
 
 export function initRoute() {
@@ -24,6 +29,8 @@ export function initRoute() {
   svg = scene.querySelector('.scene__route');
   trail = svg.querySelector('#route-path');
   done = svg.querySelector('#route-done');
+  terrainPath = svg.querySelector('#route-terrain');
+  groundPath = svg.querySelector('#route-ground');
 
   on('layout:change', (layout) => {
     if (layout.mode === 'route') build(layout);
@@ -57,6 +64,20 @@ export function getRoute() {
   return { startY: route.startY, endY: route.endY, length: route.length };
 }
 
+/** Altura (documento) de la superficie del terreno en x, en la banda que contiene la altura y. */
+export function surfaceAt(x, y) {
+  const terrain = terrains.find((item) => y >= item.top && y <= item.bottom);
+  if (!terrain) return null;
+  const { surface } = terrain;
+  if (x <= surface[0].x) return surface[0].y;
+  for (let i = 1; i < surface.length; i++) {
+    const a = surface[i - 1];
+    const b = surface[i];
+    if (x <= b.x) return b.x === a.x ? b.y : a.y + ((b.y - a.y) * (x - a.x)) / (b.x - a.x);
+  }
+  return surface[surface.length - 1].y;
+}
+
 /** Pinta como recorrida la ruta desde el inicio hasta la distancia s. */
 export function setProgress(s) {
   if (!route) return;
@@ -78,6 +99,7 @@ function build(layout) {
   const ys = [points[0].y];
   const ss = [0];
   let d = `M${round(points[0].x)} ${round(points[0].y)}`;
+  terrains = [];
   for (let i = 1; i < points.length; i++) {
     const p = points[i - 1];
     const q = points[i];
@@ -86,7 +108,10 @@ function build(layout) {
     const c1 = { x: p.x, y: p.y + half };
     const c2 = { x: q.x, y: q.y - half };
     d += ` C${round(c1.x)} ${round(c1.y)} ${round(c2.x)} ${round(c2.y)} ${round(q.x)} ${round(q.y)}`;
+    const from = xs.length - 1;
     sampleCurve(p, c1, c2, q, xs, ys, ss);
+    // El cruce de una banda es la superficie de su terreno
+    if (q.band) terrains.push(makeTerrain(q.band, xs, ys, from, layout.viewport.w));
   }
 
   const length = ss[ss.length - 1];
@@ -97,6 +122,8 @@ function build(layout) {
   svg.setAttribute('height', layout.docHeight);
   trail.setAttribute('d', d);
   done.setAttribute('d', d);
+  terrainPath.setAttribute('d', terrains.map(terrainShape).join(' '));
+  groundPath.setAttribute('d', terrains.map((terrain) => polyline(terrain.surface)).join(' '));
   // pathLength: el navegador mide el trazo con nuestra longitud, así lo recorrido
   // termina justo en los pies de Lapilli
   done.setAttribute('pathLength', length);
@@ -108,8 +135,11 @@ function build(layout) {
 
 function clear() {
   route = null;
+  terrains = [];
   trail.setAttribute('d', '');
   done.setAttribute('d', '');
+  terrainPath.setAttribute('d', '');
+  groundPath.setAttribute('d', '');
   svg.setAttribute('height', 0);
   scene.style.height = '';
 }
@@ -149,10 +179,35 @@ function makeWaypoints(layout) {
     if (crossTop <= lastY() || crossBottom >= endY || crossBottom - crossTop < MIN_CROSS) return;
     zigzag(crossTop);
     lane = 1 - lane;
-    points.push({ x: lanes[lane].center, y: crossBottom });
+    points.push({ x: lanes[lane].center, y: crossBottom, band: { top: segment.sceneTop, bottom: segment.sceneBottom } });
   });
   zigzag(endY);
   return points;
+}
+
+// Terreno de una banda: meseta a la altura donde empieza el cruce, la ladera que
+// sigue la ruta y llanura a la altura donde termina. `from` es el índice de la
+// primera muestra del cruce.
+function makeTerrain(band, xs, ys, from, width) {
+  const slope = [];
+  for (let k = from; k < xs.length; k++) slope.push({ x: xs[k], y: ys[k] });
+  const first = slope[0];
+  const last = slope[slope.length - 1];
+  const leftToRight = first.x < last.x;
+  const surface = [{ x: leftToRight ? 0 : width, y: first.y }, ...slope, { x: leftToRight ? width : 0, y: last.y }];
+  if (!leftToRight) surface.reverse();
+  return { top: band.top, bottom: band.bottom, surface };
+}
+
+// Contorno cerrado del terreno: la superficie y el fondo de la banda
+function terrainShape({ surface, bottom }) {
+  const first = surface[0];
+  const last = surface[surface.length - 1];
+  return `${polyline(surface)} L${round(last.x)} ${round(bottom)} L${round(first.x)} ${round(bottom)} Z`;
+}
+
+function polyline(points) {
+  return points.map((point, i) => `${i ? 'L' : 'M'}${round(point.x)} ${round(point.y)}`).join(' ');
 }
 
 // Toma muestras de una curva cúbica. La curva nunca es más larga que su polígono

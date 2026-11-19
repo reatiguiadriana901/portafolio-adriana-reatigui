@@ -5,8 +5,6 @@
 //   route:ready     { startY, endY, length }                                 (scene/route.js)
 //   segment:enter   { id, prevId, kind, index, dir }                         (scene/scroll.js)
 //   scroll:jump     { from, to }                                             (scene/scroll.js)
-//   volcano:erupt   { id, kind, x, y, clip }  coordenadas del documento      (fx/volcanoes.js)
-//   impact          { x, y, clip }                                           (fx/volcanoes.js)
 //   mascot:poke     { source: 'pointer' | 'keyboard' }                       (mascot/mascot.js)
 //   motion:change   { on, reason: 'init' | 'system' | 'user' }               (motion.js)
 

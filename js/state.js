@@ -5,6 +5,7 @@ export const state = {
   // 'route' (escritorio), 'stage' (móvil y tableta) o 'static' (animaciones en pausa)
   mode: 'static', // dueño: scene/layout.js
   motionOn: true, // dueño: motion.js
+  lang: 'es', // 'es' o 'en', dueño: i18n.js
   viewport: { w: 0, h: 0, dpr: 1 }, // dueño: scene/layout.js
   layout: null, // última medición de la página (ver layout:change), dueño: scene/layout.js
 

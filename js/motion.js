@@ -3,9 +3,15 @@
 // en el inicio y sigue contando datos si le hacen clic.
 
 import { state } from './state.js';
-import { emit } from './bus.js';
+import { on, emit } from './bus.js';
+import { pick } from './i18n.js';
 
 const STORAGE_KEY = 'portafolio:animaciones';
+const LABELS = {
+  reduced: { es: 'Animaciones reducidas por tu sistema', en: 'Animations reduced by your system' },
+  pause: { es: 'Pausar animaciones', en: 'Pause animations' },
+  resume: { es: 'Reanudar animaciones', en: 'Resume animations' },
+};
 
 function readPreference() {
   try {
@@ -37,11 +43,11 @@ export function initMotion(button) {
 
     if (reduce.matches) {
       button.disabled = true;
-      button.textContent = 'Animaciones reducidas por tu sistema';
+      button.textContent = pick(LABELS.reduced);
       button.setAttribute('aria-pressed', 'true');
     } else {
       button.disabled = false;
-      button.textContent = pausedByUser ? 'Reanudar animaciones' : 'Pausar animaciones';
+      button.textContent = pick(pausedByUser ? LABELS.resume : LABELS.pause);
       button.setAttribute('aria-pressed', String(pausedByUser));
     }
 
@@ -54,6 +60,7 @@ export function initMotion(button) {
     apply('user');
   });
   reduce.addEventListener('change', () => apply('system'));
+  on('lang:change', () => apply('lang')); // solo cambia el texto del botón
   apply('init');
 }
 

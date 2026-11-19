@@ -1,5 +1,6 @@
-// Íconos pixelados de los intereses y de los fósiles de las bandas.
-// Cada uno es una matriz de 12x12; el CSS los escala sin suavizado.
+// Íconos pixelados de los intereses, de los fósiles de las franjas y de los
+// hallazgos del recorrido. Cada uno es una matriz de 12x12; el CSS los escala
+// sin suavizado.
 
 import { paintSprite } from '../pixel.js';
 
@@ -34,9 +35,9 @@ const ICONS = {
     '....TTTT...T', '............', '............', '............',
   ],
   flask: [
-    '....cccc....', '.....cc.....', '.....cc.....', '.....cc.....',
-    '....c..c....', '...c....c...', '..c......c..', '..cllllllc..',
-    '.clllllllllc', '.cllldlllllc', '..cccccccc..', '............',
+    '....tttt....', '.....tt.....', '.....tt.....', '.....tt.....',
+    '....t..t....', '...t....t...', '..t......t..', '..tllllllt..',
+    '.tlllllllllt', '.tllldlllllt', '..tttttttt..', '............',
   ],
   drop: [
     '.....dd.....', '.....dd.....', '....dddd....', '....dlld....',
@@ -56,18 +57,45 @@ const ICONS = {
   chart: [
     '............', '.........ll.', '.........ll.', '......tt.ll.',
     '......tt.ll.', '...oo.tt.ll.', '...oo.tt.ll.', 'kk.oo.tt.ll.',
-    'kk.oo.tt.ll.', 'kk.oo.tt.ll.', 'cccccccccccc', '............',
+    'kk.oo.tt.ll.', 'kk.oo.tt.ll.', 'TTTTTTTTTTTT', '............',
   ],
   database: [
     '...ssssss...', '..s......s..', '..ssssssss..', '..sbbbbbbs..',
     '..ssssssss..', '..sbbbbbbs..', '..ssssssss..', '..sbbbbbbs..',
     '..ssssssss..', '...ssssss...', '............', '............',
   ],
+  // Hoja: energía y medio ambiente
+  leaf: [
+    '.........kk.', '.......kbbk.', '.....kbbbbk.', '....kbbObbk.',
+    '...kbbObbbk.', '..kbbObbbk..', '..kbObbbk...', '.kbObbkk....',
+    '.kOkkk......', '.k..........', 'k...........', '............',
+  ],
+  // Piqueta de geóloga
+  hammer: [
+    '............', '.TTTTTTTTt..', '.TttttttTTTt', '.TTTTTTTTt..',
+    '....dd......', '....dd......', '....dd......', '....dd......',
+    '....dd......', '....dd......', '....kk......', '....kk......',
+  ],
+  // Un bug de verdad
+  bug: [
+    '...T....T...', '....T..T....', '...TTTTTT...', '..TkkkkkkT..',
+    'T.TkbkkbkT.T', '.TkkkTTkkkT.', 'T.TkkTTkkT.T', '.TkkkTTkkkT.',
+    'T.TkkTTkkT.T', '..TkkTTkkT..', '...TTTTTT...', '............',
+  ],
+  // Ventana de terminal con su prompt
+  terminal: [
+    'tttttttttttt', 'tltbtttttttt', 'txxxxxxxxxxt', 'txbxxxxxxxxt',
+    'txxbxxxxxxxt', 'txxxbxxxxxxt', 'txxbxxxxxxxt', 'txbxxxbbbbxt',
+    'txxxxxxxxxxt', 'tttttttttttt', '............', '............',
+  ],
 };
 
+/** Pinta un ícono por su nombre en un canvas. */
+export function paintIcon(canvas, name) {
+  const rows = ICONS[name];
+  if (rows) paintSprite(canvas, rows, PALETTE);
+}
+
 export function paintIcons() {
-  document.querySelectorAll('canvas[data-sprite]').forEach((canvas) => {
-    const rows = ICONS[canvas.dataset.sprite];
-    if (rows) paintSprite(canvas, rows, PALETTE);
-  });
+  document.querySelectorAll('canvas[data-sprite]').forEach((canvas) => paintIcon(canvas, canvas.dataset.sprite));
 }

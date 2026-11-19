@@ -226,7 +226,39 @@ const WAVE_2 = [
   '.....sss...gggg.mmm.',
 ];
 
+// ----- Huevo de la entrada: al abrir la página, Lapilli sale de él
+
+export const EGG_PALETTE = {
+  x: '#2D3A47', // contorno y grietas
+  e: '#F6E7C8', // cáscara
+  h: '#FFFCF5', // brillo
+  s: '#A8B58A', // manchas
+};
+
+// Cada fila del huevo: [columna donde empieza, píxeles]; ocupa las filas 3 a 15
+const EGG = [
+  [9, 'xx'], [8, 'xhhx'], [7, 'xheeex'], [6, 'xheeseex'], [6, 'xeeeeeex'], [6, 'xeseeeex'], [6, 'xeeeesex'],
+  [6, 'xeeseeex'], [6, 'xeeeeeex'], [6, 'xseeeeex'], [6, 'xeeeesex'], [7, 'xeeeex'], [8, 'xxxx'],
+];
+const CRACK = [[8, 7], [9, 8], [8, 9], [9, 10], [8, 11], [9, 12]]; // [fila, columna]: grieta en zigzag
+
+// tilt corre la mitad de arriba un píxel hacia un lado: así el huevo se bambolea
+function eggFrame(tilt = 0, cracked = false) {
+  const rows = Array.from({ length: FRAME_H }, () => EMPTY);
+  EGG.forEach(([start, pixels], i) => {
+    const left = start + (i < 6 ? tilt : 0);
+    rows[i + 3] = '.'.repeat(left) + pixels + '.'.repeat(FRAME_W - left - pixels.length);
+  });
+  if (cracked) {
+    CRACK.forEach(([row, col]) => {
+      rows[row] = `${rows[row].slice(0, col)}x${rows[row].slice(col + 1)}`;
+    });
+  }
+  return rows;
+}
+
 // fps: fotogramas por segundo. La velocidad de walk la ajusta mascot.js según el scroll.
+// palette: paleta propia (si no tiene, se usa la de Lapilli).
 export const ANIMATIONS = {
   idle: { fps: 2, frames: [[...HEAD, ...BODY, ...LEGS], [EMPTY, ...HEAD, ...BODY, ...LEGS_BENT]] },
   walk: {
@@ -244,4 +276,6 @@ export const ANIMATIONS = {
   roar: { fps: 6, frames: [[...HEAD_ROAR, ...BODY, ...LEGS], [...HEAD_ROAR_WIDE, ...BODY, ...LEGS]] },
   look: { fps: 1, frames: [[...HEAD_LOOK, ...BODY, ...LEGS]] },
   wave: { fps: 4, frames: [WAVE_1, WAVE_2] },
+  egg: { fps: 6, frames: [eggFrame(0), eggFrame(-1), eggFrame(0), eggFrame(1)], palette: EGG_PALETTE },
+  crack: { fps: 1, frames: [eggFrame(0, true)], palette: EGG_PALETTE },
 };

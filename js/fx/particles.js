@@ -1,12 +1,12 @@
-// Partículas de las erupciones: cuadritos de lava y ceniza en un canvas fijo.
-// Cada partícula se recorta a la escena de su banda, así nunca tapan texto.
+// Pedazos de cáscara cuando Lapilli sale de su huevo en la página (mascot:hatch):
+// cuadritos en un canvas fijo, recortados a la ventana.
 
 import { state } from '../state.js';
 import { on } from '../bus.js';
 import { addTask, wake } from '../loop.js';
 import { PARTICLES_MAX } from '../config.js';
 
-const COUNTS = { mono: 36, poly: 60, fissure: 48, impact: 50 };
+const SHELL_BITS = 30;
 const GRAVITY = 900; // px/s²
 
 let canvas;
@@ -18,8 +18,11 @@ export function initParticles() {
   ctx = canvas.getContext('2d');
   canvas.hidden = true;
   on('layout:change', resize);
-  on('volcano:erupt', burst);
-  on('impact', (detail) => burst({ ...detail, kind: 'impact' }));
+  // La cáscara puede caer en cualquier parte de la ventana
+  on('mascot:hatch', (detail) => burst({
+    ...detail,
+    clip: { left: scrollX, top: scrollY, right: scrollX + innerWidth, bottom: scrollY + innerHeight },
+  }));
   on('motion:change', ({ on: motionOn }) => {
     if (!motionOn) particles = [];
   });
@@ -36,22 +39,18 @@ function resize() {
 }
 
 /** Lanza una ráfaga en (x, y), coordenadas del documento, recortada a `clip`. */
-export function burst({ x, y, w = 0, kind, clip }) {
+export function burst({ x, y, clip }) {
   if (!state.motionOn || state.mode === 'static') return;
   const pixel = (state.layout?.spriteW ?? 80) / 20;
-  const count = COUNTS[kind] ?? 40;
-  for (let i = 0; i < count; i++) {
-    // En las fisuras la lava sale a lo largo de la grieta, no de un solo punto
-    const spread = kind === 'fissure' ? (Math.random() - 0.5) * w * 0.8 : 0;
+  for (let i = 0; i < SHELL_BITS; i++) {
     particles.push({
-      x: x + spread,
+      x,
       y,
-      vx: (Math.random() - 0.5) * (kind === 'impact' ? 520 : 260),
-      vy: -(220 + Math.random() * (kind === 'poly' ? 520 : 360)),
+      vx: (Math.random() - 0.5) * 260,
+      vy: -(220 + Math.random() * 360),
       life: 0,
       ttl: 0.8 + Math.random() * 0.8,
-      size: pixel * (2 + Math.floor(Math.random() * 3)),
-      ash: kind === 'impact' || Math.random() < 0.25,
+      size: pixel * (1 + Math.floor(Math.random() * 3)),
       clip,
     });
   }
@@ -78,7 +77,7 @@ function update(dt) {
     ctx.beginPath();
     ctx.rect(clip.left - scrollX, clip.top - scrollY, clip.right - clip.left, clip.bottom - clip.top);
     ctx.clip();
-    ctx.fillStyle = particle.ash ? '#55606C' : particle.life / particle.ttl < 0.5 ? '#EE9AA8' : '#9A4F58';
+    ctx.fillStyle = particle.life / particle.ttl < 0.5 ? '#F6E7C8' : '#A8B58A';
     ctx.fillRect(Math.round(particle.x - scrollX), Math.round(particle.y - scrollY), particle.size, particle.size);
     ctx.restore();
   }

@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="color-scheme" content="light">
   <meta name="theme-color" content="#2d3a47">
-  <title>Adriana Reatigui · Geóloga y desarrolladora de software</title>
+  <title data-i18n="meta.title">Adriana Reatigui · Geóloga y desarrolladora de software</title>
   <meta name="description"
     content="Portafolio de Adriana Reatigui, geóloga de la UIS y desarrolladora de software junior: bases de datos, Python, automatización con n8n y proyectos de geociencias.">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
@@ -20,26 +20,65 @@
   <link rel="stylesheet" href="css/bands.css">
   <link rel="stylesheet" href="css/scene.css">
   <link rel="stylesheet" href="css/mascot.css">
+  <link rel="stylesheet" href="css/intro.css">
+  <script>
+    // Lapilli empieza oculto y se muestra desde Ajustes (ui/settings.js).
+    // Presentación a pantalla completa (js/intro.js): una vez por sesión, nunca con
+    // movimiento reducido o con las animaciones en pausa; ?intro la fuerza.
+    // Mientras tanto la página espera escondida; si el JavaScript no arranca en
+    // 6 s, se muestra igual.
+    (function () {
+      var root = document.documentElement;
+      root.classList.add('no-lapilli');
+      try {
+        if (localStorage.getItem('portafolio:mascota') === 'visible') root.classList.remove('no-lapilli');
+        var force = /[?&]intro\b/.test(location.search);
+        var seen = sessionStorage.getItem('portafolio:intro') === 'visto';
+        var paused = localStorage.getItem('portafolio:animaciones') === 'off' || /[?&]motion=off\b/.test(location.search);
+        var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if ((force || !seen) && !paused && !reduce) {
+          root.classList.add('has-intro');
+          setTimeout(function () {
+            if (!window.__introStarted) root.classList.remove('has-intro');
+          }, 6000);
+        }
+      } catch (error) {
+        // Sin almacenamiento: no hay presentación
+      }
+    })();
+  </script>
   <script type="module" src="js/main.js"></script>
 </head>
 
 <body>
-  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <a class="skip-link" href="#contenido" data-i18n="skip">Saltar al contenido</a>
 
-  <!-- Cabecera: navegación y pausa de animaciones -->
+  <!-- Cabecera: navegación, pausa de animaciones e idioma -->
   <header class="header theme-dark">
     <div class="header__bar">
       <a class="header__brand" href="#inicio">Adriana Reatigui</a>
-      <nav class="nav" aria-label="Secciones">
+      <nav class="nav" aria-label="Secciones" data-i18n-attr="aria-label:nav.label">
         <ul class="nav__list">
-          <li><a class="nav__link" href="#sobre-mi">Sobre mí</a></li>
-          <li><a class="nav__link" href="#proyectos">Proyectos</a></li>
-          <li><a class="nav__link" href="#habilidades">Habilidades</a></li>
-          <li><a class="nav__link" href="#intereses">Intereses</a></li>
-          <li><a class="nav__link" href="#contacto">Contacto</a></li>
+          <li><a class="nav__link" href="#sobre-mi" data-i18n="nav.about">Sobre mí</a></li>
+          <li><a class="nav__link" href="#proyectos" data-i18n="nav.projects">Proyectos</a></li>
+          <li><a class="nav__link" href="#habilidades" data-i18n="nav.skills">Habilidades</a></li>
+          <li><a class="nav__link" href="#intereses" data-i18n="nav.interests">Intereses</a></li>
+          <li><a class="nav__link" href="#contacto" data-i18n="nav.contact">Contacto</a></li>
         </ul>
       </nav>
-      <button class="motion-toggle" type="button" aria-pressed="false">Pausar animaciones</button>
+      <!-- Ajustes: animaciones, Lapilli y paleta de colores (ui/settings.js) -->
+      <details class="settings">
+        <summary class="settings__toggle" data-i18n="settings.title">Ajustes</summary>
+        <div class="settings__panel">
+          <p class="settings__label" data-i18n="settings.motion">Animaciones</p>
+          <button class="motion-toggle" type="button" aria-pressed="false">Pausar animaciones</button>
+          <p class="settings__label">Lapilli</p>
+          <button class="settings__lapilli" type="button" aria-pressed="false">Ocultar a Lapilli</button>
+          <p class="settings__label" data-i18n="settings.palette">Paleta de colores</p>
+          <div class="settings__palettes"></div>
+        </div>
+      </details>
+      <button class="lang-toggle" type="button" aria-label="Ver el sitio en inglés">EN</button>
     </div>
   </header>
 
@@ -47,223 +86,278 @@
 
     <!-- ===== Inicio ===== -->
     <section class="section hero theme-dark" id="inicio" data-segment="inicio" data-kind="section" aria-labelledby="inicio-titulo">
+      <canvas class="hero__cross-section" aria-hidden="true"></canvas>
       <div class="section__inner hero__inner">
-        <p class="eyebrow">Geología · Datos · Software</p>
+        <p class="eyebrow" data-i18n="hero.eyebrow">Geología · Datos · Software</p>
         <h1 class="hero__title" id="inicio-titulo">Adriana Reatigui</h1>
-        <p class="hero__role">Geóloga · Desarrolladora de software junior</p>
-        <p class="hero__lead">Uno la geología con el desarrollo de software: diseño bases de datos, automatizo procesos y analizo datos geoespaciales con Python.</p>
-        <p class="hero__hint">Lapilli, mi T-Rex en pixel art, te acompaña mientras bajas.</p>
+        <p class="hero__role" data-i18n="hero.role">Geóloga · Desarrolladora de software junior</p>
+        <p class="hero__lead" data-i18n="hero.lead">Uno la geología con el desarrollo de software: diseño bases de datos, automatizo procesos y analizo datos geoespaciales con Python.</p>
         <div class="hero__actions">
-          <a class="button button--primary" href="#proyectos">Ver proyectos</a>
-          <a class="button button--ghost" href="https://drive.google.com/file/d/1ZBZfrvd6slu5K-ElF_vAASkcMWQdgIEA/view?usp=sharing" target="_blank" rel="noopener">Hoja de vida<span class="visually-hidden"> en PDF, se abre en otra pestaña</span></a>
-          <a class="button button--ghost" href="#contacto">Contacto</a>
+          <a class="button button--primary" href="#proyectos" data-i18n="hero.ctaProjects">Ver proyectos</a>
+          <a class="button button--ghost" href="https://drive.google.com/file/d/1ZBZfrvd6slu5K-ElF_vAASkcMWQdgIEA/view?usp=sharing" target="_blank" rel="noopener" data-i18n-html="hero.ctaCv">Hoja de vida<span class="visually-hidden"> en PDF, se abre en otra pestaña</span></a>
+          <a class="button button--ghost" href="#contacto" data-i18n="hero.ctaContact">Contacto</a>
         </div>
+        <!-- Decorativa: repite en código lo que ya dicen "Sobre mí" y "Habilidades".
+             Cada línea se escribe sola: --n es su número de letras y --d cuándo empieza.
+             Hay una versión por idioma; el CSS muestra la del idioma de la página. -->
+        <figure class="terminal" aria-hidden="true">
+          <p class="terminal__bar"><span></span><span></span><span></span>adriana@portafolio: ~</p>
+          <pre class="terminal__body" lang="es"><code><span class="terminal__line" style="--n: 16; --d: 300ms"><span class="code__prompt">$</span> cat adriana.js</span>
+<span class="terminal__line" style="--n: 24; --d: 780ms"><span class="code__comment">// Bucaramanga, Colombia</span></span>
+<span class="terminal__line" style="--n: 17; --d: 1430ms"><span class="code__keyword">const</span> <span class="code__name">adriana</span> = {</span>
+<span class="terminal__line" style="--n: 37; --d: 1930ms">  <span class="code__key">rol</span>: [<span class="code__string">'geóloga'</span>, <span class="code__string">'desarrolladora'</span>],</span>
+<span class="terminal__line" style="--n: 42; --d: 2870ms">  <span class="code__key">frontend</span>: [<span class="code__string">'HTML'</span>, <span class="code__string">'CSS'</span>, <span class="code__string">'JavaScript'</span>],</span>
+<span class="terminal__line" style="--n: 41; --d: 3920ms">  <span class="code__key">datos</span>: [<span class="code__string">'SQL'</span>, <span class="code__string">'Python'</span>, <span class="code__string">'PostgreSQL'</span>],</span>
+<span class="terminal__line" style="--n: 37; --d: 4950ms">  <span class="code__key">backend</span>: [<span class="code__string">'Java'</span>, <span class="code__string">'Maven'</span>, <span class="code__string">'JDBC'</span>],</span>
+<span class="terminal__line" style="--n: 37; --d: 5884ms">  <span class="code__key">geo</span>: [<span class="code__string">'ArcGIS Pro'</span>, <span class="code__string">'QGIS'</span>, <span class="code__string">'DEM'</span>],</span>
+<span class="terminal__line" style="--n: 2; --d: 6820ms">};</span>
+<span class="terminal__line" style="--n: 3; --d: 6990ms"><span class="code__prompt">$</span> <span class="terminal__cursor"></span></span></code></pre>
+          <pre class="terminal__body" lang="en"><code><span class="terminal__line" style="--n: 16; --d: 300ms"><span class="code__prompt">$</span> cat adriana.js</span>
+<span class="terminal__line" style="--n: 24; --d: 780ms"><span class="code__comment">// Bucaramanga, Colombia</span></span>
+<span class="terminal__line" style="--n: 17; --d: 1430ms"><span class="code__keyword">const</span> <span class="code__name">adriana</span> = {</span>
+<span class="terminal__line" style="--n: 35; --d: 1930ms">  <span class="code__key">role</span>: [<span class="code__string">'geologist'</span>, <span class="code__string">'developer'</span>],</span>
+<span class="terminal__line" style="--n: 42; --d: 2820ms">  <span class="code__key">frontend</span>: [<span class="code__string">'HTML'</span>, <span class="code__string">'CSS'</span>, <span class="code__string">'JavaScript'</span>],</span>
+<span class="terminal__line" style="--n: 40; --d: 3870ms">  <span class="code__key">data</span>: [<span class="code__string">'SQL'</span>, <span class="code__string">'Python'</span>, <span class="code__string">'PostgreSQL'</span>],</span>
+<span class="terminal__line" style="--n: 37; --d: 4870ms">  <span class="code__key">backend</span>: [<span class="code__string">'Java'</span>, <span class="code__string">'Maven'</span>, <span class="code__string">'JDBC'</span>],</span>
+<span class="terminal__line" style="--n: 37; --d: 5804ms">  <span class="code__key">geo</span>: [<span class="code__string">'ArcGIS Pro'</span>, <span class="code__string">'QGIS'</span>, <span class="code__string">'DEM'</span>],</span>
+<span class="terminal__line" style="--n: 2; --d: 6740ms">};</span>
+<span class="terminal__line" style="--n: 3; --d: 6910ms"><span class="code__prompt">$</span> <span class="terminal__cursor"></span></span></code></pre>
+        </figure>
+        <p class="hero__hint" data-i18n="hero.hint">Lapilli, mi T-Rex en pixel art, te acompaña mientras bajas.</p>
         <div class="hero__mascot-slot"></div>
       </div>
     </section>
 
-    <!-- Franja: volcán poligenético (con un clic vuelve a hacer erupción) -->
-    <div class="band" data-segment="band-volcan" data-kind="band">
-      <div class="band__scene" aria-hidden="true">
-        <div class="volcano" data-volcano="v1" data-kind="poly" data-at="0.5" data-offset="72"></div>
-      </div>
+    <!-- Franja 1: corte geológico; en escritorio route.js dibuja el terreno con sus estratos -->
+    <div class="band" data-segment="band-1" data-kind="band">
+      <div class="band__scene" aria-hidden="true"></div>
     </div>
 
-    <!-- ===== Sobre mí ===== -->
+    <!-- ===== Sobre mí: la foto en el centro, un texto a cada lado ===== -->
     <section class="section about" id="sobre-mi" data-segment="sobre-mi" data-kind="section" aria-labelledby="sobre-mi-titulo">
       <div class="section__inner">
-        <h2 id="sobre-mi-titulo">Sobre mí</h2>
-        <div class="about__grid">
+        <p class="eyebrow" aria-hidden="true"><span class="eyebrow__index">01</span>sobre-mi.md</p>
+        <h2 id="sobre-mi-titulo" data-i18n="about.title">Sobre mí</h2>
+        <div class="about__intro">
+          <p class="about__text" data-i18n="about.p1">Soy geóloga de la Universidad Industrial de Santander y estoy terminando el Técnico en Desarrollo de Software en Campuslands. Hoy programo sobre todo en Java, diseño bases de datos y automatizo procesos con n8n, y uso Python para analizar datos geoespaciales.</p>
           <figure class="about__portrait reveal">
             <img src="assets/img/retrato-acuarela.webp" width="480" height="676" loading="lazy"
-              alt="Retrato en acuarela de Adriana con sombrero de campo y camisa a cuadros">
-            <figcaption>Retrato en acuarela</figcaption>
+              alt="Retrato en acuarela de Adriana con sombrero de campo y camisa a cuadros" data-i18n-attr="alt:about.portraitAlt">
+            <figcaption data-i18n="about.portraitCaption">Retrato en acuarela</figcaption>
           </figure>
-          <div class="about__text">
-            <p>Soy geóloga de la Universidad Industrial de Santander y estoy terminando la Técnica en Desarrollo de Software en Campuslands. Para mí la geología y la programación no son caminos opuestos sino complementarios, y me gusta trabajar donde se cruzan: datos, bases de datos y análisis.</p>
-            <p>Soy curiosa por naturaleza, disfruto retarme y nunca dejo de aprender. En Campuslands he trabajado en equipo, con Scrum, en proyectos de bases de datos, automatización con IA y aplicaciones web.</p>
-            <blockquote class="quote">
-              <p>«Así como la geología descifra la historia del planeta capa por capa, la programación construye el futuro línea por línea. En ambos, los detalles hacen la diferencia.»</p>
-              <cite>— Mi filosofía de aprendizaje</cite>
-            </blockquote>
-          </div>
+          <p class="about__text" data-i18n="about.p2">Me interesa llevar el software a problemas reales de la geología, la energía y el medio ambiente: organizar datos, automatizar análisis y construir herramientas útiles para otras personas.</p>
         </div>
 
-        <h3>Donde se cruzan la tierra y el código</h3>
+        <!-- Lo que estoy haciendo hoy -->
+        <div class="now">
+          <h3 class="now__title" data-i18n="about.nowTitle">Ahora mismo</h3>
+          <ul class="now__list">
+            <li data-i18n="about.now1">Terminando el Técnico en Desarrollo de Software en Campuslands.</li>
+            <li data-i18n="about.now2">Construyendo aplicaciones en Java con MySQL, como Frescura Total.</li>
+            <li data-i18n="about.now3">Abierta a oportunidades en desarrollo de software, datos y geociencias.</li>
+          </ul>
+        </div>
+
+        <!-- Fotos de campo. En escritorio aparecen como polaroids junto al recorrido de Lapilli (fx/landmarks.js) -->
+        <div class="field-photos">
+          <figure class="field-photos__item"><img src="assets/img/campo-afloramiento.webp" width="703" height="900" loading="lazy" alt="Adriana de espaldas frente a un afloramiento de rocas en capas" data-i18n-attr="alt:photo.outcropAlt"><figcaption data-i18n="photo.outcrop">Frente a un afloramiento</figcaption></figure>
+          <figure class="field-photos__item"><img src="assets/img/campo-costa.webp" width="679" height="900" loading="lazy" alt="Adriana con chaleco de campo en una playa" data-i18n-attr="alt:photo.coastAlt"><figcaption data-i18n="photo.coast">Salida de campo a la costa</figcaption></figure>
+          <figure class="field-photos__item"><img src="assets/img/campo-volcan.webp" width="900" height="506" loading="lazy" alt="Un volcán nevado detrás de un lago y un bosque de pinos" data-i18n-attr="alt:photo.volcanoAlt"><figcaption data-i18n="photo.volcano">Un volcán nevado y su lago</figcaption></figure>
+        </div>
+
+        <h3 data-i18n="about.crossTitle">Donde se cruzan la tierra y el código</h3>
         <table class="crossover">
           <thead>
             <tr>
-              <th scope="col">En geología aprendí a…</th>
-              <th scope="col">En desarrollo lo aplico para…</th>
+              <th scope="col" data-i18n="about.crossGeo">En geología aprendí a…</th>
+              <th scope="col" data-i18n="about.crossDev">En desarrollo lo aplico para…</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Leer capas y entender cómo se construye un sistema de abajo hacia arriba</td>
-              <td>Diseñar bases de datos y aplicaciones por capas, con estructura clara</td>
+              <td data-i18n="about.cross1a">Leer capas y entender cómo se construye un sistema de abajo hacia arriba</td>
+              <td data-i18n="about.cross1b">Diseñar bases de datos y aplicaciones por capas, con estructura clara</td>
             </tr>
             <tr>
-              <td>Trabajar con datos de campo incompletos y validarlos</td>
-              <td>Escribir validaciones y consultas que protegen la integridad de la información</td>
+              <td data-i18n="about.cross2a">Trabajar con datos de campo incompletos y validarlos</td>
+              <td data-i18n="about.cross2b">Escribir validaciones y consultas que protegen la integridad de la información</td>
             </tr>
             <tr>
-              <td>Procesar datos geoespaciales con SIG y estadística</td>
-              <td>Automatizar análisis con Python y dejar resultados reproducibles</td>
+              <td data-i18n="about.cross3a">Procesar datos geoespaciales con SIG y estadística</td>
+              <td data-i18n="about.cross3b">Automatizar análisis con Python y dejar resultados reproducibles</td>
             </tr>
             <tr>
-              <td>Ser rigurosa con la evidencia antes de sacar conclusiones</td>
-              <td>Probar, depurar y documentar antes de dar algo por terminado</td>
+              <td data-i18n="about.cross4a">Ser rigurosa con la evidencia antes de sacar conclusiones</td>
+              <td data-i18n="about.cross4b">Probar, depurar y documentar antes de dar algo por terminado</td>
             </tr>
           </tbody>
         </table>
 
         <dl class="facts">
           <div>
-            <dt>Formación</dt>
-            <dd>Geología, Universidad Industrial de Santander (2021–2026)</dd>
-            <dd>Técnica en Desarrollo de Software, Campuslands (2026–actualidad)</dd>
+            <dt data-i18n="about.education">Formación</dt>
+            <dd data-i18n="about.educationGeo">Geología, Universidad Industrial de Santander (2021–2026)</dd>
+            <dd data-i18n="about.educationSoft">Técnico en Desarrollo de Software, Campuslands (2026–actualidad)</dd>
           </div>
           <div>
-            <dt>Idiomas</dt>
-            <dd>Español nativo · Inglés B1, en progreso</dd>
+            <dt data-i18n="about.languages">Idiomas</dt>
+            <dd data-i18n="about.languagesValue">Español nativo · Inglés B1, en progreso</dd>
           </div>
           <div>
-            <dt>Base</dt>
+            <dt data-i18n="about.base">Base</dt>
             <dd>Bucaramanga, Colombia</dd>
           </div>
         </dl>
 
-        <h3>Mis valores</h3>
+        <h3 data-i18n="about.valuesTitle">Mis valores</h3>
         <ul class="values">
-          <li><strong>Dedicación</strong>Comprometida con mi aprendizaje diario.</li>
-          <li><strong>Curiosidad</strong>Siempre explorando, actualizándome y aprendiendo.</li>
-          <li><strong>Reto personal</strong>Me gusta salir de mi zona de confort y retarme.</li>
-          <li><strong>Creatividad</strong>Busco soluciones distintas a cada problema.</li>
+          <li><strong data-i18n="about.value1">Dedicación</strong><span data-i18n="about.value1Text">Comprometida con mi aprendizaje diario.</span></li>
+          <li><strong data-i18n="about.value2">Curiosidad</strong><span data-i18n="about.value2Text">Siempre explorando, actualizándome y aprendiendo.</span></li>
+          <li><strong data-i18n="about.value3">Reto personal</strong><span data-i18n="about.value3Text">Me gusta salir de mi zona de confort y retarme.</span></li>
+          <li><strong data-i18n="about.value4">Creatividad</strong><span data-i18n="about.value4Text">Busco soluciones distintas a cada problema.</span></li>
         </ul>
       </div>
     </section>
 
-    <!-- Franja: fósiles pixelados -->
-    <div class="band" data-segment="band-fosiles" data-kind="band">
-      <div class="band__scene" aria-hidden="true">
-        <canvas class="pixel-icon band__fossil" data-sprite="trilobite" width="16" height="16"></canvas>
-        <canvas class="pixel-icon band__fossil" data-sprite="fern" width="16" height="16"></canvas>
-        <canvas class="pixel-icon band__fossil" data-sprite="fish" width="16" height="16"></canvas>
-      </div>
+    <!-- Franja 2: corte geológico; en escritorio route.js dibuja el terreno con sus estratos -->
+    <div class="band" data-segment="band-2" data-kind="band">
+      <div class="band__scene" aria-hidden="true"></div>
     </div>
 
-    <!-- ===== Proyectos ===== -->
+    <!-- ===== Proyectos: una caja de núcleos de perforación ===== -->
     <section class="section projects" id="proyectos" data-segment="proyectos" data-kind="section" aria-labelledby="proyectos-titulo">
       <div class="section__inner">
-        <h2 id="proyectos-titulo">Proyectos</h2>
-        <p>Proyectos de desarrollo de software y de geociencias en los que he trabajado, sola o en equipo.</p>
+        <p class="eyebrow" aria-hidden="true"><span class="eyebrow__index">02</span>proyectos/</p>
+        <h2 id="proyectos-titulo" data-i18n="projects.title">Proyectos</h2>
+        <p class="projects__intro" data-i18n="projects.intro">Proyectos de desarrollo de software y de geociencias en los que he trabajado, sola o en equipo. Elige un núcleo de la caja para ver sus detalles.</p>
 
-        <h3 class="projects__group">Desarrollo de software</h3>
-        <ul class="projects__grid">
-          <li class="projects__featured">
-            <article class="specimen reveal" data-rex="Campus OPS: 8 workflows de n8n funcionan como API REST sobre PostgreSQL 17.">
-              <p class="specimen__tag"><span class="specimen__badge">Hackatón Campuslands</span><span>2026</span></p>
-              <h4 class="specimen__title">Campus OPS</h4>
-              <p class="specimen__subtitle">Gestión operativa con triaje de incidencias por IA</p>
-              <p class="specimen__description">MVP del Hackatón Campuslands que une la reserva de espacios, el préstamo de equipos y las incidencias. La IA clasifica y prioriza los reportes, y una incidencia crítica deja el recurso en mantenimiento hasta resolverse.</p>
+        <div class="core-box">
+          <!-- Cada núcleo abre su ficha (ui/projects.js). Sin JavaScript se ven todas las fichas. -->
+          <div class="core-box__list">
+            <p class="core-box__label" aria-hidden="true"><span data-i18n="projects.boxLabel">Caja de núcleos</span> · 2021–2026</p>
+            <p class="core-box__group" data-i18n="projects.groupSoftware">Desarrollo de software</p>
+            <button class="core" type="button" aria-expanded="true" aria-controls="p-campus"><span class="core__id">N-01</span><span class="core__name">Campus OPS</span><span class="core__badge" data-i18n="projects.badgeHackathon">Hackatón</span></button>
+            <button class="core" type="button" aria-expanded="false" aria-controls="p-frescura"><span class="core__id">N-02</span><span class="core__name">Frescura Total</span></button>
+            <button class="core" type="button" aria-expanded="false" aria-controls="p-techshop"><span class="core__id">N-03</span><span class="core__name">AS_TechShop</span></button>
+            <button class="core" type="button" aria-expanded="false" aria-controls="p-asogasinga"><span class="core__id">N-04</span><span class="core__name">ASOGASINGA</span></button>
+            <button class="core" type="button" aria-expanded="false" aria-controls="p-talentflow"><span class="core__id">N-05</span><span class="core__name">TalentFlow AI</span></button>
+            <button class="core" type="button" aria-expanded="false" aria-controls="p-acme"><span class="core__id">N-06</span><span class="core__name">Acme School</span></button>
+            <button class="core" type="button" aria-expanded="false" aria-controls="p-javapoo"><span class="core__id">N-07</span><span class="core__name" data-i18n="core.javapoo">Práctica Java POO</span></button>
+            <p class="core-box__group" data-i18n="projects.groupGeo">Geociencias</p>
+            <button class="core" type="button" aria-expanded="false" aria-controls="p-thesis"><span class="core__id">N-08</span><span class="core__name" data-i18n="core.thesis">Tesis: campo volcánico</span></button>
+            <button class="core" type="button" aria-expanded="false" aria-controls="p-poster"><span class="core__id">N-09</span><span class="core__name" data-i18n="core.poster">Póster: fallas poligonales</span></button>
+          </div>
+
+          <div class="core-box__panels">
+            <article class="specimen" id="p-campus" data-rex="Campus OPS: 8 workflows de n8n funcionan como API REST sobre PostgreSQL 17." data-rex-en="Campus OPS: 8 n8n workflows work as a REST API on top of PostgreSQL 17.">
+              <p class="specimen__tag"><span class="specimen__badge" data-i18n="p.campus.tag">Hackatón Campuslands</span><span>2026</span></p>
+              <h3 class="specimen__title">Campus OPS</h3>
+              <p class="specimen__subtitle" data-i18n="p.campus.subtitle">Gestión operativa con triaje de incidencias por IA</p>
+              <p class="specimen__description" data-i18n="p.campus.desc">MVP del Hackatón Campuslands que une la reserva de espacios, el préstamo de equipos y las incidencias. La IA clasifica y prioriza los reportes, y una incidencia crítica deja el recurso en mantenimiento hasta resolverse.</p>
               <ul class="chips">
                 <li class="chip">JavaScript</li>
                 <li class="chip">n8n</li>
                 <li class="chip">PostgreSQL 17</li>
                 <li class="chip">Docker Compose</li>
-                <li class="chip">IA</li>
+                <li class="chip" data-i18n="chip.ai">IA</li>
               </ul>
-              <p class="specimen__team">Trabajo en equipo</p>
-              <a class="specimen__link" href="https://github.com/reatiguiadriana901/gestionSalonesHackaton" target="_blank" rel="noopener">Ver repositorio <span aria-hidden="true">↗</span><span class="visually-hidden"> de Campus OPS (se abre en otra pestaña)</span></a>
+              <p class="specimen__team" data-i18n="p.campus.team">Trabajo en equipo</p>
+              <a class="specimen__link" href="https://github.com/reatiguiadriana901/gestionSalonesHackaton" target="_blank" rel="noopener" aria-label="Ver el repositorio de Campus OPS (se abre en otra pestaña)" data-i18n-attr="aria-label:p.campus.repo"><span data-i18n="projects.repo">Ver repositorio</span> <span aria-hidden="true">↗</span></a>
             </article>
-          </li>
-          <li>
-            <article class="specimen reveal" data-rex="Funciones de ventana como LAG y PERCENT_RANK para analizar ventas.">
-              <p class="specimen__tag"><span>Base de datos</span><span>2026</span></p>
-              <h4 class="specimen__title">AS_TechShop</h4>
-              <p class="specimen__subtitle">Base de datos y analítica para un e-commerce</p>
-              <p class="specimen__description">Modelo relacional en MySQL 8 con consultas analíticas (CTE y funciones de ventana como PERCENT_RANK y LAG), procedimientos transaccionales, triggers, eventos programados y seguridad por roles.</p>
+
+            <article class="specimen" id="p-frescura" data-rex="FEFO: primero sale el lote que vence primero." data-rex-en="FEFO: the lot that expires first ships first.">
+              <p class="specimen__tag"><span data-i18n="p.frescura.tag">Java · en equipo</span><span>2026</span></p>
+              <h3 class="specimen__title">Frescura Total</h3>
+              <p class="specimen__subtitle" data-i18n="p.frescura.subtitle">ERP de consola para una bodega de alimentos</p>
+              <p class="specimen__description" data-i18n="p.frescura.desc">Sistema de gestión en Java 21 y MySQL: inventario por lotes que despacha primero lo que vence primero (FEFO), cuarentena por calidad, trazabilidad de lotes, ventas, proveedores, rutas de entrega y facturas con código QR. Arquitectura MVC con DAO y una base de datos de 22 tablas.</p>
+              <ul class="chips">
+                <li class="chip">Java 21</li>
+                <li class="chip">Maven</li>
+                <li class="chip">MySQL</li>
+                <li class="chip">JDBC</li>
+                <li class="chip">MVC + DAO</li>
+              </ul>
+              <p class="specimen__team" data-i18n="p.frescura.team">En equipo de tres</p>
+              <a class="specimen__link" href="https://github.com/Eidan210/Frescura-Total-Proyecto-Java" target="_blank" rel="noopener" aria-label="Ver el repositorio de Frescura Total (se abre en otra pestaña)" data-i18n-attr="aria-label:p.frescura.repo"><span data-i18n="projects.repo">Ver repositorio</span> <span aria-hidden="true">↗</span></a>
+            </article>
+
+            <article class="specimen" id="p-techshop" data-rex="Funciones de ventana como LAG y PERCENT_RANK para analizar ventas." data-rex-en="Window functions like LAG and PERCENT_RANK to analyze sales.">
+              <p class="specimen__tag"><span data-i18n="tag.database">Base de datos</span><span>2026</span></p>
+              <h3 class="specimen__title">AS_TechShop</h3>
+              <p class="specimen__subtitle" data-i18n="p.techshop.subtitle">Base de datos y analítica para un e-commerce</p>
+              <p class="specimen__description" data-i18n="p.techshop.desc">Modelo relacional en MySQL 8 con consultas analíticas (CTE y funciones de ventana como PERCENT_RANK y LAG), procedimientos transaccionales, triggers, eventos programados y seguridad por roles.</p>
               <ul class="chips">
                 <li class="chip">MySQL 8</li>
                 <li class="chip">SQL</li>
-                <li class="chip">Modelado relacional</li>
+                <li class="chip" data-i18n="chip.relational">Modelado relacional</li>
               </ul>
-              <p class="specimen__team">En pareja con Sergio Daniel Flórez López</p>
-              <a class="specimen__link" href="https://github.com/reatiguiadriana901/Proyecto-Ecommerce-Mysql" target="_blank" rel="noopener">Ver repositorio <span aria-hidden="true">↗</span><span class="visually-hidden"> de AS_TechShop (se abre en otra pestaña)</span></a>
+              <p class="specimen__team" data-i18n="p.techshop.team">En pareja con Sergio Daniel Flórez López</p>
+              <a class="specimen__link" href="https://github.com/reatiguiadriana901/Proyecto-Ecommerce-Mysql" target="_blank" rel="noopener" aria-label="Ver el repositorio de AS_TechShop (se abre en otra pestaña)" data-i18n-attr="aria-label:p.techshop.repo"><span data-i18n="projects.repo">Ver repositorio</span> <span aria-hidden="true">↗</span></a>
             </article>
-          </li>
-          <li>
-            <article class="specimen reveal" data-rex="Triggers que validan el peso del ganado y los intervalos de vacunación.">
-              <p class="specimen__tag"><span>Base de datos</span><span>2026</span></p>
-              <h4 class="specimen__title">Sistema ASOGASINGA</h4>
-              <p class="specimen__subtitle">Base de datos para control ganadero</p>
-              <p class="specimen__description">Doce tablas en MySQL para fincas, ganado, producción de leche, vacunación y personal. Tiene procedimientos y funciones, triggers que validan el peso y los intervalos de vacunación, eventos programados y usuarios con privilegio mínimo.</p>
+
+            <article class="specimen" id="p-asogasinga" data-rex="Triggers que validan el peso del ganado y los intervalos de vacunación." data-rex-en="Triggers that validate cattle weight and vaccination intervals.">
+              <p class="specimen__tag"><span data-i18n="tag.database">Base de datos</span><span>2026</span></p>
+              <h3 class="specimen__title">Sistema ASOGASINGA</h3>
+              <p class="specimen__subtitle" data-i18n="p.asogasinga.subtitle">Base de datos para control ganadero</p>
+              <p class="specimen__description" data-i18n="p.asogasinga.desc">Doce tablas en MySQL para fincas, ganado, producción de leche, vacunación y personal. Tiene procedimientos y funciones, triggers que validan el peso y los intervalos de vacunación, eventos programados y usuarios con privilegio mínimo.</p>
               <ul class="chips">
                 <li class="chip">MySQL</li>
                 <li class="chip">SQL</li>
-                <li class="chip">Seguridad por roles</li>
+                <li class="chip" data-i18n="chip.roles">Seguridad por roles</li>
               </ul>
-              <p class="specimen__team">Proyecto individual</p>
-              <a class="specimen__link" href="https://github.com/reatiguiadriana901/Sistema-ASOGASINGA" target="_blank" rel="noopener">Ver repositorio <span aria-hidden="true">↗</span><span class="visually-hidden"> de Sistema ASOGASINGA (se abre en otra pestaña)</span></a>
+              <p class="specimen__team" data-i18n="p.asogasinga.team">Proyecto individual</p>
+              <a class="specimen__link" href="https://github.com/reatiguiadriana901/Sistema-ASOGASINGA" target="_blank" rel="noopener" aria-label="Ver el repositorio de Sistema ASOGASINGA (se abre en otra pestaña)" data-i18n-attr="aria-label:p.asogasinga.repo"><span data-i18n="projects.repo">Ver repositorio</span> <span aria-hidden="true">↗</span></a>
             </article>
-          </li>
-          <li>
-            <article class="specimen reveal" data-rex="TalentFlow lee hojas de vida en PDF y las evalúa con Gemini.">
-              <p class="specimen__tag"><span>Automatización con IA</span><span>2026</span></p>
-              <h4 class="specimen__title">TalentFlow AI</h4>
-              <p class="specimen__subtitle">Evaluación de postulaciones con n8n e IA</p>
-              <p class="specimen__description">Recibe postulaciones desde un formulario web, extrae el texto de la hoja de vida en PDF, la evalúa con Google Gemini frente a la vacante, registra en PostgreSQL y Google Sheets y avisa a Recursos Humanos por Gmail y Telegram.</p>
+
+            <article class="specimen" id="p-talentflow" data-rex="TalentFlow lee hojas de vida en PDF y las evalúa con Gemini." data-rex-en="TalentFlow reads PDF résumés and evaluates them with Gemini.">
+              <p class="specimen__tag"><span data-i18n="p.talentflow.tag">Automatización con IA</span><span>2026</span></p>
+              <h3 class="specimen__title">TalentFlow AI</h3>
+              <p class="specimen__subtitle" data-i18n="p.talentflow.subtitle">Evaluación de postulaciones con n8n e IA</p>
+              <p class="specimen__description" data-i18n="p.talentflow.desc">Recibe postulaciones desde un formulario web, extrae el texto de la hoja de vida en PDF, la evalúa con Google Gemini frente a la vacante, registra en PostgreSQL y Google Sheets y avisa a Recursos Humanos por Gmail y Telegram.</p>
               <ul class="chips">
                 <li class="chip">n8n</li>
                 <li class="chip">Google Gemini</li>
                 <li class="chip">PostgreSQL</li>
                 <li class="chip">Google Sheets</li>
               </ul>
-              <p class="specimen__team">Proyecto de automatización</p>
-              <a class="specimen__link" href="https://github.com/reatiguiadriana901/proyecto-N8N-" target="_blank" rel="noopener">Ver repositorio <span aria-hidden="true">↗</span><span class="visually-hidden"> de TalentFlow AI (se abre en otra pestaña)</span></a>
+              <p class="specimen__team" data-i18n="p.talentflow.team">Proyecto de automatización</p>
+              <a class="specimen__link" href="https://github.com/reatiguiadriana901/proyecto-N8N-" target="_blank" rel="noopener" aria-label="Ver el repositorio de TalentFlow AI (se abre en otra pestaña)" data-i18n-attr="aria-label:p.talentflow.repo"><span data-i18n="projects.repo">Ver repositorio</span> <span aria-hidden="true">↗</span></a>
             </article>
-          </li>
-          <li>
-            <article class="specimen reveal" data-rex="Exámenes con temporizador, en JavaScript sin frameworks.">
-              <p class="specimen__tag"><span>Aplicación web</span><span>2026</span></p>
-              <h4 class="specimen__title">Acme School</h4>
-              <p class="specimen__subtitle">Plataforma de exámenes en línea</p>
-              <p class="specimen__description">App en JavaScript vanilla con un módulo administrativo (inicio de sesión, CRUD de usuarios y de exámenes con preguntas dinámicas) y un módulo público donde los estudiantes presentan exámenes con temporizador.</p>
+
+            <article class="specimen" id="p-acme" data-rex="Exámenes con temporizador, en JavaScript sin frameworks." data-rex-en="Timed exams, in JavaScript with no frameworks.">
+              <p class="specimen__tag"><span data-i18n="p.acme.tag">Aplicación web</span><span>2026</span></p>
+              <h3 class="specimen__title">Acme School</h3>
+              <p class="specimen__subtitle" data-i18n="p.acme.subtitle">Plataforma de exámenes en línea</p>
+              <p class="specimen__description" data-i18n="p.acme.desc">App en JavaScript vanilla con un módulo administrativo (inicio de sesión, CRUD de usuarios y de exámenes con preguntas dinámicas) y un módulo público donde los estudiantes presentan exámenes con temporizador.</p>
               <ul class="chips">
                 <li class="chip">JavaScript</li>
                 <li class="chip">HTML5</li>
                 <li class="chip">CSS3</li>
                 <li class="chip">localStorage</li>
               </ul>
-              <p class="specimen__team">Con Santiago Becerra y Cristian Solano, bajo Scrum</p>
-              <a class="specimen__link" href="https://github.com/reatiguiadriana901/ProyectoAcmesSchool_JavaScript_Becerra_Reatigui_Solano" target="_blank" rel="noopener">Ver repositorio <span aria-hidden="true">↗</span><span class="visually-hidden"> de Acme School (se abre en otra pestaña)</span></a>
+              <p class="specimen__team" data-i18n="p.acme.team">Con Santiago Becerra y Cristian Solano, bajo Scrum</p>
+              <a class="specimen__link" href="https://github.com/reatiguiadriana901/ProyectoAcmesSchool_JavaScript_Becerra_Reatigui_Solano" target="_blank" rel="noopener" aria-label="Ver el repositorio de Acme School (se abre en otra pestaña)" data-i18n-attr="aria-label:p.acme.repo"><span data-i18n="projects.repo">Ver repositorio</span> <span aria-hidden="true">↗</span></a>
             </article>
-          </li>
-          <li>
-            <article class="specimen reveal" data-rex="Herencia, colecciones y excepciones en Java, todo en consola.">
+
+            <article class="specimen" id="p-javapoo" data-rex="Herencia, colecciones y excepciones en Java, todo en consola." data-rex-en="Inheritance, collections and exceptions in Java, all in the console.">
               <p class="specimen__tag"><span>Java</span><span>2026</span></p>
-              <h4 class="specimen__title">Práctica Java POO</h4>
-              <p class="specimen__subtitle">Programación orientada a objetos</p>
-              <p class="specimen__description">Cinco ejercicios de consola en Java que aplican herencia, colecciones, excepciones y manejo de archivos.</p>
+              <h3 class="specimen__title" data-i18n="core.javapoo">Práctica Java POO</h3>
+              <p class="specimen__subtitle" data-i18n="p.javapoo.subtitle">Programación orientada a objetos</p>
+              <p class="specimen__description" data-i18n="p.javapoo.desc">Cinco ejercicios de consola en Java que aplican herencia, colecciones, excepciones y manejo de archivos.</p>
               <ul class="chips">
                 <li class="chip">Java</li>
-                <li class="chip">POO</li>
-                <li class="chip">Colecciones</li>
-                <li class="chip">Excepciones</li>
+                <li class="chip" data-i18n="chip.oop">POO</li>
+                <li class="chip" data-i18n="chip.collections">Colecciones</li>
+                <li class="chip" data-i18n="chip.exceptions">Excepciones</li>
               </ul>
-              <a class="specimen__link" href="https://github.com/reatiguiadriana901/PRACTICA_1_JAVA_POO" target="_blank" rel="noopener">Ver repositorio <span aria-hidden="true">↗</span><span class="visually-hidden"> de Práctica Java POO (se abre en otra pestaña)</span></a>
+              <a class="specimen__link" href="https://github.com/reatiguiadriana901/PRACTICA_1_JAVA_POO" target="_blank" rel="noopener" aria-label="Ver el repositorio de Práctica Java POO (se abre en otra pestaña)" data-i18n-attr="aria-label:p.javapoo.repo"><span data-i18n="projects.repo">Ver repositorio</span> <span aria-hidden="true">↗</span></a>
             </article>
-          </li>
-        </ul>
 
-        <h3 class="projects__group">Geociencias</h3>
-        <ul class="projects__grid">
-          <li>
-            <article class="specimen reveal" data-rex="15 de 19 conos aptos se alinean con una falla o un lineamiento.">
-              <p class="specimen__tag"><span>Trabajo de grado</span><span>2026</span></p>
-              <h4 class="specimen__title">Morfometría de un campo volcánico</h4>
-              <p class="specimen__subtitle">Tesis de Geología · Universidad Industrial de Santander</p>
-              <p class="specimen__description">Análisis morfométrico y morfoestructural de los conos del Campo Volcánico Monogenético Isnos–San Agustín (Huila). Medí 20 conos sobre un modelo digital de elevación y comparé su orientación con fallas y lineamientos: 15 de 19 conos aptos se alinean con una estructura, con un desfase medio de 6,6°.</p>
+            <article class="specimen" id="p-thesis" data-rex="15 de 19 conos aptos se alinean con una falla o un lineamiento." data-rex-en="15 of 19 suitable cones line up with a fault or a lineament.">
+              <p class="specimen__tag"><span data-i18n="p.thesis.tag">Trabajo de grado</span><span>2026</span></p>
+              <h3 class="specimen__title" data-i18n="p.thesis.title">Morfometría de un campo volcánico</h3>
+              <p class="specimen__subtitle" data-i18n="p.thesis.subtitle">Tesis de Geología · Universidad Industrial de Santander</p>
+              <p class="specimen__description" data-i18n="p.thesis.desc">Análisis morfométrico y morfoestructural de los conos del Campo Volcánico Monogenético Isnos–San Agustín (Huila). Medí 20 conos sobre un modelo digital de elevación y comparé su orientación con fallas y lineamientos: 15 de 19 conos aptos se alinean con una estructura, con un desfase medio de 6,6°.</p>
               <ul class="chips">
                 <li class="chip">Python</li>
                 <li class="chip">GeoPandas</li>
@@ -272,179 +366,234 @@
                 <li class="chip">ArcGIS Pro</li>
                 <li class="chip">QGIS</li>
               </ul>
-              <p class="specimen__team">Directora: Dayana Andrea Schonwalder-Angel, PhD · Código disponible bajo solicitud</p>
+              <p class="specimen__team" data-i18n="p.thesis.team">Directora: Dayana Andrea Schonwalder-Angel, PhD · Código disponible bajo solicitud</p>
             </article>
-          </li>
-          <li>
-            <article class="specimen reveal" data-rex="Las fallas poligonales se forman por compactación, sin necesidad de tectónica regional.">
-              <p class="specimen__tag"><span>Congreso</span><span>2025</span></p>
-              <h4 class="specimen__title">Fallas poligonales y atributos sísmicos</h4>
-              <p class="specimen__subtitle">Póster · XX Congreso Colombiano de Geología</p>
-              <p class="specimen__description">Caracterizamos el sistema de fallas poligonales del Grupo Hordaland (Mioceno), en la cuenca Outer Rough, y su posible relación con estructuras de colapso asociadas a disolución, mediante atributos sísmicos.</p>
+
+            <article class="specimen" id="p-poster" data-rex="Las fallas poligonales se forman por compactación, sin necesidad de tectónica regional." data-rex-en="Polygonal faults form through compaction, without regional tectonics.">
+              <p class="specimen__tag"><span data-i18n="p.poster.tag">Congreso</span><span>2025</span></p>
+              <h3 class="specimen__title" data-i18n="p.poster.title">Fallas poligonales y atributos sísmicos</h3>
+              <p class="specimen__subtitle" data-i18n="p.poster.subtitle">Póster · XX Congreso Colombiano de Geología</p>
+              <p class="specimen__description" data-i18n="p.poster.desc">Caracterizamos el sistema de fallas poligonales del Grupo Hordaland (Mioceno), en la cuenca Outer Rough, y su posible relación con estructuras de colapso asociadas a disolución, mediante atributos sísmicos.</p>
               <ul class="chips">
-                <li class="chip">Interpretación sísmica</li>
-                <li class="chip">Atributos sísmicos</li>
-                <li class="chip">Geología estructural</li>
+                <li class="chip" data-i18n="chip.seismicInterp">Interpretación sísmica</li>
+                <li class="chip" data-i18n="chip.seismicAttr">Atributos sísmicos</li>
+                <li class="chip" data-i18n="chip.structural">Geología estructural</li>
               </ul>
-              <p class="specimen__team">Con Kevin Tarazona y Dilan Martínez Sánchez · UIS</p>
+              <p class="specimen__team" data-i18n="p.poster.team">Con Kevin Tarazona y Dilan Martínez Sánchez · UIS</p>
             </article>
-          </li>
-        </ul>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Franja: límite K-Pg, con el asteroide y una erupción fisural -->
-    <div class="band band--kpg" data-segment="band-kpg" data-kind="band">
-      <div class="band__scene" aria-hidden="true">
-        <div class="asteroid" data-asteroid="kpg" data-at="0.3"></div>
-        <div class="volcano" data-volcano="v3" data-kind="fissure" data-at="0.6" data-offset="72"></div>
-      </div>
+    <!-- Franja 3: corte geológico; en escritorio route.js dibuja el terreno con sus estratos -->
+    <div class="band" data-segment="band-3" data-kind="band">
+      <div class="band__scene" aria-hidden="true"></div>
     </div>
 
     <!-- ===== Habilidades ===== -->
     <section class="section skills" id="habilidades" data-segment="habilidades" data-kind="section" aria-labelledby="habilidades-titulo">
       <div class="section__inner">
-        <h2 id="habilidades-titulo">Habilidades</h2>
-        <p>Las herramientas que uso, organizadas por capas.</p>
+        <p class="eyebrow" aria-hidden="true"><span class="eyebrow__index">03</span>stack.json</p>
+        <h2 id="habilidades-titulo" data-i18n="skills.title">Habilidades</h2>
+        <p data-i18n="skills.intro">Las herramientas que uso, organizadas por capas.</p>
         <ol class="strata">
           <li class="stratum">
-            <p class="stratum__name"><span>Superficie</span>Frontend</p>
+            <p class="stratum__name"><span class="stratum__layer" data-i18n="skills.surface">Superficie</span>Frontend</p>
             <ul class="chips">
               <li class="chip">HTML5</li>
               <li class="chip">CSS3</li>
-              <li class="chip">JavaScript (módulos ES)</li>
+              <li class="chip" data-i18n="chip.esModules">JavaScript (módulos ES)</li>
             </ul>
           </li>
           <li class="stratum">
-            <p class="stratum__name"><span>Subsuelo</span>Lenguajes y análisis</p>
+            <p class="stratum__name"><span class="stratum__layer" data-i18n="skills.subsurface">Subsuelo</span><span data-i18n="skills.backend">Backend con Java</span></p>
             <ul class="chips">
-              <li class="chip">Python</li>
-              <li class="chip">SQL</li>
-              <li class="chip">Jupyter</li>
-              <li class="chip">Java (POO)</li>
+              <li class="chip" data-i18n="chip.javaOop">Java 21 (POO)</li>
+              <li class="chip">Maven</li>
+              <li class="chip">JDBC</li>
+              <li class="chip">MVC + DAO</li>
             </ul>
           </li>
           <li class="stratum">
-            <p class="stratum__name"><span>Basamento</span>Bases de datos</p>
+            <p class="stratum__name"><span class="stratum__layer" data-i18n="skills.basement">Basamento</span><span data-i18n="skills.databases">Bases de datos</span></p>
             <ul class="chips">
               <li class="chip">MySQL</li>
               <li class="chip">PostgreSQL</li>
-              <li class="chip">Modelado relacional</li>
+              <li class="chip">SQL</li>
+              <li class="chip" data-i18n="chip.relational">Modelado relacional</li>
             </ul>
           </li>
           <li class="stratum">
-            <p class="stratum__name"><span>Núcleo</span>Herramientas y procesos</p>
+            <p class="stratum__name"><span class="stratum__layer" data-i18n="skills.core">Núcleo</span><span data-i18n="skills.dataAuto">Datos y automatización</span></p>
             <ul class="chips">
-              <li class="chip">Git</li>
-              <li class="chip">GitHub</li>
-              <li class="chip">Docker</li>
+              <li class="chip">Python</li>
+              <li class="chip">Jupyter</li>
               <li class="chip">n8n</li>
+              <li class="chip">Docker</li>
+              <li class="chip">Git</li>
               <li class="chip">Scrum</li>
             </ul>
           </li>
           <li class="stratum">
-            <p class="stratum__name"><span>Veta geoespacial</span>SIG</p>
+            <p class="stratum__name"><span class="stratum__layer" data-i18n="skills.vein">Veta geoespacial</span><span data-i18n="skills.gis">SIG</span></p>
             <ul class="chips">
               <li class="chip">ArcGIS Pro</li>
               <li class="chip">QGIS</li>
-              <li class="chip">Análisis de DEM</li>
+              <li class="chip" data-i18n="chip.dem">Análisis de DEM</li>
             </ul>
           </li>
         </ol>
+
+        <!-- Habilidades blandas como cristales: cada una con su color -->
         <div class="soft-skills">
-          <h3>También me caracteriza</h3>
-          <ul class="chips">
-            <li class="chip">Pensamiento analítico</li>
-            <li class="chip">Resolución de problemas</li>
-            <li class="chip">Trabajo en equipo con Scrum</li>
-            <li class="chip">Aprendizaje continuo</li>
+          <h3 data-i18n="skills.softTitle">También me caracteriza</h3>
+          <ul class="gems">
+            <li class="gem reveal"><span data-i18n="skills.soft1">Pensamiento analítico</span></li>
+            <li class="gem reveal"><span data-i18n="skills.soft2">Resolución de problemas</span></li>
+            <li class="gem reveal"><span data-i18n="skills.soft3">Trabajo en equipo con Scrum</span></li>
+            <li class="gem reveal"><span data-i18n="skills.soft4">Aprendizaje continuo</span></li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- ===== Intereses ===== -->
+    <!-- ===== Intereses: muestras que se voltean al pasar el cursor o al tocarlas ===== -->
     <section class="section passions" id="intereses" data-segment="intereses" data-kind="section" aria-labelledby="intereses-titulo">
       <div class="section__inner">
-        <h2 id="intereses-titulo">Intereses</h2>
-        <p>Temas en los que quiero seguir creciendo, entre las geociencias y los datos.</p>
+        <p class="eyebrow" aria-hidden="true"><span class="eyebrow__index">04</span>intereses.py</p>
+        <h2 id="intereses-titulo" data-i18n="interests.title">Intereses</h2>
+        <p data-i18n="interests.intro">Temas en los que quiero seguir creciendo, entre las geociencias y los datos.</p>
+        <p class="passions__hint" data-i18n="interests.hint">Pasa el cursor o toca una muestra para leerla.</p>
         <ul class="passions__grid">
-          <li class="passion reveal">
-            <canvas class="pixel-icon" data-sprite="flask" width="16" height="16" aria-hidden="true"></canvas>
-            <h3>Geoquímica</h3>
-            <p>Interpretar la composición química de rocas y magmas para entender su origen y su evolución.</p>
+          <li class="passion reveal" tabindex="0">
+            <div class="passion__inner">
+              <div class="passion__face passion__face--front">
+                <canvas class="pixel-icon" data-sprite="flask" width="16" height="16" aria-hidden="true"></canvas>
+                <h3 data-i18n="interests.geochem">Geoquímica</h3>
+              </div>
+              <div class="passion__face passion__face--back">
+                <p data-i18n="interests.geochemText">Interpretar la composición química de rocas y magmas para entender su origen y su evolución.</p>
+              </div>
+            </div>
           </li>
-          <li class="passion reveal">
-            <canvas class="pixel-icon" data-sprite="drop" width="16" height="16" aria-hidden="true"></canvas>
-            <h3>Hidrocarburos</h3>
-            <p>Cómo se forman, migran y se acumulan el petróleo y el gas en una cuenca sedimentaria.</p>
+          <li class="passion reveal" tabindex="0">
+            <div class="passion__inner">
+              <div class="passion__face passion__face--front">
+                <canvas class="pixel-icon" data-sprite="drop" width="16" height="16" aria-hidden="true"></canvas>
+                <h3 data-i18n="interests.hydro">Hidrocarburos</h3>
+              </div>
+              <div class="passion__face passion__face--back">
+                <p data-i18n="interests.hydroText">Cómo se forman, migran y se acumulan el petróleo y el gas en una cuenca sedimentaria.</p>
+              </div>
+            </div>
           </li>
-          <li class="passion reveal">
-            <canvas class="pixel-icon" data-sprite="crystal" width="16" height="16" aria-hidden="true"></canvas>
-            <h3>Yacimientos minerales</h3>
-            <p>Cómo los magmas y los fluidos hidrotermales concentran metales en la corteza.</p>
+          <li class="passion reveal" tabindex="0">
+            <div class="passion__inner">
+              <div class="passion__face passion__face--front">
+                <canvas class="pixel-icon" data-sprite="crystal" width="16" height="16" aria-hidden="true"></canvas>
+                <h3 data-i18n="interests.ore">Yacimientos minerales</h3>
+              </div>
+              <div class="passion__face passion__face--back">
+                <p data-i18n="interests.oreText">Cómo los magmas y los fluidos hidrotermales concentran metales en la corteza.</p>
+              </div>
+            </div>
           </li>
-          <li class="passion reveal">
-            <canvas class="pixel-icon" data-sprite="ammonite" width="16" height="16" aria-hidden="true"></canvas>
-            <h3>Paleontología</h3>
-            <p>Los fósiles como registro de la vida en la Tierra. Por eso mi mascota es un T-Rex.</p>
+          <li class="passion reveal" tabindex="0">
+            <div class="passion__inner">
+              <div class="passion__face passion__face--front">
+                <canvas class="pixel-icon" data-sprite="leaf" width="16" height="16" aria-hidden="true"></canvas>
+                <h3 data-i18n="interests.energy">Energía y medio ambiente</h3>
+              </div>
+              <div class="passion__face passion__face--back">
+                <p data-i18n="interests.energyText">Cómo la geología apoya al sector energético y al cuidado del ambiente: recursos, transición energética e impacto ambiental.</p>
+              </div>
+            </div>
           </li>
-          <li class="passion reveal">
-            <canvas class="pixel-icon" data-sprite="chart" width="16" height="16" aria-hidden="true"></canvas>
-            <h3>Datos geoespaciales con Python</h3>
-            <p>Estadística direccional, rosetas y densidades con Python, en análisis reproducibles.</p>
+          <li class="passion reveal" tabindex="0">
+            <div class="passion__inner">
+              <div class="passion__face passion__face--front">
+                <canvas class="pixel-icon" data-sprite="chart" width="16" height="16" aria-hidden="true"></canvas>
+                <h3 data-i18n="interests.geodata">Datos geoespaciales con Python</h3>
+              </div>
+              <div class="passion__face passion__face--back">
+                <p data-i18n="interests.geodataText">Estadística direccional, rosetas y densidades con Python, en análisis reproducibles.</p>
+              </div>
+            </div>
           </li>
-          <li class="passion reveal">
-            <canvas class="pixel-icon" data-sprite="database" width="16" height="16" aria-hidden="true"></canvas>
-            <h3>Bases de datos</h3>
-            <p>Modelado relacional con integridad: claves, restricciones, procedimientos y consultas analíticas.</p>
+          <li class="passion reveal" tabindex="0">
+            <div class="passion__inner">
+              <div class="passion__face passion__face--front">
+                <canvas class="pixel-icon" data-sprite="database" width="16" height="16" aria-hidden="true"></canvas>
+                <h3 data-i18n="interests.db">Bases de datos</h3>
+              </div>
+              <div class="passion__face passion__face--back">
+                <p data-i18n="interests.dbText">Modelado relacional con integridad: claves, restricciones, procedimientos y consultas analíticas.</p>
+              </div>
+            </div>
           </li>
         </ul>
       </div>
     </section>
 
-    <!-- Franja: tres conos monogenéticos, una sola erupción cada uno -->
-    <div class="band band--cones" data-segment="band-conos" data-kind="band">
-      <div class="band__scene" aria-hidden="true">
-        <div class="volcano" data-volcano="v5" data-kind="mono" data-at="0.3" data-offset="64"></div>
-        <div class="volcano" data-volcano="v6" data-kind="mono" data-at="0.5" data-offset="64"></div>
-        <div class="volcano" data-volcano="v7" data-kind="mono" data-at="0.7" data-offset="64"></div>
-      </div>
+    <!-- Franja 4: corte geológico; en escritorio route.js dibuja el terreno con sus estratos -->
+    <div class="band" data-segment="band-4" data-kind="band">
+      <div class="band__scene" aria-hidden="true"></div>
     </div>
 
     <!-- ===== Contacto ===== -->
     <section class="section contact theme-dark" id="contacto" data-segment="contacto" data-kind="section" aria-labelledby="contacto-titulo">
       <div class="section__inner">
-        <h2 id="contacto-titulo">Hablemos</h2>
-        <p class="contact__lead">¿Buscas una desarrolladora junior con pensamiento analítico y ganas de aportar? Me encantará conversar contigo. También me interesan los proyectos que unen geociencias y datos.</p>
+        <p class="eyebrow" aria-hidden="true"><span class="eyebrow__index">05</span>contacto.sh</p>
+        <h2 id="contacto-titulo" data-i18n="contact.title">Hablemos</h2>
+        <p class="contact__lead" data-i18n="contact.lead">¿Tienes un proyecto de software o de geociencias? Me interesan las dos áreas: desarrollo web, bases de datos y automatización, y también geología, análisis geoespacial y datos de campo. Escríbeme y conversamos.</p>
         <ul class="contact__list">
           <li class="contact__item">
-            <span class="contact__label">Correo</span>
+            <span class="contact__label" data-i18n="contact.email">Correo</span>
             <a href="mailto:reatiguiadriana901@gmail.com">reatiguiadriana901@gmail.com</a>
           </li>
           <li class="contact__item">
             <span class="contact__label">LinkedIn</span>
-            <a href="https://www.linkedin.com/in/adriana-reatigui-333655322/" target="_blank" rel="noopener">in/adriana-reatigui<span class="visually-hidden"> (se abre en otra pestaña)</span></a>
+            <a href="https://www.linkedin.com/in/adriana-reatigui-333655322/" target="_blank" rel="noopener" data-i18n-html="contact.linkedin">in/adriana-reatigui<span class="visually-hidden"> (se abre en otra pestaña)</span></a>
           </li>
           <li class="contact__item">
             <span class="contact__label">GitHub</span>
-            <a href="https://github.com/reatiguiadriana901" target="_blank" rel="noopener">@reatiguiadriana901<span class="visually-hidden"> (se abre en otra pestaña)</span></a>
+            <a href="https://github.com/reatiguiadriana901" target="_blank" rel="noopener" data-i18n-html="contact.github">@reatiguiadriana901<span class="visually-hidden"> (se abre en otra pestaña)</span></a>
           </li>
         </ul>
-        <a class="button button--primary" href="https://drive.google.com/file/d/1ZBZfrvd6slu5K-ElF_vAASkcMWQdgIEA/view?usp=sharing" target="_blank" rel="noopener">Ver mi hoja de vida (PDF)<span class="visually-hidden"> en Google Drive, se abre en otra pestaña</span></a>
+        <a class="button button--primary" href="https://drive.google.com/file/d/1ZBZfrvd6slu5K-ElF_vAASkcMWQdgIEA/view?usp=sharing" target="_blank" rel="noopener" data-i18n-html="contact.cv">Ver mi hoja de vida (PDF)<span class="visually-hidden"> en Google Drive, se abre en otra pestaña</span></a>
       </div>
     </section>
   </main>
 
   <footer class="footer theme-dark">
-    <p class="footer__quote">«Me gusta entender cómo funcionan las cosas.»</p>
-    <p>© 2026 Adriana Reatigui · Hecho a mano con HTML, CSS y JavaScript, sin frameworks.</p>
-    <p class="footer__credits">Lapilli es un personaje original en pixel art.</p>
+    <p class="footer__quote" data-i18n="footer.quote">«Me gusta entender cómo funcionan las cosas.»</p>
+    <p data-i18n="footer.copy">© 2026 Adriana Reatigui · Hecho a mano con HTML, CSS y JavaScript, sin frameworks.</p>
+    <p class="footer__credits" data-i18n="footer.credits">Lapilli es un personaje original en pixel art.</p>
   </footer>
+
+  <!-- Fondo animado: corte geológico (fx/cross-section.js) -->
+  <canvas class="cross-section" id="cross-section" aria-hidden="true"></canvas>
 
   <!-- ===== Capa decorativa: ruta de Lapilli, escenario móvil y partículas ===== -->
   <div class="scene" aria-hidden="true">
     <svg class="scene__route" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <!-- Estratos que se repiten cada 112 px: arenisca, lutita, caliza y conglomerado -->
+        <pattern id="strata" width="64" height="112" patternUnits="userSpaceOnUse">
+          <rect class="strata__sandstone" width="64" height="28"></rect>
+          <rect class="strata__shale" y="28" width="64" height="28"></rect>
+          <rect class="strata__limestone" y="56" width="64" height="28"></rect>
+          <rect class="strata__conglomerate" y="84" width="64" height="28"></rect>
+          <path class="strata__grains" d="M6 6h2v2H6zM22 15h2v2h-2zM40 7h2v2h-2zM54 19h2v2h-2zM14 21h2v2h-2zM32 3h2v2h-2zM47 12h2v2h-2z"></path>
+          <path class="strata__marks" d="M4 36h10M26 36h10M48 36h10M14 47h10M36 47h10M58 47h6M0 47h2M0 70h64M16 56v14M48 56v14M32 70v14"></path>
+          <circle class="strata__marks" cx="12" cy="97" r="4"></circle>
+          <circle class="strata__marks" cx="34" cy="103" r="5"></circle>
+          <circle class="strata__marks" cx="53" cy="92" r="3"></circle>
+        </pattern>
+      </defs>
+      <path class="scene__terrain" id="route-terrain" d=""></path>
+      <path class="scene__ground" id="route-ground" d=""></path>
       <path class="scene__trail" id="route-path" d=""></path>
       <path class="scene__trail scene__trail--done" id="route-done" d=""></path>
     </svg>
@@ -455,7 +604,7 @@
   <canvas class="fx-canvas" id="fx-canvas" aria-hidden="true"></canvas>
 
   <!-- Lapilli: un botón real, para que también funcione con teclado -->
-  <button class="mascot" type="button" aria-label="Lapilli, la mascota T-Rex: actívala para escuchar un dato curioso">
+  <button class="mascot" type="button" aria-label="Lapilli, la mascota T-Rex: actívala para escuchar un dato curioso" data-i18n-attr="aria-label:mascot.label">
     <canvas class="mascot__canvas" width="20" height="16"></canvas>
   </button>
   <div class="bubble" hidden aria-hidden="true">
