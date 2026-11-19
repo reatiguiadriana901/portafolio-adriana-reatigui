@@ -168,7 +168,7 @@ html[data-mode="route"] .scene {
   }
 }
 
-/* Lapilli oculto (lo normal; se muestra desde Ajustes): sin mascota, globo,
+/* Lapilli oculto desde Ajustes: sin mascota, globo,
    hallazgos ni huellas. Las fotos y los estratos se quedan. */
 html.no-lapilli .mascot,
 html.no-lapilli .bubble,

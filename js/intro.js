@@ -34,7 +34,7 @@ const TEXT = {
 
 // Momentos de la presentación, en milisegundos desde que empieza
 const AT = { drop: 500, wobble: 1050, crack: 1700, hatch: 2100, roar: 2250, bubble: 2350, name: 2600, idle: 3050, leave: 4800 };
-// Sin Lapilli (lo normal) el nombre aparece en cuanto suben los estratos
+// Sin Lapilli (oculto en Ajustes) el nombre aparece en cuanto suben los estratos
 const AT_PLAIN = { name: 900, leave: 3500 };
 
 let root = null;

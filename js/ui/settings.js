@@ -1,7 +1,7 @@
 // Panel "Ajustes" de la cabecera (un <details>): pausar animaciones (motion.js),
 // ocultar o mostrar a Lapilli y probar paletas de colores. Las elecciones se
-// guardan en localStorage. Lapilli empieza oculto: el script del <head> solo lo
-// muestra si 'portafolio:mascota' vale 'visible'.
+// guardan en localStorage. Lapilli se ve salvo que 'portafolio:mascota' valga
+// 'oculto' (el script del <head> lo lee antes de pintar la página).
 
 import { on, emit } from '../bus.js';
 import { pick } from '../i18n.js';
@@ -21,7 +21,7 @@ export function initSettings() {
   const root = document.documentElement;
 
   // Lapilli: oculto quita la mascota, su globo, los hallazgos y las huellas (css/scene.css)
-  let hidden = read(LAPILLI_KEY) !== 'visible';
+  let hidden = read(LAPILLI_KEY) === 'oculto';
   const showLapilliState = () => {
     root.classList.toggle('no-lapilli', hidden);
     lapilliButton.textContent = pick(hidden ? LABELS.show : LABELS.hide);

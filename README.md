@@ -11,7 +11,8 @@ Soy geóloga (Universidad Industrial de Santander) y estoy terminando el Técnic
 - **Proyectos en una caja de núcleos de perforación**: cada núcleo abre la ficha de un proyecto de software o de geociencias.
 - **Habilidades como una columna estratigráfica**, de la superficie (frontend) al núcleo (datos y automatización).
 - **Español e inglés**, con un botón para cambiar de idioma.
-- **Ajustes**: pausar las animaciones, probar paletas de colores y mostrar a Lapilli, un T-Rex en pixel art que acompaña el recorrido. Está oculto por defecto.
+- **Lapilli**, un T-Rex en pixel art con piqueta de geóloga, se presenta al abrir la página y acompaña el recorrido con datos curiosos de geología.
+- **Ajustes**: pausar las animaciones, probar paletas de colores y ocultar a Lapilli.
 - **Accesible**: se lee completo sin JavaScript, respeta la opción "reducir movimiento" del sistema y funciona con teclado.
 
 ## Cómo funciona
