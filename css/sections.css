@@ -1,0 +1,976 @@
+/* ==========================================================================
+   Secciones de contenido (BEM): inicio, sobre mí, proyectos, habilidades,
+   intereses y contacto. Las franjas tienen su propio archivo.
+   ========================================================================== */
+
+/* ---------- Inicio ---------- */
+
+.hero {
+  display: flex;
+  align-items: center;
+  min-height: calc(100svh - var(--header-h));
+  padding-block: clamp(3rem, 8vw, 6rem);
+  /* Un brillo de color; el corte geológico va en su propio lienzo */
+  background:
+    radial-gradient(90% 65% at 85% 110%, rgb(180 106 114 / 0.45), transparent 65%),
+    var(--color-bg);
+}
+
+/* Corte geológico del fondo (fx/cross-section.js): se desvanece hacia arriba
+   para no competir con el título */
+.hero__cross-section {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 5%, #000 65%);
+  mask-image: linear-gradient(to bottom, transparent 5%, #000 65%);
+}
+
+html:not(.js) .hero__cross-section {
+  display: none;
+}
+
+/* Todo centrado: título, texto, botones y debajo la terminal */
+.hero__inner {
+  position: relative; /* encima del corte geológico */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+}
+
+.hero__title {
+  margin-bottom: var(--space-2);
+  font-size: clamp(2.75rem, 8vw, 5rem);
+  letter-spacing: -0.01em;
+}
+
+.hero__role {
+  margin-bottom: var(--space-5);
+  color: var(--color-label);
+  font-family: var(--font-mono);
+  font-size: clamp(0.95rem, 2.2vw, 1.15rem);
+}
+
+.hero__lead {
+  max-width: 40ch;
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 3vw, 1.6rem);
+  line-height: 1.45;
+}
+
+.hero__hint {
+  max-width: 52ch;
+  margin: var(--space-5) 0 0;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+}
+
+/* Entrada: cada parte del inicio sube en orden y el nombre aflora de abajo
+   hacia arriba, como un estrato. Mientras tanto, Lapilli sale de su huevo. */
+html.js[data-motion="on"]:not(.has-intro) .hero__inner > * {
+  animation: hero-rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+html.js[data-motion="on"]:not(.has-intro) .hero__inner > :nth-child(2) {
+  animation-name: hero-uncover;
+  animation-duration: 1s;
+  animation-delay: 0.15s;
+}
+
+html.js[data-motion="on"]:not(.has-intro) .hero__inner > :nth-child(3) { animation-delay: 0.4s; }
+html.js[data-motion="on"]:not(.has-intro) .hero__inner > :nth-child(4) { animation-delay: 0.55s; }
+html.js[data-motion="on"]:not(.has-intro) .hero__inner > :nth-child(5) { animation-delay: 0.7s; }
+html.js[data-motion="on"]:not(.has-intro) .hero__inner > :nth-child(6) { animation-delay: 0.85s; }
+html.js[data-motion="on"]:not(.has-intro) .hero__inner > :nth-child(n + 7) { animation-delay: 1s; }
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+}
+
+@keyframes hero-uncover {
+  from {
+    clip-path: inset(125% -5% -25% -5%);
+    transform: translateY(16px);
+  }
+  to {
+    clip-path: inset(-10% -5% -25% -5%);
+  }
+}
+
+/* Donde se sienta Lapilli cuando las animaciones están en pausa */
+.hero__mascot-slot {
+  display: flex;
+  justify-content: center;
+}
+
+html[data-mode="static"] .hero__mascot-slot {
+  min-height: calc(16 * var(--px));
+  margin-top: var(--space-6);
+}
+
+/* Terminal: el código que me resume se escribe solo, línea por línea */
+.terminal {
+  width: min(100%, 560px);
+  margin: var(--space-6) auto 0;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: color-mix(in oklab, var(--midnight) 75%, #000);
+  box-shadow: 0 18px 40px rgb(0 0 0 / 0.3);
+  text-align: left;
+}
+
+.terminal__bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  padding: 0.55rem 0.9rem;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+
+.terminal__bar span {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--rosewood);
+}
+
+.terminal__bar span:nth-child(2) {
+  background: var(--sage);
+}
+
+.terminal__bar span:nth-child(3) {
+  margin-right: 6px;
+  background: var(--misty);
+}
+
+.terminal__body {
+  margin: 0;
+  padding: 1rem 1.25rem 1.25rem;
+  overflow-x: auto;
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  line-height: 1.7;
+}
+
+/* Solo se ve la versión del idioma de la página */
+html[lang="es"] .terminal__body[lang="en"],
+html[lang="en"] .terminal__body[lang="es"] {
+  display: none;
+}
+
+/* En celular, letra más pequeña para que la línea más larga quepa sin scroll */
+@media (max-width: 480px) {
+  .terminal__body {
+    padding-inline: 1rem;
+    font-size: 0.72rem;
+  }
+}
+
+/* Cada línea se destapa letra por letra: --n letras, empieza a los --d ms
+   (más lo que tarda la terminal en aparecer) */
+.terminal__line {
+  display: inline-block;
+  clip-path: inset(0 100% 0 0);
+  animation: terminal-type calc(var(--n) * 22ms) steps(var(--n), end) calc(var(--d) + 900ms) forwards;
+}
+
+.terminal__cursor {
+  display: inline-block;
+  width: 0.6em;
+  height: 1.1em;
+  vertical-align: text-bottom;
+  background: var(--sage);
+  animation: terminal-blink 1s steps(1) infinite;
+}
+
+/* Durante la presentación (js/intro.js) la terminal espera; al quitarse la clase
+   empieza a escribir */
+html.has-intro .terminal__line {
+  animation: none;
+}
+
+/* Sin animaciones, el código aparece completo desde el inicio */
+html[data-motion="off"] .terminal__line {
+  clip-path: none;
+  animation: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .terminal__line {
+    clip-path: none;
+    animation: none;
+  }
+}
+
+@keyframes terminal-type {
+  to {
+    clip-path: inset(0);
+  }
+}
+
+@keyframes terminal-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Colores de sintaxis con la paleta */
+.code__keyword {
+  color: var(--blush);
+}
+
+.code__name {
+  color: var(--vanilla);
+}
+
+.code__key {
+  color: var(--sage);
+}
+
+.code__string {
+  color: color-mix(in oklab, var(--blush) 40%, var(--vanilla));
+}
+
+.code__comment {
+  color: var(--misty);
+  font-style: italic;
+}
+
+.code__prompt {
+  color: var(--sage);
+}
+
+/* ---------- Sobre mí: la foto en el centro y un texto a cada lado ---------- */
+
+.about__intro {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-5);
+  margin-top: var(--space-5);
+}
+
+.about__text {
+  max-width: 62ch;
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+/* El retrato en acuarela, pegado en una hoja de libreta. En celular va primero. */
+.about__portrait {
+  order: -1;
+  width: min(100%, 280px);
+  margin: 0;
+  padding: var(--space-4) var(--space-4) var(--space-2);
+  background:
+    repeating-linear-gradient(to bottom, transparent 0 27px, rgb(45 58 71 / 0.07) 27px 28px),
+    var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  box-shadow: var(--shadow);
+}
+
+.about__portrait img {
+  width: 100%;
+  height: auto;
+}
+
+.about__portrait figcaption {
+  margin-top: var(--space-2);
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+/* En pantallas anchas: un bloque centrado y no tan ancho, con letra un poco más
+   grande para que los dos textos lleguen a la altura de la foto */
+@media (min-width: 1024px) {
+  .about__intro {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 280px) minmax(0, 1fr);
+    align-items: center;
+    gap: var(--space-6);
+    max-width: 980px;
+    margin-inline: auto;
+  }
+
+  .about__text {
+    font-size: 1.12rem;
+    line-height: 1.75;
+  }
+
+  .about__portrait {
+    order: 0;
+  }
+}
+
+/* "Ahora mismo": lo que estoy haciendo hoy */
+.now {
+  max-width: 760px;
+  margin: var(--space-7) auto 0;
+  padding: var(--space-5) var(--space-6);
+  border-left: 4px solid var(--color-highlight);
+  background: var(--color-surface);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.about .now__title {
+  margin: 0 0 var(--space-3);
+  color: var(--color-heading);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.now__list {
+  display: grid;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.now__list li {
+  position: relative;
+  padding-left: 1.4rem;
+}
+
+/* Viñeta en forma de prompt de terminal */
+.now__list li::before {
+  content: "›";
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+  font-family: var(--font-mono);
+  font-weight: 700;
+}
+
+/* Fotos de campo como polaroids. En modo ruta van junto al recorrido (fx/landmarks.js). */
+.field-photos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-5);
+  margin-top: var(--space-7);
+}
+
+html[data-mode="route"] .field-photos {
+  display: none;
+}
+
+.field-photos__item {
+  width: min(100%, 220px);
+  margin: 0;
+  padding: 8px 8px 0;
+  background: #fffdf8;
+  box-shadow: var(--shadow);
+  rotate: -2deg;
+}
+
+.field-photos__item:nth-child(2) {
+  rotate: 2deg;
+}
+
+.field-photos__item img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.field-photos__item figcaption {
+  padding: 6px 2px 10px;
+  color: var(--midnight);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-align: center;
+}
+
+.about h3 {
+  margin-top: var(--space-7);
+}
+
+.crossover {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.98rem;
+}
+
+.crossover th {
+  padding: var(--space-2) var(--space-3);
+  color: var(--color-heading);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-align: left;
+}
+
+.crossover td {
+  padding: var(--space-3);
+  border-top: 1px solid var(--color-border);
+  vertical-align: top;
+}
+
+.crossover td:first-child {
+  color: var(--color-text-muted);
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-4);
+  margin: var(--space-6) 0 0;
+}
+
+.facts div {
+  padding: var(--space-4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+}
+
+.facts dt {
+  color: var(--color-label);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+}
+
+.facts dd {
+  margin: var(--space-1) 0 0;
+  font-size: 0.95rem;
+}
+
+.values {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.values li {
+  padding: var(--space-4);
+  border-top: 3px solid var(--color-stratum-1);
+  background: var(--color-surface);
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+  font-size: 0.92rem;
+}
+
+.values strong {
+  display: block;
+  color: var(--color-heading);
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+}
+
+@media (max-width: 680px) {
+  .crossover thead {
+    display: none;
+  }
+
+  .crossover tr {
+    display: block;
+    padding-block: var(--space-2);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .crossover td {
+    display: block;
+    padding: var(--space-1) 0;
+    border: 0;
+  }
+
+  .crossover td:last-child::before {
+    content: "→ ";
+    color: var(--color-accent);
+  }
+}
+
+/* ---------- Proyectos: caja de núcleos de perforación ---------- */
+
+.projects__intro {
+  max-width: 62ch;
+}
+
+.core-box {
+  display: grid;
+  gap: var(--space-5);
+  margin-top: var(--space-6);
+}
+
+@media (min-width: 900px) {
+  .core-box {
+    grid-template-columns: minmax(250px, 330px) minmax(0, 1fr);
+    gap: var(--space-6);
+    align-items: start;
+  }
+}
+
+/* La caja: un marco con los núcleos en fila, como en una litoteca */
+.core-box__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  padding: var(--space-4);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-surface-raised);
+  box-shadow: var(--shadow);
+}
+
+/* Sin JavaScript no hay caja: se ven todas las fichas, una debajo de otra */
+.core-box:not(.is-enhanced) .core-box__list {
+  display: none;
+}
+
+.core-box:not(.is-enhanced) .core-box__panels {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.core-box__label {
+  margin: 0 0 var(--space-1);
+  padding-bottom: var(--space-2);
+  border-bottom: 1px dashed color-mix(in oklab, var(--midnight) 20%, transparent);
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.core-box__group {
+  margin: var(--space-3) 0 0;
+  color: var(--color-heading);
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+/* Cada núcleo es un cilindro de roca con su litología; el abierto sobresale */
+.core {
+  --litho: var(--litho-sandstone);
+  --rock: var(--color-sandstone);
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+  padding: 0.55rem 1rem;
+  border: 1px solid color-mix(in oklab, var(--midnight) 18%, transparent);
+  border-radius: 999px;
+  background:
+    linear-gradient(to bottom, rgb(255 255 255 / 0.45), transparent 40%, rgb(45 58 71 / 0.1)),
+    var(--litho),
+    var(--rock);
+  color: var(--color-text);
+  font: inherit;
+  font-size: 0.95rem;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.core:nth-of-type(5n + 2) { --litho: var(--litho-shale); --rock: var(--color-shale); }
+.core:nth-of-type(5n + 3) { --litho: var(--litho-limestone); --rock: var(--color-limestone); }
+.core:nth-of-type(5n + 4) { --litho: var(--litho-conglomerate); --rock: var(--color-conglomerate); }
+.core:nth-of-type(5n + 5) { --litho: var(--litho-igneous); --rock: var(--color-igneous); }
+
+.core:hover {
+  transform: translateX(4px);
+}
+
+.core[aria-expanded="true"] {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--rosewood) 35%, transparent), var(--shadow);
+  transform: translateX(10px);
+}
+
+.core__id {
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+}
+
+.core__name {
+  overflow: hidden;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.core__badge {
+  padding: 0 0.5rem;
+  border-radius: 999px;
+  background: var(--blush);
+  color: var(--midnight);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+}
+
+/* Ficha de cada proyecto */
+.specimen {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: var(--space-6);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.specimen[hidden] {
+  display: none;
+}
+
+/* La ficha que se abre entra deslizándose */
+.core-box.is-enhanced .specimen:not([hidden]) {
+  animation: specimen-in 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+@keyframes specimen-in {
+  from {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+}
+
+.specimen__tag {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px dashed var(--color-border);
+  color: var(--color-label);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Tres puntos como en la barra de un editor de código */
+.specimen__tag::before {
+  content: "";
+  flex: none;
+  width: 34px;
+  height: 8px;
+  background:
+    radial-gradient(circle at 4px 4px, var(--rosewood) 3.5px, transparent 4px),
+    radial-gradient(circle at 17px 4px, var(--sage) 3.5px, transparent 4px),
+    radial-gradient(circle at 30px 4px, var(--misty) 3.5px, transparent 4px);
+}
+
+.specimen__tag > :last-child {
+  margin-left: auto;
+}
+
+.specimen__badge {
+  padding: 0.05rem 0.6rem;
+  border-radius: 999px;
+  background: var(--blush);
+  color: var(--midnight);
+}
+
+.specimen__title {
+  margin-bottom: var(--space-2);
+  font-size: clamp(1.5rem, 3vw, 1.9rem);
+}
+
+.specimen__subtitle {
+  margin-bottom: var(--space-4);
+  color: var(--color-heading);
+  font-size: 1.02rem;
+}
+
+.specimen__description {
+  max-width: 65ch;
+  color: var(--color-text-muted);
+}
+
+.specimen .chips {
+  margin-top: auto;
+  padding-top: var(--space-4);
+}
+
+.specimen__team {
+  margin: var(--space-4) 0 0;
+  color: var(--color-text-muted);
+  font-size: 0.88rem;
+}
+
+.specimen__link {
+  align-self: flex-start;
+  margin-top: var(--space-4);
+  font-weight: 700;
+}
+
+/* ---------- Habilidades: columna estratigráfica ---------- */
+
+.strata {
+  margin: var(--space-6) 0 0;
+  padding: 0;
+  list-style: none;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.stratum {
+  display: grid;
+  grid-template-columns: minmax(0, 240px) minmax(0, 1fr);
+  gap: var(--space-4);
+  align-items: center;
+  padding: var(--space-4) var(--space-5);
+  border-left: 10px solid;
+}
+
+/* Cada capa con el color y el símbolo de su roca, como en una columna estratigráfica:
+   arenisca, lutita, caliza, conglomerado y, en la veta, roca ígnea */
+.stratum:nth-child(1) { border-color: var(--color-stratum-1); background: var(--litho-sandstone), var(--color-sandstone); }
+.stratum:nth-child(2) { border-color: var(--color-stratum-2); background: var(--litho-shale), var(--color-shale); }
+.stratum:nth-child(3) { border-color: var(--color-stratum-3); background: var(--litho-limestone), var(--color-limestone); }
+.stratum:nth-child(4) { border-color: var(--color-stratum-4); background: var(--litho-conglomerate), var(--color-conglomerate); }
+.stratum:nth-child(5) { border-color: var(--color-highlight); background: var(--litho-igneous), var(--color-igneous); }
+
+.stratum__name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.stratum__layer {
+  display: block;
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+
+@media (max-width: 600px) {
+  .stratum {
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+  }
+}
+
+/* Habilidades blandas como cristales hexagonales, cada uno de un color */
+.soft-skills {
+  margin-top: var(--space-7);
+  text-align: center;
+}
+
+.gems {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-4);
+  margin: var(--space-5) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.gem {
+  --gem: var(--blush);
+  display: grid;
+  place-items: center;
+  width: 172px;
+  aspect-ratio: 1.15;
+  padding: var(--space-4) var(--space-5);
+  clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
+  background:
+    linear-gradient(135deg, rgb(255 255 255 / 0.55), transparent 45%),
+    linear-gradient(315deg, rgb(45 58 71 / 0.12), transparent 50%),
+    color-mix(in oklab, var(--gem) 55%, var(--vanilla));
+  color: var(--midnight);
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.25;
+  text-align: center;
+}
+
+.gem:nth-child(2) { --gem: var(--sage); }
+.gem:nth-child(3) { --gem: var(--misty); }
+.gem:nth-child(4) { --gem: var(--rosewood); }
+
+/* ---------- Intereses: muestras que se voltean ---------- */
+
+.passions__hint {
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+}
+
+.passions__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-4);
+  margin: var(--space-5) 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: sample;
+}
+
+.passion {
+  position: relative;
+  min-height: 220px;
+  counter-increment: sample;
+  border-radius: var(--radius-sm);
+  perspective: 900px;
+  outline-offset: 4px;
+}
+
+.passion__inner {
+  position: relative;
+  height: 100%;
+  min-height: inherit;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.passion:hover .passion__inner,
+.passion:focus .passion__inner {
+  transform: rotateY(180deg);
+}
+
+.passion__face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  padding: var(--space-5);
+  border: 1px solid var(--color-border);
+  border-top: 3px solid var(--sage);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  text-align: center;
+  backface-visibility: hidden;
+}
+
+.passion__face--back {
+  transform: rotateY(180deg);
+  border-top-color: var(--rosewood);
+  background: var(--litho-sandstone), color-mix(in oklab, var(--sage) 16%, var(--color-surface));
+}
+
+.passion__face h3 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.passion__face p {
+  margin: 0;
+  font-size: 0.98rem;
+}
+
+.passion .pixel-icon {
+  width: 64px;
+  height: 64px;
+}
+
+/* Etiqueta de muestra, como en una colección de rocas */
+.passion__face--front::after {
+  content: "M-" counter(sample, decimal-leading-zero);
+  content: "M-" counter(sample, decimal-leading-zero) / "";
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  padding: 0 0.4rem;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  color: var(--color-label);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+}
+
+/* Sin animaciones, las dos caras se ven una debajo de la otra */
+html[data-motion="off"] .passion {
+  min-height: 0;
+}
+
+html[data-motion="off"] .passion__inner {
+  transform: none;
+}
+
+html[data-motion="off"] .passion__face {
+  position: static;
+  transform: none;
+}
+
+html[data-motion="off"] .passion__face--back {
+  border-top-width: 1px;
+}
+
+.pixel-icon {
+  width: calc(16px * 3);
+  height: calc(16px * 3);
+  image-rendering: pixelated;
+}
+
+/* ---------- Contacto ---------- */
+
+.contact {
+  background:
+    radial-gradient(90% 60% at 50% 0%, rgb(254 235 210 / 0.08), transparent 70%),
+    var(--color-bg);
+}
+
+.contact__lead {
+  max-width: 60ch;
+  font-size: 1.15rem;
+}
+
+.contact__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-4);
+  margin: var(--space-6) 0;
+  padding: 0;
+  list-style: none;
+}
+
+.contact__item {
+  padding: var(--space-4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+}
+
+.contact__label {
+  display: block;
+  color: var(--color-label);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+}
+
+.contact__item a {
+  overflow-wrap: anywhere;
+}

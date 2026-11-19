@@ -1,0 +1,10 @@
+# Configuración local del editor y del asistente
+.claude/
+.vscode/
+
+# Python (scripts de tools/)
+__pycache__/
+*.pyc
+
+# Figuras de la tesis: aún no se publican
+assets/img/tesis-*.webp

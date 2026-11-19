@@ -1,0 +1,435 @@
+/* ==========================================================================
+   Tesis (Cuaternario): texto, cifras, gráfico de orientaciones, embudo y figuras
+   ========================================================================== */
+
+.thesis {
+  background:
+    radial-gradient(80% 50% at 50% 0%, rgb(249 249 127 / 0.06), transparent 70%),
+    var(--color-bg);
+}
+
+.thesis h3 {
+  margin-top: var(--space-7);
+}
+
+.thesis__reference {
+  color: var(--color-text-muted);
+  font-size: 0.92rem;
+}
+
+.thesis__reference cite {
+  color: var(--color-sand);
+  font-style: italic;
+}
+
+.thesis__lead {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+.thesis__question {
+  margin-top: var(--space-6);
+  padding: var(--space-5);
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-teal);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  background: var(--color-surface);
+}
+
+.thesis__question h3 {
+  margin: 0 0 var(--space-2);
+  color: var(--color-teal);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.thesis__question p {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+}
+
+.thesis__steps {
+  display: grid;
+  gap: var(--space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+
+.thesis__steps li {
+  position: relative;
+  padding: var(--space-4) var(--space-4) var(--space-4) 3.5rem;
+  background: var(--color-surface);
+  border-radius: var(--radius-sm);
+  counter-increment: step;
+}
+
+.thesis__steps li::before {
+  content: counter(step);
+  position: absolute;
+  top: var(--space-4);
+  left: var(--space-4);
+  display: grid;
+  place-items: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  background: var(--color-lava);
+  color: var(--color-bg);
+  font-family: var(--font-mono);
+  font-weight: 500;
+  border-radius: 4px;
+}
+
+.thesis__steps strong {
+  color: var(--color-sand);
+}
+
+.thesis__tools {
+  margin-top: var(--space-4);
+}
+
+/* Cifras clave */
+.thesis__stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: var(--space-4);
+  margin: 0;
+}
+
+.stat {
+  padding: var(--space-4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-top: 3px solid var(--color-lava);
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+}
+
+.stat__value {
+  color: var(--color-lava);
+  font-family: var(--font-mono);
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.stat__label {
+  margin: var(--space-2) 0 0;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+.thesis__finding {
+  margin-top: var(--space-5);
+  padding: var(--space-4) var(--space-5);
+  border-left: 4px solid var(--color-lava);
+  background: color-mix(in oklab, var(--color-lava) 10%, var(--color-bg));
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+}
+
+/* ---------- Gráfico de orientaciones ---------- */
+
+.thesis-chart {
+  margin: var(--space-7) 0 0;
+}
+
+.thesis-chart h3 {
+  margin-top: 0;
+}
+
+.thesis-chart__help {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+.thesis-chart__mount {
+  position: relative;
+  padding: var(--space-4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+.thesis-chart__fallback {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+}
+
+.thesis-chart__svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  font-family: var(--font-mono);
+}
+
+.thesis-chart__toggles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+.thesis-chart__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.3rem 0.7rem;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+
+.thesis-chart__toggle[aria-pressed="true"] {
+  border-color: var(--color-text-muted);
+  background: var(--color-surface-raised);
+  color: var(--color-text);
+}
+
+.thesis-chart__key {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+}
+
+.thesis-chart__key--rose { background: var(--color-lava); }
+.thesis-chart__key--families { background: var(--color-sand); }
+.thesis-chart__key--structures { background: var(--color-text); }
+.thesis-chart__key--shmax { background: var(--color-teal); }
+
+.thesis-chart__layer--off {
+  display: none;
+}
+
+/* Trazos del gráfico */
+.thesis-chart__grid line,
+.thesis-chart__grid path,
+.thesis-chart__grid circle {
+  fill: none;
+  stroke: var(--color-border);
+  stroke-width: 1;
+}
+
+.thesis-chart__axis,
+.thesis-chart__tick {
+  stroke: var(--color-text-muted);
+  stroke-width: 1;
+}
+
+.thesis-chart__label,
+.thesis-chart__family-label,
+.thesis-chart__note {
+  fill: var(--color-text-muted);
+  stroke: none;
+  font-size: 12px;
+}
+
+.thesis-chart__wedge,
+.thesis-chart__wedge .thesis-chart__piece {
+  fill: color-mix(in oklab, var(--color-lava) 75%, transparent);
+  stroke: var(--color-bg);
+  stroke-width: 1;
+  cursor: pointer;
+}
+
+.thesis-chart__wedge:hover,
+.thesis-chart__wedge:focus-visible,
+.thesis-chart__wedge:hover .thesis-chart__piece,
+.thesis-chart__wedge:focus-visible .thesis-chart__piece {
+  fill: var(--color-lava-strong);
+  outline: none;
+}
+
+.thesis-chart__family,
+.thesis-chart__family .thesis-chart__piece {
+  fill: color-mix(in oklab, var(--color-sand) 22%, transparent);
+  stroke: color-mix(in oklab, var(--color-sand) 60%, transparent);
+  stroke-width: 1;
+}
+
+.thesis-chart__family-label {
+  fill: var(--color-sand);
+}
+
+.thesis-chart__structure {
+  stroke: var(--color-text);
+  stroke-width: 1.5;
+}
+
+.thesis-chart__casing {
+  stroke: var(--color-surface);
+  stroke-width: 5;
+}
+
+.thesis-chart__leader {
+  stroke: var(--color-text-muted);
+  stroke-width: 0.75;
+}
+
+.thesis-chart__mean {
+  stroke: var(--color-lava);
+  stroke-width: 2;
+  stroke-dasharray: 6 4;
+}
+
+.thesis-chart__shmax-band {
+  fill: color-mix(in oklab, var(--color-teal) 18%, transparent);
+  stroke: none;
+}
+
+.thesis-chart__shmax,
+.thesis-chart__shmax-range {
+  fill: none;
+  stroke: var(--color-teal);
+  stroke-width: 2;
+}
+
+.thesis-chart__tooltip {
+  position: absolute;
+  z-index: 2;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg);
+  box-shadow: var(--shadow);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  pointer-events: none;
+}
+
+.thesis-chart__tooltip-value {
+  display: block;
+  color: var(--color-lava);
+  font-weight: 500;
+}
+
+.thesis-chart__tooltip-detail {
+  display: block;
+  color: var(--color-text-muted);
+}
+
+.thesis-chart__table {
+  margin-top: var(--space-3);
+  font-size: 0.9rem;
+}
+
+.thesis-chart__table summary {
+  color: var(--color-lava);
+  cursor: pointer;
+}
+
+.thesis-chart__table table {
+  width: 100%;
+  margin-top: var(--space-3);
+  border-collapse: collapse;
+}
+
+.thesis-chart__table caption {
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+  text-align: left;
+}
+
+.thesis-chart__table th,
+.thesis-chart__table td {
+  padding: var(--space-2);
+  border-top: 1px solid var(--color-border);
+  font-weight: 400;
+  text-align: left;
+  vertical-align: top;
+}
+
+.thesis-chart__table th {
+  color: var(--color-text-muted);
+}
+
+/* ---------- Embudo de depuración: barras proporcionales a cada conteo ---------- */
+
+.funnel {
+  display: grid;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.funnel__step {
+  position: relative;
+  padding: var(--space-2) var(--space-3);
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  font-size: 0.92rem;
+}
+
+.funnel__step::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: calc(var(--value) / 526 * 100%);
+  background: repeating-linear-gradient(90deg, var(--color-stratum-3) 0 8px, var(--color-stratum-4) 8px 16px);
+  opacity: 0.8;
+}
+
+.funnel__n {
+  position: relative;
+  display: inline-block;
+  min-width: 3.5ch;
+  margin-right: var(--space-2);
+  color: var(--color-lava);
+  font-family: var(--font-mono);
+  font-weight: 500;
+}
+
+.funnel__step > * ,
+.funnel__step {
+  isolation: isolate;
+}
+
+/* ---------- Figuras y cierre ---------- */
+
+.thesis__figures {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-5);
+  margin-top: var(--space-7);
+}
+
+.thesis-figure {
+  margin: 0;
+}
+
+.thesis-figure img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+  background: #fff;
+}
+
+.thesis-figure figcaption {
+  margin-top: var(--space-2);
+  color: var(--color-text-muted);
+  font-size: 0.88rem;
+}
+
+.thesis__credits,
+.thesis__repo {
+  color: var(--color-text-muted);
+  font-size: 0.88rem;
+}
+
+.thesis__cite {
+  margin-top: var(--space-6);
+  padding: var(--space-4);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: 0.92rem;
+}

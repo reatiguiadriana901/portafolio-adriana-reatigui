@@ -1,0 +1,265 @@
+/* ==========================================================================
+   Escena del viaje: la ruta de Lapilli en escritorio (modo ruta) y el
+   escenario inferior en celular y tableta (modo escenario). JS: js/scene/
+   ========================================================================== */
+
+/* Sonda invisible: layout.js lee su alto para conocer el alto estable de la ventana */
+.viewport-probe {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100vh; /* respaldo para navegadores sin la unidad svh */
+  height: 100svh;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Fondo animado: corte geológico (fx/cross-section.js), detrás de todo. Sin JS no aparece */
+.cross-section {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+html:not(.js) .cross-section {
+  display: none;
+}
+
+/* ---------- Ruta (html[data-mode="route"]) ---------- */
+
+/* Cubre todo el documento: route.js le pone el alto de la página */
+.scene {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: var(--z-scene);
+  display: none;
+  width: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+html[data-mode="route"] .scene {
+  display: block;
+}
+
+/* Huellas tenues (icnitas): cuadritos de 4 px cada 16 px */
+.scene__trail {
+  fill: none;
+  stroke: color-mix(in oklab, var(--color-heading) 28%, transparent);
+  stroke-width: 4;
+  stroke-linecap: butt;
+  stroke-dasharray: 4 12;
+}
+
+/* Lo recorrido: route.js alarga este trazo con stroke-dasharray según el avance */
+.scene__trail--done {
+  stroke: color-mix(in oklab, var(--color-heading) 60%, transparent);
+  stroke-width: 2;
+  stroke-dasharray: 0 100000;
+}
+
+/* Hallazgos del recorrido (fx/landmarks.js): un ícono con su sombra y su etiqueta,
+   que flota despacio y salta cuando Lapilli pasa */
+.landmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 48px;
+}
+
+.landmark canvas {
+  width: 48px;
+  height: 48px;
+  image-rendering: pixelated;
+  animation: landmark-float 3s ease-in-out var(--delay, 0s) infinite;
+}
+
+.landmark::before {
+  content: "";
+  position: absolute;
+  top: 44px;
+  width: 40px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgb(45 58 71 / 0.15);
+}
+
+.landmark__label {
+  margin-top: 8px;
+  padding: 0 0.35rem;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  background: var(--color-surface);
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  line-height: 1.6;
+  white-space: nowrap;
+}
+
+.landmark.is-found canvas {
+  animation: landmark-hop 0.5s ease-out, landmark-float 3s ease-in-out 0.5s infinite;
+}
+
+@keyframes landmark-float {
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes landmark-hop {
+  40% {
+    transform: translateY(-14px);
+  }
+}
+
+/* Fotos de campo (fx/landmarks.js), como polaroids pegadas en el mapa */
+.polaroid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 8px 8px 0;
+  background: #fffdf8;
+  box-shadow: 0 10px 24px rgb(45 58 71 / 0.25);
+}
+
+/* Un trozo de cinta que la sostiene */
+.polaroid::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  width: 64px;
+  height: 20px;
+  background: color-mix(in oklab, var(--blush) 75%, transparent);
+  transform: translateX(-50%) rotate(-4deg);
+}
+
+.polaroid img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.polaroid figcaption {
+  padding: 6px 2px 10px;
+  color: var(--midnight);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-align: center;
+}
+
+.polaroid.is-found {
+  animation: polaroid-pop 0.6s ease;
+}
+
+@keyframes polaroid-pop {
+  40% {
+    scale: 1.06;
+  }
+}
+
+/* Lapilli oculto (lo normal; se muestra desde Ajustes): sin mascota, globo,
+   hallazgos ni huellas. Las fotos y los estratos se quedan. */
+html.no-lapilli .mascot,
+html.no-lapilli .bubble,
+html.no-lapilli .landmark,
+html.no-lapilli .scene__trail,
+html.no-lapilli .stage,
+html.no-lapilli .hero__hint,
+html.no-lapilli .hero__mascot-slot {
+  display: none !important;
+}
+
+html.no-lapilli[data-mode="stage"] body {
+  padding-bottom: 0;
+}
+
+/* Terreno de cada franja (route.js): estratos bajo la ruta y una capa de suelo
+   encima, justo donde pisa Lapilli */
+.scene__terrain {
+  fill: url(#strata);
+}
+
+.scene__ground {
+  fill: none;
+  stroke: var(--color-soil);
+  stroke-width: 6;
+  stroke-linejoin: round;
+}
+
+/* Contenido del patrón #strata (index.html): rocas y su símbolo de litología */
+.strata__sandstone {
+  fill: var(--color-sandstone);
+}
+
+.strata__shale {
+  fill: var(--color-shale);
+}
+
+.strata__limestone {
+  fill: var(--color-limestone);
+}
+
+.strata__conglomerate {
+  fill: var(--color-conglomerate);
+}
+
+.strata__grains {
+  fill: rgb(45 58 71 / 0.25);
+}
+
+.strata__marks {
+  fill: none;
+  stroke: rgb(45 58 71 / 0.22);
+  stroke-width: 1.5;
+}
+
+/* ---------- Escenario inferior (html[data-mode="stage"]) ---------- */
+
+.stage {
+  --ground-color: var(--sage);
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: var(--z-stage);
+  height: calc(var(--stage-h) + env(safe-area-inset-bottom, 0px));
+  border-top: 1px solid var(--color-border);
+  background: linear-gradient(to bottom, var(--color-bg) 35%, color-mix(in oklab, var(--ground-color) 14%, var(--color-bg)));
+  pointer-events: none;
+}
+
+.stage[hidden] {
+  display: none;
+}
+
+/* Suelo pixelado: una fila del color del periodo sobre un tablero de tierra.
+   Los cuadritos miden --px, igual que los píxeles de Lapilli. */
+.stage__ground {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: calc(var(--px) * 4 + env(safe-area-inset-bottom, 0px));
+  background:
+    linear-gradient(var(--ground-color) 0 var(--px), transparent var(--px)),
+    repeating-conic-gradient(
+      color-mix(in oklab, var(--ground-color) 22%, var(--color-stratum-3)) 0 25%,
+      color-mix(in oklab, var(--ground-color) 12%, var(--color-stratum-4)) 0 50%
+    ) 0 var(--px) / calc(var(--px) * 2) calc(var(--px) * 2);
+}
+
+/* Con el escenario visible, ningún texto queda escondido debajo de él al final */
+html[data-mode="stage"] body {
+  padding-bottom: calc(var(--stage-h) + env(safe-area-inset-bottom, 0px));
+}

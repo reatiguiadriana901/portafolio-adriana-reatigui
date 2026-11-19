@@ -1,0 +1,54 @@
+/* ==========================================================================
+   Franjas entre secciones: cortes geológicos SIN texto donde Lapilli cruza de
+   un carril al otro. En escritorio el terreno con sus estratos lo dibuja
+   scene/route.js bajo la ruta (ver css/scene.css); en celular y con las
+   animaciones en pausa, el suelo es plano y va aquí.
+   ========================================================================== */
+
+.band {
+  position: relative;
+  z-index: var(--z-content);
+}
+
+.band__scene {
+  --ground-top: 46%; /* altura del suelo plano */
+  --strata: repeating-linear-gradient(
+    to bottom,
+    var(--color-sandstone) 0 28px,
+    var(--color-shale) 28px 56px,
+    var(--color-limestone) 56px 84px,
+    var(--color-conglomerate) 84px 112px
+  );
+  position: relative;
+  min-height: 200px;
+  overflow: hidden;
+}
+
+@media (min-width: 1200px) {
+  .band__scene {
+    min-height: 300px;
+  }
+}
+
+/* Suelo plano: capa de suelo arriba y estratos con granos de arena debajo */
+.band__scene::before {
+  content: "";
+  position: absolute;
+  inset: var(--ground-top) 0 0;
+  border-top: 6px solid var(--color-soil);
+  background: var(--litho-sandstone), var(--strata);
+}
+
+/* En modo ruta el terreno sigue la ruta de Lapilli: lo pinta el SVG de la escena */
+html[data-mode="route"] .band__scene::before {
+  display: none;
+}
+
+.fx-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--z-fx);
+  pointer-events: none;
+}
+

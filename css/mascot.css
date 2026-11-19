@@ -1,0 +1,79 @@
+/* ==========================================================================
+   Lapilli y su burbuja
+   ========================================================================== */
+
+/* Un botón real (funciona con teclado) con un canvas de 20x16 escalado sin suavizado */
+.mascot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: var(--z-mascot);
+  padding: 0;
+  border: 0;
+  background: none;
+  line-height: 0;
+  cursor: pointer;
+  will-change: transform;
+}
+
+.mascot__canvas {
+  width: calc(20 * var(--px));
+  height: calc(16 * var(--px));
+  image-rendering: pixelated;
+}
+
+.mascot:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
+html[data-mode="stage"] .mascot {
+  position: fixed;
+  z-index: calc(var(--z-stage) + 1);
+}
+
+/* En pausa, Lapilli se sienta quieto en el inicio */
+html[data-mode="static"] .mascot {
+  position: static;
+  will-change: auto;
+}
+
+/* Sin JavaScript no hay viaje: Lapilli no aparece */
+html:not(.js) .mascot {
+  display: none;
+}
+
+/* Globo de diálogo con borde pixelado */
+.bubble {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: var(--z-mascot);
+  max-width: 240px;
+  padding: 0.45rem 0.65rem;
+  border: 3px solid var(--color-bg);
+  box-shadow: 0 0 0 3px var(--color-text), 6px 6px 0 3px rgb(0 0 0 / 0.35);
+  background: var(--color-text);
+  color: var(--color-bg);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  line-height: 1.4;
+  pointer-events: none;
+}
+
+.bubble__text {
+  display: -webkit-box;
+  margin: 0;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+}
+
+html[data-mode="stage"] .bubble {
+  position: fixed;
+  z-index: calc(var(--z-stage) + 1);
+  padding: 0.3rem 0.5rem;
+  font-size: 0.72rem;
+  line-height: 1.3;
+}

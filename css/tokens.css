@@ -1,0 +1,119 @@
+/* ==========================================================================
+   Tokens: paleta de Adriana (crema vainilla, rosa pétalo, palo de rosa,
+   salvia, azul niebla y azul medianoche), los colores de Lapilli,
+   tipografías y medidas.
+   El sitio es claro; .theme-dark (cabecera, inicio, contacto y pie) usa los
+   mismos tokens con valores invertidos.
+   ========================================================================== */
+
+:root {
+  color-scheme: light;
+
+  /* Paleta */
+  --vanilla: #fff7e6;
+  --blush: #f7c8d3;
+  --rosewood: #b46a72;
+  --sage: #a8b58a;
+  --misty: #a9b7c6;
+  --midnight: #2d3a47;
+
+  /* Fondos */
+  --color-bg: var(--vanilla);
+  /* Todo sale de los seis colores base, así el panel de ajustes puede cambiar de paleta */
+  --color-surface: color-mix(in oklab, var(--vanilla) 45%, white);
+  --color-surface-raised: color-mix(in oklab, var(--vanilla) 90%, var(--midnight));
+  --color-border: color-mix(in oklab, var(--vanilla) 84%, var(--midnight));
+
+  /* Texto: los acentos de la paleta se oscurecen con el color oscuro para que den contraste */
+  --color-text: var(--midnight);
+  --color-text-muted: color-mix(in oklab, var(--midnight) 82%, var(--vanilla));
+  --color-heading: color-mix(in oklab, var(--rosewood) 72%, var(--midnight));
+  --color-label: color-mix(in oklab, var(--sage) 45%, var(--midnight));
+
+  /* Acentos */
+  --color-accent: color-mix(in oklab, var(--rosewood) 72%, var(--midnight));
+  --color-accent-strong: color-mix(in oklab, var(--rosewood) 55%, var(--midnight));
+  --color-chip: color-mix(in oklab, var(--sage) 24%, var(--color-surface));
+  --color-highlight: var(--rosewood); /* solo decoración */
+
+  /* Estratos de la columna de habilidades y del pie */
+  --color-stratum-1: var(--blush);
+  --color-stratum-2: var(--sage);
+  --color-stratum-3: var(--misty);
+  --color-stratum-4: var(--midnight);
+
+  /* Rocas de los cortes geológicos y de la columna de habilidades */
+  --color-soil: color-mix(in oklab, var(--sage) 70%, var(--midnight));
+  --color-sandstone: color-mix(in oklab, var(--sage) 28%, var(--vanilla));
+  --color-shale: color-mix(in oklab, var(--blush) 50%, var(--vanilla));
+  --color-limestone: color-mix(in oklab, var(--misty) 38%, var(--vanilla));
+  --color-conglomerate: color-mix(in oklab, var(--rosewood) 22%, var(--vanilla));
+  --color-igneous: color-mix(in oklab, var(--midnight) 14%, var(--vanilla));
+  --color-dike: var(--rosewood);
+
+  /* Símbolos de litología (mosaicos SVG): arenisca, lutita, caliza, conglomerado e ígnea */
+  --litho-sandstone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cpath fill='%232d3a47' fill-opacity='.22' d='M3 3h2v2H3zM11 10h2v2h-2z'/%3E%3C/svg%3E");
+  --litho-shale: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='12'%3E%3Cpath stroke='%232d3a47' stroke-opacity='.22' stroke-width='1.5' d='M2 3.5h8M14 9.5h8'/%3E%3C/svg%3E");
+  --litho-limestone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='16'%3E%3Cpath fill='none' stroke='%232d3a47' stroke-opacity='.18' stroke-width='1.5' d='M0 .75h32M0 8.75h32M8 0v8M24 8v8'/%3E%3C/svg%3E");
+  --litho-conglomerate: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='20'%3E%3Cg fill='none' stroke='%232d3a47' stroke-opacity='.22' stroke-width='1.5'%3E%3Ccircle cx='7' cy='6' r='3'/%3E%3Ccircle cx='20' cy='14' r='3.5'/%3E%3C/g%3E%3C/svg%3E");
+  --litho-igneous: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Cpath fill='none' stroke='%232d3a47' stroke-opacity='.22' stroke-width='1.5' d='M2 3l3 5l3-5M12 12l3 5l3-5'/%3E%3C/svg%3E");
+
+  /* Lapilli, el T-Rex verde olivino */
+  --color-olivine: #7a9a3a;
+  --color-olivine-shadow: #556b2a;
+  --color-olivine-belly: #c9d98a;
+  --color-eye: #1f1a17;
+
+  /* Tipografías: Fraunces (títulos), DM Sans (texto), Fira Code (etiquetas) */
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-body: "DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "Fira Code", ui-monospace, "Cascadia Code", Consolas, monospace;
+
+  /* Espacios y medidas */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4.5rem;
+  /* La columna crece en pantallas grandes, pero deja siempre 300 px a cada lado para Lapilli */
+  --column: clamp(760px, calc(100vw - 600px), 1120px);
+  --gutter: clamp(1rem, 4vw, 2rem);
+  --header-h: 3.5rem;
+  --radius-sm: 6px;
+  --radius: 12px;
+  --shadow: 0 12px 32px rgb(45 58 71 / 0.12);
+
+  /* Escena de la mascota (layout.js actualiza --px y --lane-w) */
+  --px: 4px;
+  --lane-w: 0px;
+  --stage-h: 88px;
+
+  /* Capas */
+  --z-scene: 5;
+  --z-content: 10;
+  --z-mascot: 20;
+  --z-fx: 30;
+  --z-stage: 40;
+  --z-header: 50;
+}
+
+/* Secciones oscuras: azul medianoche con texto vainilla y acento rosa pétalo */
+.theme-dark {
+  color-scheme: dark;
+  --color-bg: var(--midnight);
+  --color-surface: color-mix(in oklab, var(--midnight) 88%, white);
+  --color-surface-raised: color-mix(in oklab, var(--midnight) 80%, white);
+  --color-border: color-mix(in oklab, var(--midnight) 70%, white);
+  --color-text: var(--vanilla);
+  --color-text-muted: var(--misty);
+  --color-heading: var(--sage);
+  --color-label: var(--sage);
+  --color-accent: var(--blush);
+  --color-accent-strong: color-mix(in oklab, var(--blush) 60%, white);
+  --color-chip: color-mix(in oklab, var(--sage) 24%, var(--color-bg));
+  background: var(--color-bg);
+  color: var(--color-text);
+}

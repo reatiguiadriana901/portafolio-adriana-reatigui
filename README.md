@@ -1,44 +1,55 @@
-# Portfolio Personal — Adriana Reatigui
+# Portafolio de Adriana Reatigui
 
-One page personal portfolio: geóloga (UIS) y técnica en desarrollo de software. Presenta mi perfil, proyectos, habilidades y contacto en un solo lugar.
+Soy geóloga (Universidad Industrial de Santander) y estoy terminando el Técnico en Desarrollo de Software en Campuslands. Este portafolio reúne mi perfil, mis proyectos de software y de geociencias, mis habilidades y mis datos de contacto.
 
-🔗 **Demo en vivo:** https://reatiguiadriana901.github.io/portafolio-adriana-reatigui/
+🔗 **Sitio en vivo:** https://reatiguiadriana901.github.io/portafolio-adriana-reatigui/
 
-## Características
+## Qué tiene
 
-- Diseño responsivo (móvil, tablet y escritorio)
-- HTML5 semántico
-- CSS3 con metodología BEM
-- Animaciones con JavaScript (aparición de secciones al hacer scroll, barras de habilidades animadas)
-- Imágenes optimizadas
+- **Un corte geológico animado de fondo**: capas plegadas y fallas normales que avanzan despacio. Al bajar por la página bajas también por el subsuelo.
+- **Una presentación al abrir la página**: suben los estratos, cada uno con una parte de mi stack, y aparecen mi nombre y mi rol. Sale una vez por sesión y se puede saltar.
+- **Proyectos en una caja de núcleos de perforación**: cada núcleo abre la ficha de un proyecto de software o de geociencias.
+- **Habilidades como una columna estratigráfica**, de la superficie (frontend) al núcleo (datos y automatización).
+- **Español e inglés**, con un botón para cambiar de idioma.
+- **Ajustes**: pausar las animaciones, probar paletas de colores y mostrar a Lapilli, un T-Rex en pixel art que acompaña el recorrido. Está oculto por defecto.
+- **Accesible**: se lee completo sin JavaScript, respeta la opción "reducir movimiento" del sistema y funciona con teclado.
 
-## Tecnologías
+## Cómo funciona
 
-- HTML5
-- CSS3
-- JavaScript (vanilla)
-
-## Estructura del proyecto
+Es HTML, CSS y JavaScript sin frameworks ni dependencias, con módulos ES y sin paso de compilación.
 
 ```
-portfolio/
-├── index.html
-├── styles.css
-├── script.js
-├── foto_acuarela.png
-└── README.md
+index.html          todo el contenido (se lee incluso sin JavaScript)
+css/                tokens (paleta), base, secciones, franjas, escena, mascota y presentación
+js/main.js          arranca cada módulo en orden
+js/state.js · bus.js · loop.js · motion.js · i18n.js
+                    estado compartido, eventos, un solo requestAnimationFrame, pausa e idiomas
+js/intro.js         presentación a pantalla completa
+js/fx/              corte geológico de fondo, hallazgos del recorrido, íconos y partículas
+js/ui/              navegación, caja de núcleos, apariciones y ajustes
+js/scene/           mide la página y convierte el scroll en la ruta de Lapilli
+js/mascot/          sprites de Lapilli, su animación y lo que dice
+js/data/            textos en inglés, frases de Lapilli y paletas
+tools/              servidor local sin caché y scripts de Python para datos e imágenes
 ```
 
-## Cómo verlo localmente
+## Verlo en local
 
-1. Clona el repositorio:
-   ```
-   git clone https://github.com/reatiguiadriana901/NOMBRE-DEL-REPO.git
-   ```
-2. Abre `index.html` en tu navegador (o usa la extensión Live Server en VS Code).
+Los módulos ES necesitan un servidor (no basta con abrir el archivo). Desde la carpeta del proyecto:
+
+```bash
+py -3.12 tools/serve.py
+```
+
+Luego abre http://127.0.0.1:5501. Este servidor no guarda caché, así que siempre ves la última versión de los archivos.
+
+- `?intro` vuelve a mostrar la presentación.
+- `?lang=en` abre el sitio en inglés.
+- `?motion=off` lo muestra sin animaciones.
+- `?debug` deja `window.__pf.state`, `bus` y `loop` en la consola.
 
 ## Contacto
 
-- **Email:** reatiguiadriana901@gmail.com
+- **Correo:** reatiguiadriana901@gmail.com
 - **GitHub:** [@reatiguiadriana901](https://github.com/reatiguiadriana901)
 - **LinkedIn:** [Adriana Reatigui](https://www.linkedin.com/in/adriana-reatigui-333655322/)
