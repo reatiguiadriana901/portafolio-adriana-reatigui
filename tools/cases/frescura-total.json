@@ -1,0 +1,345 @@
+{
+  "es": {
+    "eyebrow": "Java · 2026 · En equipo de tres",
+    "title": "Frescura Total",
+    "summary": "ERP de consola para una bodega de alimentos, escrito en Java 21 con MySQL. Lleva cada producto desde el proveedor hasta la entrega al cliente. Prioriza los lotes que vencen primero, aísla los que tienen problemas de calidad y permite rastrear a qué clientes llegó cada lote.",
+    "context": [
+      "En una bodega de alimentos, un lote que vence sin venderse es dinero perdido. El sistema controla lotes, ventas, proveedores y entregas desde la consola.",
+      "Cada producto se sigue desde que llega del proveedor hasta que se entrega. Los lotes se despachan por fecha de vencimiento (FEFO) y los que tienen problemas de calidad pasan a cuarentena."
+    ],
+    "role": [],
+    "stats": [
+      {
+        "value": "22",
+        "label": "tablas en la base de datos"
+      },
+      {
+        "value": "4",
+        "label": "módulos: Inventario, Ventas, Proveedores y Logística"
+      },
+      {
+        "value": "4",
+        "label": "estados de lote"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Proveedor y lote",
+        "text": "La mercancía se recibe y se registra como lote, con estado disponible, por vencer, vencido o en cuarentena."
+      },
+      {
+        "title": "Venta",
+        "text": "Se registra al cliente y la venta. El inventario sale por FEFO, primero el lote que vence antes."
+      },
+      {
+        "title": "Factura",
+        "text": "La venta genera una factura con código QR, que se guarda como imagen PNG."
+      },
+      {
+        "title": "Ruta y entrega",
+        "text": "La venta pasa a preparación, se incluye en una ruta de entrega y se marca como entregada."
+      },
+      {
+        "title": "Arquitectura",
+        "text": "Cada módulo usa MVC con DAO. Inventario y Ventas añaden una capa de servicio con las reglas de negocio, y una conexión JDBC compartida mediante singleton."
+      }
+    ],
+    "results": [
+      "Inventario por lotes con despacho FEFO, cuarentena, inspección de calidad, registro de mermas y revisión de vencimientos.",
+      "Trazabilidad de lotes: permite saber a qué clientes llegó cada lote.",
+      "Ventas con clientes, estados de venta y facturas con código QR.",
+      "Gestión de proveedores y logística con rutas de entrega, vehículos y conductores.",
+      "Base de datos de 22 tablas con datos de prueba y pruebas automatizadas de reglas de negocio."
+    ],
+    "subtitle": "ERP de consola para una bodega de alimentos",
+    "intro": "Escrito en Java 21 con MySQL, lleva cada producto desde el proveedor hasta la entrega al cliente. Prioriza los lotes que vencen primero, aísla los que tienen problemas de calidad y permite rastrear a qué clientes llegó cada lote.",
+    "blocks": [
+      {
+        "step": "Módulos",
+        "title": "Cuatro módulos conectados",
+        "text": "Inventario, ventas, proveedores y logística comparten la misma base de datos."
+      },
+      {
+        "step": "Flujo",
+        "title": "Del proveedor a la entrega",
+        "text": "El lote entra, se vende por FEFO, se factura con código QR y sale en una ruta de entrega."
+      },
+      {
+        "step": "Arquitectura",
+        "title": "MVC con DAO",
+        "text": "Cada módulo separa vista, controlador, servicio y acceso a datos con JDBC."
+      },
+      {
+        "step": "Clases",
+        "title": "El modelo en Java",
+        "text": "Las entidades de cada módulo, del lote y su inspección de calidad hasta la factura y la ruta de entrega."
+      },
+      {
+        "step": "Base de datos",
+        "title": "22 tablas en MySQL",
+        "text": "El diagrama entidad-relación del modelo completo."
+      }
+    ]
+  },
+  "en": {
+    "eyebrow": "Java · 2026 · Team of three",
+    "title": "Frescura Total",
+    "summary": "A console ERP for a food warehouse, written in Java 21 with MySQL. It follows each product from the supplier to delivery to the customer. It prioritizes the lots that expire first, isolates those with quality problems, and traces which customers received each lot.",
+    "context": [
+      "In a food warehouse, a lot that expires unsold is money lost. The system manages lots, sales, suppliers and deliveries from the console.",
+      "Each product is tracked from the moment it arrives from the supplier until it is delivered. Lots are dispatched by expiration date (FEFO), and those with quality problems go into quarantine."
+    ],
+    "role": [],
+    "stats": [
+      {
+        "value": "22",
+        "label": "database tables"
+      },
+      {
+        "value": "4",
+        "label": "modules: Inventory, Sales, Suppliers and Logistics"
+      },
+      {
+        "value": "4",
+        "label": "lot statuses"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Supplier and lot",
+        "text": "Goods are received and registered as a lot, with a status of available, near expiry, expired or in quarantine."
+      },
+      {
+        "title": "Sale",
+        "text": "The customer and the sale are registered. Stock is taken by FEFO, from the lot that expires first."
+      },
+      {
+        "title": "Invoice",
+        "text": "The sale produces an invoice with a QR code, saved as a PNG image."
+      },
+      {
+        "title": "Route and delivery",
+        "text": "The sale moves to preparation, is included in a delivery route, and is marked as delivered."
+      },
+      {
+        "title": "Architecture",
+        "text": "Each module uses MVC with DAO. Inventory and Sales add a service layer with the business rules, and a JDBC connection shared through a singleton."
+      }
+    ],
+    "results": [
+      "Lot-based inventory with FEFO dispatch, quarantine, quality inspection, waste records and expiration checks.",
+      "Lot traceability: it shows which customers received each lot.",
+      "Sales with customers, sale statuses and invoices with a QR code.",
+      "Supplier management and logistics with delivery routes, vehicles and drivers.",
+      "A 22-table database with test data and automated tests for business rules."
+    ],
+    "subtitle": "Console ERP for a food warehouse",
+    "intro": "Written in Java 21 with MySQL, it follows each product from the supplier to delivery to the customer. It prioritizes the lots that expire first, isolates those with quality problems, and traces which customers received each lot.",
+    "blocks": [
+      {
+        "step": "Modules",
+        "title": "Four connected modules",
+        "text": "Inventory, sales, suppliers and logistics share the same database."
+      },
+      {
+        "step": "Flow",
+        "title": "From supplier to delivery",
+        "text": "The lot comes in, is sold FEFO, is invoiced with a QR code and leaves on a delivery route."
+      },
+      {
+        "step": "Architecture",
+        "title": "MVC with DAO",
+        "text": "Each module separates view, controller, service and JDBC data access."
+      },
+      {
+        "step": "Classes",
+        "title": "The Java model",
+        "text": "The entities of each module, from the lot and its quality inspection to the invoice and the delivery route."
+      },
+      {
+        "step": "Database",
+        "title": "22 MySQL tables",
+        "text": "The entity-relationship diagram of the full model."
+      }
+    ]
+  },
+  "stack": [
+    "Java 21",
+    "Maven",
+    "MySQL",
+    "JDBC",
+    "MVC + DAO",
+    "ZXing",
+    "JUnit"
+  ],
+  "team": [
+    {
+      "name": "Eidan210",
+      "url": "https://github.com/Eidan210"
+    },
+    {
+      "name": "reatiguiadriana901",
+      "url": "https://github.com/reatiguiadriana901"
+    },
+    {
+      "name": "sergioRepository",
+      "url": "https://github.com/sergioRepository"
+    }
+  ],
+  "links": [
+    {
+      "url": "https://github.com/Eidan210/Frescura-Total-Proyecto-Java",
+      "label_es": "Repositorio en GitHub",
+      "label_en": "GitHub repository"
+    }
+  ],
+  "images": [],
+  "sources": [
+    {
+      "claim": "Qué resuelve y FEFO, cuarentena y trazabilidad",
+      "quote": "prioriza los lotes que vencen primero (FEFO), aísla los que tienen problemas de calidad y permite rastrear a qué clientes llegó cada lote.",
+      "file": "README.md"
+    },
+    {
+      "claim": "Aplicación de consola",
+      "quote": "Controla lotes, ventas, proveedores y entregas desde la consola.",
+      "file": "README.md"
+    },
+    {
+      "claim": "22 tablas (el script tiene 22 CREATE TABLE)",
+      "quote": "El script [`docs/database.sql`](docs/database.sql) crea 22 tablas y carga datos de prueba.",
+      "file": "README.md"
+    },
+    {
+      "claim": "Arquitectura MVC con DAO y capa de servicio",
+      "quote": "Cada módulo sigue el patrón MVC con DAO para el acceso a datos. Inventario y Ventas añaden una capa de servicio con las reglas de negocio",
+      "file": "README.md"
+    },
+    {
+      "claim": "Singleton de conexión JDBC",
+      "quote": "`DatabaseConnection` es un singleton que comparte la conexión JDBC.",
+      "file": "README.md"
+    },
+    {
+      "claim": "ZXing para el QR de las facturas",
+      "quote": "**ZXing** | Código QR de las facturas",
+      "file": "README.md"
+    },
+    {
+      "claim": "Java 21",
+      "quote": "<maven.compiler.target>21</maven.compiler.target>",
+      "file": "pom.xml"
+    },
+    {
+      "claim": "JUnit en las dependencias",
+      "quote": "<artifactId>junit-jupiter-api</artifactId>",
+      "file": "pom.xml"
+    },
+    {
+      "claim": "Estados de lote",
+      "quote": "`AVAILABLE` · `NEAR_EXPIRY` · `EXPIRED` · `IN_QUARANTINE`",
+      "file": "README.md"
+    },
+    {
+      "claim": "Flujo de la venta hasta la entrega",
+      "quote": "`REGISTERED` → `IN_PREPARATION` → `IN_TRANSIT` → `DELIVERED`",
+      "file": "README.md"
+    },
+    {
+      "claim": "Facturas guardadas como PNG",
+      "quote": "Las facturas se guardan como PNG en la carpeta `invoices/`.",
+      "file": "README.md"
+    },
+    {
+      "claim": "Opciones de Inventario",
+      "quote": "Put lot in quarantine · Inspect quarantined lot · Register waste · Run expiration check · Trace lot",
+      "file": "README.md"
+    },
+    {
+      "claim": "Opciones de Ventas",
+      "quote": "Register customer · List customers · New sale · List sales · Send sale to preparation (logistics)",
+      "file": "README.md"
+    },
+    {
+      "claim": "Opciones de Logística",
+      "quote": "Create delivery route · List delivery routes · Mark sale as delivered · Register vehicle · Register driver",
+      "file": "README.md"
+    },
+    {
+      "claim": "Integrantes",
+      "quote": "- **Eidan210**\n- **reatiguiadriana901**\n- **sergioRepository**",
+      "file": "README.md"
+    },
+    {
+      "claim": "3 pruebas automatizadas (2 en BusinessRulesTest, 1 en SaleServiceTotalsTest)",
+      "quote": "void lotStatusFollowsTheExpirationDate() {",
+      "file": "src/test/java/com/frescuratotal/erp/BusinessRulesTest.java"
+    },
+    {
+      "claim": "Prueba de totales de venta",
+      "quote": "void saleTotalsAreTheSumOfTheDetails() {",
+      "file": "src/test/java/com/frescuratotal/erp/sales/model/SaleServiceTotalsTest.java"
+    }
+  ],
+  "order": 2,
+  "slug": "frescura-total",
+  "core": "N-02",
+  "litho": "shale",
+  "imagesCredit": {
+    "es": "Diagramas del repositorio del equipo.",
+    "en": "Diagrams from the team's repository."
+  },
+  "titles": {
+    "results": {
+      "es": "Qué hace",
+      "en": "What it does"
+    },
+    "blocks": {
+      "es": "Cómo está hecho",
+      "en": "How it is built"
+    }
+  },
+  "layout": "showcase",
+  "blocks": [
+    {
+      "src": "https://raw.githubusercontent.com/Eidan210/Frescura-Total-Proyecto-Java/HEAD/docs/assets/modules.svg",
+      "alt_es": "Módulos: Inventario, Ventas, Proveedores y Logística",
+      "alt_en": "Modules: Inventory, Sales, Suppliers and Logistics",
+      "caption_es": "Los cuatro módulos de la aplicación.",
+      "caption_en": "The four modules of the application."
+    },
+    {
+      "src": "https://raw.githubusercontent.com/Eidan210/Frescura-Total-Proyecto-Java/HEAD/docs/assets/flow.svg",
+      "alt_es": "Proveedor, lote, venta, factura, ruta y entrega",
+      "alt_en": "Supplier, lot, sale, invoice, route and delivery",
+      "caption_es": "Flujo del negocio, del proveedor a la entrega.",
+      "caption_en": "Business flow, from supplier to delivery."
+    },
+    {
+      "src": "https://raw.githubusercontent.com/Eidan210/Frescura-Total-Proyecto-Java/HEAD/docs/assets/architecture.svg",
+      "alt_es": "Main, Controller, View, Service, DAO y MySQL",
+      "alt_en": "Main, Controller, View, Service, DAO and MySQL",
+      "caption_es": "Arquitectura MVC con DAO.",
+      "caption_en": "MVC architecture with DAO."
+    },
+    {
+      "src": "https://raw.githubusercontent.com/Eidan210/Frescura-Total-Proyecto-Java/HEAD/docs/diagrama_clases.png",
+      "alt_es": "Diagrama de clases: entidades de inventario, proveedores, ventas y logística",
+      "alt_en": "Class diagram: inventory, suppliers, sales and logistics entities",
+      "caption_es": "Diagrama de clases del modelo de dominio.",
+      "caption_en": "Class diagram of the domain model."
+    },
+    {
+      "src": "https://raw.githubusercontent.com/Eidan210/Frescura-Total-Proyecto-Java/HEAD/docs/diagrama_er.png",
+      "alt_es": "Diagrama entidad-relación de la base de datos",
+      "alt_en": "Entity-relationship diagram of the database",
+      "caption_es": "Diagrama entidad-relación.",
+      "caption_en": "Entity-relationship diagram."
+    }
+  ],
+  "hero": {
+    "code": "datos/frescura-total-code.json",
+    "caption_es": "El código Java real del proyecto, por módulo: elige una pestaña y toca cualquier clase para leerla.",
+    "caption_en": "The project's real Java code, by module: pick a tab and tap any class to read it."
+  }
+}

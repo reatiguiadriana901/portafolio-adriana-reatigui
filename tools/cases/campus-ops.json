@@ -1,0 +1,59 @@
+{
+  "order": 1,
+  "slug": "campus-ops",
+  "core": "N-01",
+  "litho": "sandstone",
+  "layout": "showcase",
+  "titles": {
+    "results": { "es": "Qué hace", "en": "What it does" }
+  },
+  "es": {
+    "eyebrow": "Hackatón Campuslands · 2026 · En equipo",
+    "title": "Campus OPS",
+    "subtitle": "Reservas, préstamos e incidencias en un solo sistema, con triaje de incidencias por IA",
+    "intro": "Todo el backend son workflows de n8n que funcionan como una API REST sobre PostgreSQL. Abajo están los 8 tal como quedaron en el proyecto: recórrelos y toca cualquier nodo para ver su código o su consulta SQL.",
+    "stats": [
+      { "value": "8", "label": "workflows de n8n como API" },
+      { "value": "176", "label": "nodos en total" },
+      { "value": "14", "label": "reglas de negocio" },
+      { "value": "9", "label": "tablas en PostgreSQL 17" }
+    ],
+    "results": [
+      "La IA clasifica cada incidencia (categoría, prioridad y área) con un esquema JSON estricto; si falla, la incidencia pasa a triaje manual.",
+      "Una incidencia crítica o alta deja el espacio o el recurso en mantenimiento hasta que no queden incidencias abiertas.",
+      "Las reservas no se cruzan ni superan el aforo, y los préstamos duran máximo 3 días, con 2 activos por persona.",
+      "Triggers de PostgreSQL guardan cada cambio de estado, y la importación del dataset valida registro por registro.",
+      "El proveedor de IA se cambia desde el .env: Claude o un modelo local, sin tocar los workflows."
+    ]
+  },
+  "en": {
+    "eyebrow": "Campuslands Hackathon · 2026 · Team project",
+    "title": "Campus OPS",
+    "subtitle": "Bookings, loans and incidents in one system, with AI incident triage",
+    "intro": "The whole backend is n8n workflows working as a REST API on top of PostgreSQL. Below are all 8 as they ended up in the project: explore them and tap any node to see its code or its SQL query.",
+    "stats": [
+      { "value": "8", "label": "n8n workflows as an API" },
+      { "value": "176", "label": "nodes in total" },
+      { "value": "14", "label": "business rules" },
+      { "value": "9", "label": "PostgreSQL 17 tables" }
+    ],
+    "results": [
+      "The AI classifies each incident (category, priority and area) with a strict JSON schema; if it fails, the incident goes to manual triage.",
+      "A critical or high incident puts the space or resource in maintenance until no open incidents remain.",
+      "Bookings never overlap or exceed capacity, and loans last at most 3 days, with 2 active per person.",
+      "PostgreSQL triggers record every status change, and the dataset import validates record by record.",
+      "The AI provider is set in the .env file: Claude or a local model, without touching the workflows."
+    ]
+  },
+  "hero": {
+    "workflows": "datos/campus-ops-workflows.json",
+    "caption_es": "Los 8 workflows reales del backend, exportados del repositorio. Arrastra para moverte, usa + y − para acercarte y toca un nodo para ver lo que hace. Las notas amarillas son las del equipo.",
+    "caption_en": "The 8 real backend workflows, exported from the repository. Drag to move around, use + and − to zoom and tap a node to see what it does. The yellow notes are the team's own."
+  },
+  "stack": ["n8n", "PostgreSQL 17", "JavaScript", "Docker Compose", "nginx", "HTML", "CSS", "API de Anthropic (Claude)"],
+  "team": [],
+  "links": [
+    { "url": "https://github.com/reatiguiadriana901/gestionSalonesHackaton", "label_es": "Repositorio en GitHub", "label_en": "GitHub repository" }
+  ],
+  "images": []
+}

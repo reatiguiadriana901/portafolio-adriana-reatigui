@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!-- Generado por tools/build_cases.py a partir de tools/cases/as-techshop.json: edita el JSON, no este archivo -->
+<html lang="es" data-motion="on" data-title-es="AS_TechShop · Adriana Reatigui" data-title-en="AS_TechShop · Adriana Reatigui">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#2d3a47">
+  <title>AS_TechShop · Adriana Reatigui</title>
+  <meta name="description" content="AS_TechShop es una base de datos relacional en MySQL 8 para una tienda de tecnología. Gestiona catálogo, inventario, clientes y ventas, e incluye consultas analíticas, lógica en el servidor y un esquema de seguridad por roles.">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..700&amp;family=Fira+Code:wght@400..500&amp;family=Fraunces:ital,opsz,wght@0,9..144,500..700;1,9..144,500&amp;display=swap">
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/case.css">
+  <script>
+    // Idioma elegido en el portafolio, antes de pintar la página (js/case.js hace el resto)
+    try {
+      if (/[?&]lang=en\b/.test(location.search) || (!/[?&]lang=es\b/.test(location.search) && localStorage.getItem('portafolio:idioma') === 'en')) document.documentElement.lang = 'en';
+    } catch (error) {
+      // Sin almacenamiento: queda en español
+    }
+  </script>
+  <script type="module" src="../js/case.js"></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#contenido"><span lang="es">Saltar al contenido</span><span lang="en">Skip to content</span></a>
+
+  <header class="header case-header theme-dark">
+    <div class="header__bar">
+      <a class="case-back" href="../index.html#proyectos"><span aria-hidden="true">←</span> <span lang="es">Volver a proyectos</span><span lang="en">Back to projects</span></a>
+      <a class="header__brand" href="../index.html">Adriana Reatigui</a>
+      <button class="lang-toggle" type="button" aria-label="Ver la página en inglés">EN</button>
+    </div>
+  </header>
+
+  <main class="case case--showcase" id="contenido">
+    <div class="case__inner">
+      <header class="show-hero">
+        <span class="case-hero__id"><span class="case-hero2__core" data-litho="limestone" aria-hidden="true"></span><span lang="es">Núcleo N-03</span><span lang="en">Core N-03</span></span>
+        <p class="case-hero__eyebrow" lang="es">Base de datos · 2026 · En pareja</p><p class="case-hero__eyebrow" lang="en">Database · 2026 · Pair project</p>
+        <h1 class="show-hero__title">AS_TechShop</h1>
+        <p class="show-hero__subtitle" lang="es">Base de datos y analítica para una tienda en línea de tecnología</p><p class="show-hero__subtitle" lang="en">Database and analytics for an online technology store</p>
+        <p class="show-hero__intro" lang="es">AS_TechShop es una base de datos relacional en MySQL 8 para una tienda de tecnología. Gestiona catálogo, inventario, clientes y ventas, e incluye consultas analíticas, lógica en el servidor y un esquema de seguridad por roles.</p><p class="show-hero__intro" lang="en">AS_TechShop is a relational MySQL 8 database for a technology store. It manages the catalog, inventory, customers and sales, and includes analytical queries, server-side logic and role-based security.</p>
+      </header>
+      <figure class="show-media show-media--app"><div class="sqlv" data-sql="datos/as-techshop-sql.json"><p class="n8n__fallback"><span lang="es">Activa JavaScript para explorar el código.</span><span lang="en">Turn on JavaScript to explore the code.</span></p></div><figcaption><span lang="es">Todo el SQL real del proyecto, objeto por objeto: elige una pestaña y toca cualquier tabla, consulta, función, procedimiento, trigger o evento para ver su código.</span><span lang="en">All the project&#x27;s real SQL, object by object: pick a tab and tap any table, query, function, procedure, trigger or event to see its code.</span></figcaption></figure>
+
+      <ul class="case-stats">
+        <li class="case-stat"><span class="case-stat__value">20</span><span class="case-stat__label" lang="es">consultas analíticas</span><span class="case-stat__label" lang="en">analytical queries</span></li>
+        <li class="case-stat"><span class="case-stat__value">12</span><span class="case-stat__label" lang="es">funciones definidas por el usuario</span><span class="case-stat__label" lang="en">user-defined functions</span></li>
+        <li class="case-stat"><span class="case-stat__value">10</span><span class="case-stat__label">triggers</span></li>
+        <li class="case-stat"><span class="case-stat__value">11</span><span class="case-stat__label" lang="es">procedimientos almacenados</span><span class="case-stat__label" lang="en">stored procedures</span></li>
+      </ul>
+      <section class="case-section" aria-labelledby="results">
+        <h2 class="case-section__title" id="results"><span lang="es">Qué hace</span><span lang="en">What it does</span></h2>
+        <ul class="show-results" lang="es"><li>Consultas con CTE y funciones de ventana como PERCENT_RANK y LAG.</li><li>Procedimientos transaccionales para registrar ventas, procesar devoluciones y ajustar el stock.</li><li>Triggers que auditan cambios de precio, impiden stock negativo y recalculan el total de una venta.</li><li>Eventos programados para reportes, limpieza de tablas temporales y lista de reabastecimiento.</li><li>Permisos por columna, por ejemplo un rol de inventario que solo puede actualizar stock y ubicación.</li></ul><ul class="show-results" lang="en"><li>Queries with CTEs and window functions such as PERCENT_RANK and LAG.</li><li>Transactional procedures to register sales, process returns and adjust stock.</li><li>Triggers that audit price changes, prevent negative stock and recalculate a sale&#x27;s total.</li><li>Scheduled events for reports, temporary table cleanup and a restock list.</li><li>Column-level permissions, for example an inventory role that can only update stock and location.</li></ul>
+      </section>
+      <section class="case-section" aria-labelledby="facts">
+        <h2 class="case-section__title" id="facts"><span lang="es">Ficha técnica</span><span lang="en">Project details</span></h2>
+        <dl class="case-facts">
+          <div><dt><span lang="es">Tecnologías</span><span lang="en">Technologies</span></dt><dd><ul class="chips"><li class="chip">MySQL 8</li><li class="chip">SQL</li><li class="chip">CTE</li><li class="chip">Funciones de ventana</li><li class="chip">Procedimientos almacenados</li><li class="chip">Triggers</li><li class="chip">Eventos programados</li><li class="chip">Roles y privilegios</li></ul></dd></div>
+          <div><dt><span lang="es">Equipo</span><span lang="en">Team</span></dt><dd><a href="https://github.com/reatiguiadriana901" target="_blank" rel="noopener">Adriana Marcela Reátigui Mateus</a>, Sergio Daniel Flórez López</dd></div>
+          <div><dt><span lang="es">Enlaces</span><span lang="en">Links</span></dt><dd class="case-links"><a class="button button--ghost" href="https://github.com/reatiguiadriana901/Proyecto-Ecommerce-Mysql" target="_blank" rel="noopener"><span lang="es">Repositorio en GitHub</span><span lang="en">GitHub repository</span> <span aria-hidden="true">↗</span></a></dd></div>
+        </dl>
+      </section>
+      <nav class="case-pager" aria-label="Otros proyectos">
+        <a class="case-pager__link case-pager__link--prev" href="frescura-total.html"><span class="case-pager__hint"><span lang="es">← Anterior</span><span lang="en">← Previous</span></span><span class="case-pager__name">Frescura Total</span></a>
+        <a class="case-pager__link case-pager__link--next" href="asogasinga.html"><span class="case-pager__hint"><span lang="es">Siguiente →</span><span lang="en">Next →</span></span><span class="case-pager__name"><span lang="es">Sistema ASOGASINGA</span><span lang="en">ASOGASINGA System</span></span></a>
+      </nav>
+    </div>
+  </main>
+
+  <footer class="footer theme-dark">
+    <p class="footer__credits">Adriana Reatigui · <span lang="es">Geóloga y desarrolladora de software</span><span lang="en">Geologist and software developer</span></p>
+  </footer>
+
+  <!-- Fondo animado: corte geológico (fx/cross-section.js) -->
+  <canvas class="cross-section" id="cross-section" aria-hidden="true"></canvas>
+</body>
+
+</html>

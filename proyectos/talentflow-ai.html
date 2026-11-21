@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!-- Generado por tools/build_cases.py a partir de tools/cases/talentflow-ai.json: edita el JSON, no este archivo -->
+<html lang="es" data-motion="on" data-title-es="TalentFlow AI · Adriana Reatigui" data-title-en="TalentFlow AI · Adriana Reatigui">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#2d3a47">
+  <title>TalentFlow AI · Adriana Reatigui</title>
+  <meta name="description" content="TalentFlow AI recibe postulaciones desde un formulario web, extrae el texto de la hoja de vida en PDF y la compara con los requisitos de la vacante guardados en PostgreSQL, usando Google Gemini. Registra el resultado en PostgreSQL y Google Sheets y avisa a Recursos Humanos por Gmail y Telegram.">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..700&amp;family=Fira+Code:wght@400..500&amp;family=Fraunces:ital,opsz,wght@0,9..144,500..700;1,9..144,500&amp;display=swap">
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/case.css">
+  <script>
+    // Idioma elegido en el portafolio, antes de pintar la página (js/case.js hace el resto)
+    try {
+      if (/[?&]lang=en\b/.test(location.search) || (!/[?&]lang=es\b/.test(location.search) && localStorage.getItem('portafolio:idioma') === 'en')) document.documentElement.lang = 'en';
+    } catch (error) {
+      // Sin almacenamiento: queda en español
+    }
+  </script>
+  <script type="module" src="../js/case.js"></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#contenido"><span lang="es">Saltar al contenido</span><span lang="en">Skip to content</span></a>
+
+  <header class="header case-header theme-dark">
+    <div class="header__bar">
+      <a class="case-back" href="../index.html#proyectos"><span aria-hidden="true">←</span> <span lang="es">Volver a proyectos</span><span lang="en">Back to projects</span></a>
+      <a class="header__brand" href="../index.html">Adriana Reatigui</a>
+      <button class="lang-toggle" type="button" aria-label="Ver la página en inglés">EN</button>
+    </div>
+  </header>
+
+  <main class="case case--showcase" id="contenido">
+    <div class="case__inner">
+      <header class="show-hero">
+        <span class="case-hero__id"><span class="case-hero2__core" data-litho="igneous" aria-hidden="true"></span><span lang="es">Núcleo N-05</span><span lang="en">Core N-05</span></span>
+        <p class="case-hero__eyebrow" lang="es">Automatización con IA · 2026</p><p class="case-hero__eyebrow" lang="en">AI automation · 2026</p>
+        <h1 class="show-hero__title">TalentFlow AI</h1>
+        <p class="show-hero__subtitle" lang="es">Flujo en n8n que recibe, evalúa y organiza postulaciones laborales</p><p class="show-hero__subtitle" lang="en">An n8n workflow that receives, evaluates and organizes job applications</p>
+        <p class="show-hero__intro" lang="es">TalentFlow AI recibe postulaciones desde un formulario web, extrae el texto de la hoja de vida en PDF y la compara con los requisitos de la vacante guardados en PostgreSQL, usando Google Gemini. Registra el resultado en PostgreSQL y Google Sheets y avisa a Recursos Humanos por Gmail y Telegram.</p><p class="show-hero__intro" lang="en">TalentFlow AI receives applications from a web form, extracts the text of the PDF resume and compares it with the job requirements stored in PostgreSQL, using Google Gemini. It records the result in PostgreSQL and Google Sheets and notifies Human Resources by Gmail and Telegram.</p>
+      </header>
+      <figure class="show-media show-media--app"><div class="n8n" data-n8n="datos/talentflow-workflows.json"><p class="n8n__fallback"><span lang="es">Activa JavaScript para explorar los workflows.</span><span lang="en">Turn on JavaScript to explore the workflows.</span></p></div><figcaption><span lang="es">El workflow real de TalentFlow en n8n, exportado del repositorio. Arrastra para moverte y toca un nodo para ver su código o su consulta.</span><span lang="en">The real TalentFlow workflow in n8n, exported from the repository. Drag to move around and tap a node to see its code or query.</span></figcaption></figure>
+
+      <ul class="case-stats">
+        <li class="case-stat"><span class="case-stat__value">30</span><span class="case-stat__label" lang="es">nodos en el flujo de n8n</span><span class="case-stat__label" lang="en">nodes in the n8n workflow</span></li>
+        <li class="case-stat"><span class="case-stat__value">8</span><span class="case-stat__label" lang="es">vacantes en el formulario</span><span class="case-stat__label" lang="en">positions in the form</span></li>
+        <li class="case-stat"><span class="case-stat__value">3</span><span class="case-stat__label" lang="es">tablas en PostgreSQL</span><span class="case-stat__label" lang="en">PostgreSQL tables</span></li>
+        <li class="case-stat"><span class="case-stat__value" lang="es">80 y 60</span><span class="case-stat__value" lang="en">80 and 60</span><span class="case-stat__label" lang="es">puntajes que separan las tres clasificaciones</span><span class="case-stat__label" lang="en">scores that split the three classifications</span></li>
+      </ul>
+      <section class="case-section" aria-labelledby="blocks">
+        <h2 class="case-section__title" id="blocks"><span lang="es">Lo que hice</span><span lang="en">What I did</span></h2>
+        <article class="show-block"><div class="show-block__text"><span class="show-block__step"><span lang="es">El formulario</span><span lang="en">The form</span></span><h3 class="show-block__title"><span lang="es">Donde empieza la postulación</span><span lang="en">Where an application starts</span></h3><p lang="es">El candidato elige la vacante, deja sus datos y sube su hoja de vida en PDF. Al enviarla, el workflow de n8n la recibe y la evalúa.</p><p lang="en">The candidate picks the vacancy, fills in their details and uploads a PDF résumé. On submit, the n8n workflow receives it and evaluates it.</p></div><figure class="show-media"><a href="../assets/img/casos/talentflow-formulario.webp" target="_blank" rel="noopener"><img src="../assets/img/casos/talentflow-formulario.webp" alt="Formulario web de postulación de TalentFlow AI" data-alt-es="Formulario web de postulación de TalentFlow AI" data-alt-en="TalentFlow AI application web form" loading="lazy" decoding="async"></a><figcaption><span lang="es">El formulario de postulación, tal como está en el repositorio.</span><span lang="en">The application form, as it is in the repository.</span></figcaption></figure></article>
+      </section>
+      <section class="case-section" aria-labelledby="results">
+        <h2 class="case-section__title" id="results"><span lang="es">Qué hace</span><span lang="en">What it does</span></h2>
+        <ul class="show-results" lang="es"><li>Formulario web con nombre, correo, teléfono, vacante, años de experiencia, tecnologías, consentimiento de datos y hoja de vida en PDF.</li><li>Índice único por correo y vacante en la base de datos para evitar postulaciones repetidas.</li><li>Registro del puntaje, las habilidades, el nivel educativo y las observaciones generados por la IA.</li><li>Bot de Telegram con dos comandos: /pendientes lista las postulaciones pendientes ordenadas por puntaje y /candidato busca a una persona por nombre.</li><li>Los correos de Recursos Humanos se leen de una tabla de configuración, no están escritos en el flujo.</li></ul><ul class="show-results" lang="en"><li>Web form with name, email, phone, position, years of experience, technologies, data consent and the PDF resume.</li><li>Unique index on email and position in the database to prevent repeated applications.</li><li>Storage of the score, skills, education level and notes generated by the AI.</li><li>Telegram bot with two commands: /pendientes lists pending applications ordered by score and /candidato looks up a person by name.</li><li>Human Resources emails are read from a configuration table; they are not written into the workflow.</li></ul>
+      </section>
+      <section class="case-section" aria-labelledby="facts">
+        <h2 class="case-section__title" id="facts"><span lang="es">Ficha técnica</span><span lang="en">Project details</span></h2>
+        <dl class="case-facts">
+          <div><dt><span lang="es">Tecnologías</span><span lang="en">Technologies</span></dt><dd><ul class="chips"><li class="chip">n8n</li><li class="chip">Google Gemini</li><li class="chip">PostgreSQL</li><li class="chip">Google Sheets</li><li class="chip">Gmail</li><li class="chip">Telegram Bot API</li><li class="chip">JavaScript</li><li class="chip">HTML</li><li class="chip">CSS</li></ul></dd></div>
+          <div><dt><span lang="es">Enlaces</span><span lang="en">Links</span></dt><dd class="case-links"><a class="button button--ghost" href="https://github.com/reatiguiadriana901/proyecto-N8N-" target="_blank" rel="noopener"><span lang="es">Repositorio en GitHub</span><span lang="en">GitHub repository</span> <span aria-hidden="true">↗</span></a></dd></div>
+        </dl>
+      </section>
+      <nav class="case-pager" aria-label="Otros proyectos">
+        <a class="case-pager__link case-pager__link--prev" href="asogasinga.html"><span class="case-pager__hint"><span lang="es">← Anterior</span><span lang="en">← Previous</span></span><span class="case-pager__name"><span lang="es">Sistema ASOGASINGA</span><span lang="en">ASOGASINGA System</span></span></a>
+        <a class="case-pager__link case-pager__link--next" href="acme-school.html"><span class="case-pager__hint"><span lang="es">Siguiente →</span><span lang="en">Next →</span></span><span class="case-pager__name">Acme School</span></a>
+      </nav>
+    </div>
+  </main>
+
+  <footer class="footer theme-dark">
+    <p class="footer__credits">Adriana Reatigui · <span lang="es">Geóloga y desarrolladora de software</span><span lang="en">Geologist and software developer</span></p>
+  </footer>
+
+  <!-- Fondo animado: corte geológico (fx/cross-section.js) -->
+  <canvas class="cross-section" id="cross-section" aria-hidden="true"></canvas>
+</body>
+
+</html>

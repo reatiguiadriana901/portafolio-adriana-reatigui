@@ -1,0 +1,265 @@
+{
+  "order": 3,
+  "slug": "as-techshop",
+  "core": "N-03",
+  "litho": "limestone",
+  "titles": {
+    "results": {
+      "es": "Qué hace",
+      "en": "What it does"
+    }
+  },
+  "es": {
+    "eyebrow": "Base de datos · 2026 · En pareja",
+    "title": "AS_TechShop",
+    "subtitle": "Base de datos y analítica para una tienda en línea de tecnología",
+    "summary": "AS_TechShop es una base de datos relacional en MySQL 8 para una tienda de tecnología. Gestiona catálogo, inventario, clientes y ventas, e incluye consultas analíticas, lógica en el servidor y un esquema de seguridad por roles.",
+    "context": [
+      "El proyecto diseña el núcleo de datos de una tienda en línea especializada en tecnología. Maneja el catálogo de productos, el inventario, los clientes y el ciclo de vida de las ventas.",
+      "Además del modelo, incluye consultas de análisis de negocio, automatización con triggers y eventos, funciones reutilizables, procedimientos transaccionales y permisos separados por rol."
+    ],
+    "role": [],
+    "stats": [
+      {
+        "value": "20",
+        "label": "consultas analíticas"
+      },
+      {
+        "value": "12",
+        "label": "funciones definidas por el usuario"
+      },
+      {
+        "value": "10",
+        "label": "triggers"
+      },
+      {
+        "value": "11",
+        "label": "procedimientos almacenados"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Esquema y datos",
+        "text": "Se crea la base AS_TechShop con sus tablas y datos de ejemplo de categorías, proveedores, clientes, productos y ventas."
+      },
+      {
+        "title": "Consultas de análisis",
+        "text": "Veinte consultas responden preguntas de negocio, como productos más vendidos, clientes VIP, cohortes, segmentación RFM y tiempo entre compras."
+      },
+      {
+        "title": "Lógica en el servidor",
+        "text": "Doce funciones, diez triggers y once procedimientos concentran reglas como validar stock, actualizar el total gastado por cliente o procesar devoluciones."
+      },
+      {
+        "title": "Automatización",
+        "text": "Diez eventos programados generan reportes semanales, desactivan promociones vencidas, recalculan niveles de lealtad y revisan la consistencia de los datos."
+      },
+      {
+        "title": "Seguridad",
+        "text": "Seis roles y cuatro usuarios definen qué tablas se pueden consultar o modificar y qué procedimientos se pueden ejecutar."
+      }
+    ],
+    "results": [
+      "Consultas con CTE y funciones de ventana como PERCENT_RANK y LAG.",
+      "Procedimientos transaccionales para registrar ventas, procesar devoluciones y ajustar el stock.",
+      "Triggers que auditan cambios de precio, impiden stock negativo y recalculan el total de una venta.",
+      "Eventos programados para reportes, limpieza de tablas temporales y lista de reabastecimiento.",
+      "Permisos por columna, por ejemplo un rol de inventario que solo puede actualizar stock y ubicación."
+    ],
+    "intro": "AS_TechShop es una base de datos relacional en MySQL 8 para una tienda de tecnología. Gestiona catálogo, inventario, clientes y ventas, e incluye consultas analíticas, lógica en el servidor y un esquema de seguridad por roles."
+  },
+  "en": {
+    "eyebrow": "Database · 2026 · Pair project",
+    "title": "AS_TechShop",
+    "subtitle": "Database and analytics for an online technology store",
+    "summary": "AS_TechShop is a relational MySQL 8 database for a technology store. It manages the catalog, inventory, customers and sales, and includes analytical queries, server-side logic and role-based security.",
+    "context": [
+      "The project designs the data core of an online store specialized in technology. It handles the product catalog, inventory, customers and the life cycle of a sale.",
+      "Besides the data model, it includes business analysis queries, automation with triggers and events, reusable functions, transactional procedures and permissions separated by role."
+    ],
+    "role": [],
+    "stats": [
+      {
+        "value": "20",
+        "label": "analytical queries"
+      },
+      {
+        "value": "12",
+        "label": "user-defined functions"
+      },
+      {
+        "value": "10",
+        "label": "triggers"
+      },
+      {
+        "value": "11",
+        "label": "stored procedures"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Schema and data",
+        "text": "The AS_TechShop database is created with its tables and sample data for categories, suppliers, customers, products and sales."
+      },
+      {
+        "title": "Analysis queries",
+        "text": "Twenty queries answer business questions such as best-selling products, VIP customers, cohorts, RFM segmentation and time between purchases."
+      },
+      {
+        "title": "Server-side logic",
+        "text": "Twelve functions, ten triggers and eleven procedures hold rules such as validating stock, updating each customer's total spent or processing returns."
+      },
+      {
+        "title": "Automation",
+        "text": "Ten scheduled events generate weekly reports, deactivate expired promotions, recalculate loyalty tiers and check data consistency."
+      },
+      {
+        "title": "Security",
+        "text": "Six roles and four users define which tables can be read or changed and which procedures can be run."
+      }
+    ],
+    "results": [
+      "Queries with CTEs and window functions such as PERCENT_RANK and LAG.",
+      "Transactional procedures to register sales, process returns and adjust stock.",
+      "Triggers that audit price changes, prevent negative stock and recalculate a sale's total.",
+      "Scheduled events for reports, temporary table cleanup and a restock list.",
+      "Column-level permissions, for example an inventory role that can only update stock and location."
+    ],
+    "intro": "AS_TechShop is a relational MySQL 8 database for a technology store. It manages the catalog, inventory, customers and sales, and includes analytical queries, server-side logic and role-based security."
+  },
+  "stack": [
+    "MySQL 8",
+    "SQL",
+    "CTE",
+    "Funciones de ventana",
+    "Procedimientos almacenados",
+    "Triggers",
+    "Eventos programados",
+    "Roles y privilegios"
+  ],
+  "team": [
+    {
+      "name": "Adriana Marcela Reátigui Mateus",
+      "url": "https://github.com/reatiguiadriana901"
+    },
+    {
+      "name": "Sergio Daniel Flórez López"
+    }
+  ],
+  "links": [
+    {
+      "url": "https://github.com/reatiguiadriana901/Proyecto-Ecommerce-Mysql",
+      "label_es": "Repositorio en GitHub",
+      "label_en": "GitHub repository"
+    }
+  ],
+  "images": [],
+  "sources": [
+    {
+      "claim": "Motor y funciones de ventana",
+      "quote": "MySQL 8.0 o superior (se utilizan funciones de ventana como `PERCENT_RANK()` y `LAG()`",
+      "file": "README.md"
+    },
+    {
+      "claim": "Integrantes",
+      "quote": "Adriana Marcela Reátigui Mateus\n- Sergio Daniel Flórez López",
+      "file": "README.md"
+    },
+    {
+      "claim": "Alcance del sistema",
+      "quote": "gestiona de forma eficiente y segura el catálogo de productos, el inventario, los clientes y todo el ciclo de vida de las ventas",
+      "file": "README.md"
+    },
+    {
+      "claim": "20 consultas (numeradas 1 a 20)",
+      "quote": "-- 20. Predicción de Demanda Simple (categoría: Gaming)",
+      "file": "consultas_avanzadas.sql"
+    },
+    {
+      "claim": "CTE y PERCENT_RANK",
+      "quote": "PERCENT_RANK() OVER (ORDER BY SUM(dv.cantidad * dv.precio_unitario_congelado) ASC) AS porc_rango",
+      "file": "consultas_avanzadas.sql"
+    },
+    {
+      "claim": "LAG",
+      "quote": "LAG(fecha_venta) OVER (PARTITION BY id_cliente ORDER BY fecha_venta) AS fecha_compra_anterior",
+      "file": "consultas_avanzadas.sql"
+    },
+    {
+      "claim": "12 funciones (primera y última)",
+      "quote": "CREATE FUNCTION fn_CalcularCostoEnvio(p_id_venta INT)",
+      "file": "funciones_shop.sql"
+    },
+    {
+      "claim": "10 triggers (ejemplo)",
+      "quote": "CREATE TRIGGER trg_prevent_negative_stock",
+      "file": "triggers.sql"
+    },
+    {
+      "claim": "Trigger de auditoría de precios",
+      "quote": "CREATE TRIGGER trg_audit_precio_producto_after_update",
+      "file": "triggers.sql"
+    },
+    {
+      "claim": "Trigger que recalcula el total de una venta",
+      "quote": "CREATE TRIGGER trg_recalculate_total_venta_on_detalle_change",
+      "file": "triggers.sql"
+    },
+    {
+      "claim": "10 eventos (ejemplo)",
+      "quote": "CREATE EVENT evt_deactivate_expired_promotions_hourly",
+      "file": "Eventos.sql"
+    },
+    {
+      "claim": "Evento de limpieza de tablas temporales",
+      "quote": "CREATE EVENT evt_cleanup_temp_tables_daily",
+      "file": "Eventos.sql"
+    },
+    {
+      "claim": "Activación del programador de eventos",
+      "quote": "SET GLOBAL event_scheduler = ON;",
+      "file": "Eventos.sql"
+    },
+    {
+      "claim": "11 procedimientos (ejemplo)",
+      "quote": "CREATE PROCEDURE sp_ProcesarDevolucion(",
+      "file": "procedures_TechShop.sql"
+    },
+    {
+      "claim": "Procedimiento de venta",
+      "quote": "CREATE PROCEDURE sp_RealizarNuevaVenta(",
+      "file": "procedures_TechShop.sql"
+    },
+    {
+      "claim": "Rol con permisos por columna",
+      "quote": "GRANT UPDATE (stock, ubicacion) ON AS_TechShop.Productos TO 'Empleado_Inventario';",
+      "file": "seguridad_shop.sql"
+    },
+    {
+      "claim": "6 roles (ejemplo)",
+      "quote": "CREATE ROLE IF NOT EXISTS 'Auditor_Financiero';",
+      "file": "seguridad_shop.sql"
+    },
+    {
+      "claim": "4 usuarios (ejemplo)",
+      "quote": "CREATE USER IF NOT EXISTS 'support_user'@'%'",
+      "file": "seguridad_shop.sql"
+    },
+    {
+      "claim": "Tablas del modelo (18 CREATE TABLE en este archivo)",
+      "quote": "CREATE TABLE Detalle_Ventas",
+      "file": "Estructura_negocio.sql"
+    },
+    {
+      "claim": "El README cita cifras de 20 en cada categoría que el código no respalda",
+      "quote": "Las 20 funciones definidas por el usuario (`CREATE FUNCTION`).",
+      "file": "README.md"
+    }
+  ],
+  "layout": "showcase",
+  "hero": {
+    "sql": "datos/as-techshop-sql.json",
+    "caption_es": "Todo el SQL real del proyecto, objeto por objeto: elige una pestaña y toca cualquier tabla, consulta, función, procedimiento, trigger o evento para ver su código.",
+    "caption_en": "All the project's real SQL, object by object: pick a tab and tap any table, query, function, procedure, trigger or event to see its code."
+  }
+}

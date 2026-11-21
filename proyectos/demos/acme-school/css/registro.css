@@ -1,0 +1,130 @@
+/* registro.css — Formulario de registro de estudiante */
+
+.main {
+    background: var(--color-bg);
+    background-image: linear-gradient(rgba(79,70,229,.82), rgba(30,0,80,.82)),
+                      url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQZy2NuHl03LZqg0eGqxS-Du4BaFBFWKL-6ihZqwDm6w&s=10');
+    background-size: cover;
+    background-position: center;
+    min-height: calc(100vh - 60px);
+    padding: 2rem 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.main_container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.record {
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    padding: 2rem 1.5rem;
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    box-shadow: var(--shadow-lg);
+    border-top: 4px solid var(--color-primary);
+}
+
+.record_code {
+    background: var(--color-primary);
+    color: #fff;
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--radius-sm);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    width: fit-content;
+}
+
+.record_title {
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    color: var(--color-text);
+}
+
+.record_description {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-bottom: 0.5rem;
+}
+
+.record_identificacion,
+.record_nombre {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.input_identificacion,
+.input_nombre {
+    width: 100%;
+    padding: 0.6rem 0.8rem;
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-size: var(--text-base);
+    background: var(--color-bg);
+    color: var(--color-text);
+    outline: none;
+    transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.input_identificacion:focus,
+.input_nombre:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(79,70,229,.15);
+}
+
+.mensaje_error {
+    color: var(--color-danger);
+    font-size: var(--text-sm);
+    min-height: 1.2em;
+}
+
+.buttons {
+    display: flex;
+    gap: 0.75rem;
+    padding-top: 0.5rem;
+}
+
+.iniciar {
+    flex: 1;
+    background: var(--color-primary);
+    color: #fff;
+    border: none;
+    padding: 0.7rem;
+    border-radius: var(--radius-sm);
+    font-size: var(--text-base);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background var(--transition);
+}
+
+.iniciar:hover { background: var(--color-primary-dark); }
+
+.volver {
+    background: transparent;
+    color: var(--color-text-muted);
+    border: none;
+    font-size: var(--text-sm);
+    cursor: pointer;
+    padding: 0.7rem 1rem;
+    border-radius: var(--radius-sm);
+    transition: background var(--transition);
+}
+
+.volver:hover {
+    background: var(--color-border);
+    color: var(--color-text);
+}
+
+@media (min-width: 768px) {
+    .record { padding: 2.5rem 2rem; }
+    .record_title { font-size: var(--text-3xl); }
+}
