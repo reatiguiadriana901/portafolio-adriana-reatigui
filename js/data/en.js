@@ -73,6 +73,7 @@ export const EN = {
   'projects.groupSoftware': 'Software development',
   'projects.groupGeo': 'Geosciences',
   'projects.badgeHackathon': 'Hackathon',
+  'projects.case': 'See the full case study',
   'projects.repo': 'View repository',
   'core.javapoo': 'Java OOP practice',
   'core.thesis': 'Thesis: volcanic field',

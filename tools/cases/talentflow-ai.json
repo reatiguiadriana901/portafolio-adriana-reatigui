@@ -1,0 +1,276 @@
+{
+  "order": 5,
+  "slug": "talentflow-ai",
+  "core": "N-05",
+  "litho": "igneous",
+  "titles": {
+    "results": {
+      "es": "Qué hace",
+      "en": "What it does"
+    }
+  },
+  "es": {
+    "eyebrow": "Automatización con IA · 2026",
+    "title": "TalentFlow AI",
+    "subtitle": "Flujo en n8n que recibe, evalúa y organiza postulaciones laborales",
+    "summary": "TalentFlow AI recibe postulaciones desde un formulario web, extrae el texto de la hoja de vida en PDF y la compara con los requisitos de la vacante guardados en PostgreSQL, usando Google Gemini. Registra el resultado en PostgreSQL y Google Sheets y avisa a Recursos Humanos por Gmail y Telegram.",
+    "context": [
+      "El proyecto automatiza la recepción de cada postulación y le asigna una puntuación de compatibilidad con la vacante.",
+      "Recursos Humanos recibe el resultado clasificado por correo y por Telegram, y puede consultar a los candidatos desde un bot de Telegram."
+    ],
+    "role": [],
+    "stats": [
+      {
+        "value": "30",
+        "label": "nodos en el flujo de n8n"
+      },
+      {
+        "value": "8",
+        "label": "vacantes en el formulario"
+      },
+      {
+        "value": "3",
+        "label": "tablas en PostgreSQL"
+      },
+      {
+        "value": "80 y 60",
+        "label": "puntajes que separan las tres clasificaciones"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Recepción",
+        "text": "Un formulario web envía los datos y el PDF a un webhook de n8n. El flujo genera un número de ticket con el formato TF-año-número."
+      },
+      {
+        "title": "Control de duplicados",
+        "text": "Consulta en PostgreSQL si ya existe una postulación con el mismo correo y la misma vacante. Si existe, responde con código 409 y se detiene."
+      },
+      {
+        "title": "Evaluación con IA",
+        "text": "Extrae el texto del PDF, consulta los requisitos de la vacante y pide a Google Gemini una respuesta en JSON con puntaje, nivel educativo, habilidades, resumen, observaciones y dos preguntas de entrevista."
+      },
+      {
+        "title": "Clasificación",
+        "text": "Un nodo Switch asigna el estado según el puntaje. Con 80 o más, el estado es PRESELECCIONADO y la revisión es prioritaria. Entre 60 y 79, es PENDIENTE_REVISION con revisión manual. Con menos de 60, es PENDIENTE_REVISION con revisión secundaria."
+      },
+      {
+        "title": "Registro y avisos",
+        "text": "Guarda la evaluación en PostgreSQL y en Google Sheets. Envía un correo a los destinatarios de Recursos Humanos y un mensaje por Telegram."
+      }
+    ],
+    "results": [
+      "Formulario web con nombre, correo, teléfono, vacante, años de experiencia, tecnologías, consentimiento de datos y hoja de vida en PDF.",
+      "Índice único por correo y vacante en la base de datos para evitar postulaciones repetidas.",
+      "Registro del puntaje, las habilidades, el nivel educativo y las observaciones generados por la IA.",
+      "Bot de Telegram con dos comandos: /pendientes lista las postulaciones pendientes ordenadas por puntaje y /candidato busca a una persona por nombre.",
+      "Los correos de Recursos Humanos se leen de una tabla de configuración, no están escritos en el flujo."
+    ],
+    "intro": "TalentFlow AI recibe postulaciones desde un formulario web, extrae el texto de la hoja de vida en PDF y la compara con los requisitos de la vacante guardados en PostgreSQL, usando Google Gemini. Registra el resultado en PostgreSQL y Google Sheets y avisa a Recursos Humanos por Gmail y Telegram.",
+    "blocks": [
+      {
+        "step": "El formulario",
+        "title": "Donde empieza la postulación",
+        "text": "El candidato elige la vacante, deja sus datos y sube su hoja de vida en PDF. Al enviarla, el workflow de n8n la recibe y la evalúa."
+      }
+    ]
+  },
+  "en": {
+    "eyebrow": "AI automation · 2026",
+    "title": "TalentFlow AI",
+    "subtitle": "An n8n workflow that receives, evaluates and organizes job applications",
+    "summary": "TalentFlow AI receives applications from a web form, extracts the text of the PDF resume and compares it with the job requirements stored in PostgreSQL, using Google Gemini. It records the result in PostgreSQL and Google Sheets and notifies Human Resources by Gmail and Telegram.",
+    "context": [
+      "The project automates the intake of each application and gives it a compatibility score for the position.",
+      "Human Resources receives the classified result by email and Telegram, and can look up candidates through a Telegram bot."
+    ],
+    "role": [],
+    "stats": [
+      {
+        "value": "30",
+        "label": "nodes in the n8n workflow"
+      },
+      {
+        "value": "8",
+        "label": "positions in the form"
+      },
+      {
+        "value": "3",
+        "label": "PostgreSQL tables"
+      },
+      {
+        "value": "80 and 60",
+        "label": "scores that split the three classifications"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Intake",
+        "text": "A web form sends the data and the PDF to an n8n webhook. The workflow generates a ticket number in the format TF-year-number."
+      },
+      {
+        "title": "Duplicate check",
+        "text": "It queries PostgreSQL for an existing application with the same email and position. If one exists, it answers with code 409 and stops."
+      },
+      {
+        "title": "AI evaluation",
+        "text": "It extracts the PDF text, loads the position requirements and asks Google Gemini for a JSON answer with a score, education level, skills, a summary, notes and two interview questions."
+      },
+      {
+        "title": "Classification",
+        "text": "A Switch node sets the status from the score. With 80 or more, the status is PRESELECCIONADO and the review is priority. From 60 to 79, it is PENDIENTE_REVISION with manual review. Below 60, it is PENDIENTE_REVISION with secondary review."
+      },
+      {
+        "title": "Storage and alerts",
+        "text": "It saves the evaluation in PostgreSQL and Google Sheets. It sends an email to the Human Resources recipients and a Telegram message."
+      }
+    ],
+    "results": [
+      "Web form with name, email, phone, position, years of experience, technologies, data consent and the PDF resume.",
+      "Unique index on email and position in the database to prevent repeated applications.",
+      "Storage of the score, skills, education level and notes generated by the AI.",
+      "Telegram bot with two commands: /pendientes lists pending applications ordered by score and /candidato looks up a person by name.",
+      "Human Resources emails are read from a configuration table; they are not written into the workflow."
+    ],
+    "intro": "TalentFlow AI receives applications from a web form, extracts the text of the PDF resume and compares it with the job requirements stored in PostgreSQL, using Google Gemini. It records the result in PostgreSQL and Google Sheets and notifies Human Resources by Gmail and Telegram.",
+    "blocks": [
+      {
+        "step": "The form",
+        "title": "Where an application starts",
+        "text": "The candidate picks the vacancy, fills in their details and uploads a PDF résumé. On submit, the n8n workflow receives it and evaluates it."
+      }
+    ]
+  },
+  "stack": [
+    "n8n",
+    "Google Gemini",
+    "PostgreSQL",
+    "Google Sheets",
+    "Gmail",
+    "Telegram Bot API",
+    "JavaScript",
+    "HTML",
+    "CSS"
+  ],
+  "team": [],
+  "links": [
+    {
+      "url": "https://github.com/reatiguiadriana901/proyecto-N8N-",
+      "label_es": "Repositorio en GitHub",
+      "label_en": "GitHub repository"
+    }
+  ],
+  "images": [],
+  "sources": [
+    {
+      "claim": "Qué hace el sistema y qué servicios usa",
+      "quote": "El sistema valida duplicados, extrae texto de hojas de vida en PDF, evalúa la compatibilidad del candidato frente a la base de datos de vacantes, registra métricas en PostgreSQL y Google Sheets, y notifica a RRHH vía Gmail y Telegram interactivo",
+      "file": "README.md"
+    },
+    {
+      "claim": "Número de ticket",
+      "quote": "'TF-' + $now.toFormat('yyyy') + '-' + Math.floor(1000 + Math.random() * 9000)",
+      "file": "proyecto_jSON.json (nodo validación de datos)"
+    },
+    {
+      "claim": "Respuesta 409 por duplicado",
+      "quote": "Ya existe una postulación registrada con este correo para esta vacante.",
+      "file": "proyecto_jSON.json (nodo Respuesta duplicados, responseCode 409)"
+    },
+    {
+      "claim": "Consulta de duplicados por correo y vacante",
+      "quote": "WHERE correo = '{{ $json.body.email }}' \nAND vacante_postulada = '{{ $json.body.vacante_texto }}';",
+      "file": "proyecto_jSON.json (nodo verificar duplicados)"
+    },
+    {
+      "claim": "Umbrales de clasificación 80 y 60",
+      "quote": "\"rightValue\":80,\"operator\":{\"type\":\"number\",\"operation\":\"gte\"}",
+      "file": "proyecto_jSON.json (nodo Clasificación score)"
+    },
+    {
+      "claim": "Estado y revisión de la rama Alta",
+      "quote": "\"name\":\"estado\",\"value\":\"PRESELECCIONADO\"",
+      "file": "proyecto_jSON.json (nodo Alta, con revision_rrhh 'Revisión prioritaria')"
+    },
+    {
+      "claim": "Estado y revisión de la rama Media",
+      "quote": "\"name\":\"revision_rrhh\",\"value\":\"Revisión Manual\"",
+      "file": "proyecto_jSON.json (nodo Media, estado PENDIENTE_REVISION)"
+    },
+    {
+      "claim": "Estado y revisión de la rama Baja",
+      "quote": "\"name\":\"revision_rrhh\",\"value\":\"Revisión secundaria\"",
+      "file": "proyecto_jSON.json (nodo Baja, estado PENDIENTE_REVISION)"
+    },
+    {
+      "claim": "El flujo tiene 30 nodos (conteo del JSON exportado)",
+      "quote": "\"nodes\"",
+      "file": "proyecto_jSON.json"
+    },
+    {
+      "claim": "Ocho vacantes en el formulario",
+      "quote": "<option value=\"8\">Científico de Datos (Data Scientist)</option>",
+      "file": "index.html"
+    },
+    {
+      "claim": "Campos del formulario",
+      "quote": "<input type=\"file\" id=\"resume\" name=\"resume\" accept=\"application/pdf\" required>",
+      "file": "index.html"
+    },
+    {
+      "claim": "Tres tablas",
+      "quote": "CREATE TABLE IF NOT EXISTS notificaciones_config",
+      "file": "schema.sql"
+    },
+    {
+      "claim": "Índice único por correo y vacante",
+      "quote": "CREATE UNIQUE INDEX IF NOT EXISTS idx_postulaciones_correo_vacante",
+      "file": "schema.sql"
+    },
+    {
+      "claim": "El prompt pide puntaje, resumen y preguntas de entrevista",
+      "quote": "Genera un resumen corto y 2 preguntas clave para la entrevista.",
+      "file": "DOCUMENTACION_TECNICA.md"
+    },
+    {
+      "claim": "Campos de la evaluación que se guardan en PostgreSQL",
+      "quote": "\"habilidades\": \"={{ $json.habilidades_clave.join(', ') }}\", \"score_compatibilidad\": \"={{ $json.score_compatibilidad }}\", \"nivel_educativo\": \"={{ $json.nivel_educativo }}\", \"observaciones_ia\": \"={{ $json.observaciones_ia }}\"",
+      "file": "proyecto_jSON.json (nodo base de datos con info HV)"
+    },
+    {
+      "claim": "Comandos de Telegram",
+      "quote": "\"rightValue\":\"/pendientes\"",
+      "file": "proyecto_jSON.json (nodo Switch1)"
+    },
+    {
+      "claim": "/pendientes ordena por puntaje",
+      "quote": "WHERE estado = 'PENDIENTE_REVISION'\nORDER BY score_compatibilidad DESC;",
+      "file": "proyecto_jSON.json (nodo Execute a SQL query)"
+    },
+    {
+      "claim": "Correos de RRHH desde tabla de configuración",
+      "quote": "SELECT string_agg(correo, ', ') AS destinatarios FROM notificaciones_config;",
+      "file": "proyecto_jSON.json (nodo base de datos correos RRHH)"
+    },
+    {
+      "claim": "El formulario envía el PDF a un webhook de n8n",
+      "quote": "formData.append('resume', resumeInput.files[0]);",
+      "file": "app.js"
+    }
+  ],
+  "layout": "showcase",
+  "hero": {
+    "workflows": "datos/talentflow-workflows.json",
+    "caption_es": "El workflow real de TalentFlow en n8n, exportado del repositorio. Arrastra para moverte y toca un nodo para ver su código o su consulta.",
+    "caption_en": "The real TalentFlow workflow in n8n, exported from the repository. Drag to move around and tap a node to see its code or query."
+  },
+  "blocks": [
+    {
+      "src": "../assets/img/casos/talentflow-formulario.webp",
+      "alt_es": "Formulario web de postulación de TalentFlow AI",
+      "alt_en": "TalentFlow AI application web form",
+      "caption_es": "El formulario de postulación, tal como está en el repositorio.",
+      "caption_en": "The application form, as it is in the repository."
+    }
+  ]
+}

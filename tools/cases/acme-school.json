@@ -1,0 +1,322 @@
+{
+  "order": 6,
+  "slug": "acme-school",
+  "core": "N-06",
+  "litho": "sandstone",
+  "titles": {
+    "results": {
+      "es": "Qué hace",
+      "en": "What it does"
+    }
+  },
+  "es": {
+    "eyebrow": "Aplicación web · 2026",
+    "title": "Acme School",
+    "subtitle": "Plataforma de exámenes en línea hecha con JavaScript vanilla",
+    "summary": "Acme School permite crear y administrar exámenes y que los estudiantes los presenten en línea. Tiene un módulo privado para el personal y un módulo público para estudiantes. Funciona sin backend: guarda los datos en localStorage.",
+    "context": [
+      "El proyecto se desarrolló en equipo como proyecto final del módulo de JavaScript. Cubre crear un examen, presentarlo y ver el resultado.",
+      "No usa frameworks ni base de datos. Las contraseñas se guardan en texto plano porque es un proyecto académico, según indica el README."
+    ],
+    "role": [],
+    "stats": [
+      {
+        "value": "2",
+        "label": "módulos: privado y público"
+      },
+      {
+        "value": "7",
+        "label": "páginas HTML"
+      },
+      {
+        "value": "2",
+        "label": "exámenes de ejemplo (JS-001 y PY-001)"
+      },
+      {
+        "value": "5",
+        "label": "preguntas en cada examen de ejemplo"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Ingreso del personal",
+        "text": "El módulo privado pide correo y contraseña. Si no hay sesión, las páginas privadas redirigen al inicio de sesión."
+      },
+      {
+        "title": "Administración",
+        "text": "Desde el panel se gestionan usuarios y exámenes. Cada examen tiene código, título, tiempo, porcentaje para aprobar, descripción y preguntas dinámicas."
+      },
+      {
+        "title": "Catálogo público",
+        "text": "Cualquier persona ve las tarjetas de exámenes con código, tiempo, porcentaje de aprobación y número de preguntas."
+      },
+      {
+        "title": "Registro del estudiante",
+        "text": "Antes de empezar, el estudiante escribe su nombre y su identificación."
+      },
+      {
+        "title": "Examen y resultado",
+        "text": "El examen tiene un temporizador regresivo. Termina cuando el estudiante pulsa el botón o cuando se agota el tiempo. Un modal muestra el porcentaje y si aprobó, y luego se pueden revisar las respuestas."
+      }
+    ],
+    "results": [
+      "Inicio de sesión con protección de rutas privadas y cierre de sesión.",
+      "CRUD de usuarios con búsqueda, correo único, contraseña de mínimo 6 caracteres y nombre de mínimo 3.",
+      "CRUD de exámenes con mínimo una pregunta, mínimo dos respuestas por pregunta y una respuesta correcta marcada.",
+      "Código de examen único y porcentaje de aprobación entre 1 y 100.",
+      "Revisión final con respuestas correctas, incorrectas y omitidas marcadas por pregunta.",
+      "Datos iniciales creados automáticamente: un usuario administrador y dos exámenes."
+    ],
+    "intro": "Acme School permite crear y administrar exámenes y que los estudiantes los presenten en línea. Tiene un módulo privado para el personal y un módulo público para estudiantes. Funciona sin backend: guarda los datos en localStorage.",
+    "blocks": [
+      {
+        "step": "Módulo privado",
+        "title": "Inicio de sesión",
+        "text": "Los administradores entran para crear exámenes con preguntas dinámicas y gestionar usuarios."
+      },
+      {
+        "step": "Módulo público",
+        "title": "Catálogo de exámenes",
+        "text": "Los estudiantes eligen un examen del catálogo y lo presentan con temporizador."
+      }
+    ]
+  },
+  "en": {
+    "eyebrow": "Web application · 2026",
+    "title": "Acme School",
+    "subtitle": "An online exam platform built with vanilla JavaScript",
+    "summary": "Acme School lets staff create and manage exams and lets students take them online. It has a private module for staff and a public module for students. It runs without a backend and stores its data in localStorage.",
+    "context": [
+      "The project was built by a team as the final project of the JavaScript module. It covers creating an exam, taking it and seeing the result.",
+      "It uses no frameworks and no database. Passwords are stored as plain text because it is an academic project, as the README states."
+    ],
+    "role": [],
+    "stats": [
+      {
+        "value": "2",
+        "label": "modules: private and public"
+      },
+      {
+        "value": "7",
+        "label": "HTML pages"
+      },
+      {
+        "value": "2",
+        "label": "sample exams (JS-001 and PY-001)"
+      },
+      {
+        "value": "5",
+        "label": "questions in each sample exam"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Staff sign-in",
+        "text": "The private module asks for email and password. Without a session, private pages redirect to the sign-in page."
+      },
+      {
+        "title": "Administration",
+        "text": "Users and exams are managed from the panel. Each exam has a code, title, time limit, passing percentage, description and dynamic questions."
+      },
+      {
+        "title": "Public catalog",
+        "text": "Anyone can see the exam cards with code, time, passing percentage and number of questions."
+      },
+      {
+        "title": "Student registration",
+        "text": "Before starting, the student enters a name and an ID number."
+      },
+      {
+        "title": "Exam and result",
+        "text": "The exam has a countdown timer. It ends when the student presses the finish button or when time runs out. A modal shows the percentage and whether the student passed, and then the answers can be reviewed."
+      }
+    ],
+    "results": [
+      "Sign-in with private route protection and sign-out.",
+      "User CRUD with search, unique email, a password of at least 6 characters and a name of at least 3.",
+      "Exam CRUD requiring at least one question, at least two answers per question and one answer marked as correct.",
+      "Unique exam code and a passing percentage between 1 and 100.",
+      "Final review marking correct, incorrect and skipped answers for each question.",
+      "Initial data created automatically: one administrator user and two exams."
+    ],
+    "intro": "Acme School lets staff create and manage exams and lets students take them online. It has a private module for staff and a public module for students. It runs without a backend and stores its data in localStorage.",
+    "blocks": [
+      {
+        "step": "Private module",
+        "title": "Sign-in",
+        "text": "Admins sign in to create exams with dynamic questions and manage users."
+      },
+      {
+        "step": "Public module",
+        "title": "Exam catalog",
+        "text": "Students pick an exam from the catalog and take it with a timer."
+      }
+    ]
+  },
+  "stack": [
+    "HTML5",
+    "CSS3",
+    "JavaScript (ES6+)",
+    "localStorage"
+  ],
+  "team": [
+    {
+      "name": "Santiago Becerra"
+    },
+    {
+      "name": "Adriana Reatigui",
+      "url": "https://github.com/reatiguiadriana901"
+    },
+    {
+      "name": "Cristian Solano"
+    }
+  ],
+  "links": [
+    {
+      "url": "https://github.com/reatiguiadriana901/ProyectoAcmesSchool_JavaScript_Becerra_Reatigui_Solano",
+      "label_es": "Repositorio en GitHub",
+      "label_en": "GitHub repository"
+    }
+  ],
+  "images": [],
+  "sources": [
+    {
+      "claim": "Qué es y dos módulos",
+      "quote": "Básicamente tiene dos módulos principales",
+      "file": "README.md"
+    },
+    {
+      "claim": "Sin backend, todo en localStorage",
+      "quote": "No usamos ningún backend ni base de datos. Todo vive en el navegador con `localStorage`.",
+      "file": "README.md"
+    },
+    {
+      "claim": "Contexto del proyecto",
+      "quote": "Como proyecto final del módulo de JavaScript.",
+      "file": "README.md"
+    },
+    {
+      "claim": "Nombres de los integrantes",
+      "quote": "- Santiago Becerra\n- Adriana Reatigui  \n- Cristian Solano",
+      "file": "README.md"
+    },
+    {
+      "claim": "Contraseñas en texto plano",
+      "quote": "Las contraseñas se guardan en texto plano porque es un proyecto académico.",
+      "file": "README.md"
+    },
+    {
+      "claim": "Stack",
+      "quote": "**JavaScript (ES6+)** — toda la lógica, con módulos (`import`/`export`)",
+      "file": "README.md"
+    },
+    {
+      "claim": "Protección de rutas",
+      "quote": "Si no hay sesión, redirige al login automáticamente.",
+      "file": "js/modules/auth.js"
+    },
+    {
+      "claim": "Validación de nombre y contraseña de usuario",
+      "quote": "if (!name || name.length < 3) { setFieldError('errName', 'El nombre debe tener al menos 3 caracteres.'); hasError = true; }",
+      "file": "js/modules/usuarios.js"
+    },
+    {
+      "claim": "Correo único",
+      "quote": "return { ok: false, error: 'Ya existe un usuario con ese email.' };",
+      "file": "js/utils/storage.js"
+    },
+    {
+      "claim": "Búsqueda de usuarios",
+      "quote": "export function renderUsersTable(filter = '') {",
+      "file": "js/modules/usuarios.js"
+    },
+    {
+      "claim": "Validación de preguntas del examen",
+      "quote": "alert('Agrega al menos una pregunta al examen.');",
+      "file": "js/pages/gestion-examenes.js"
+    },
+    {
+      "claim": "Mínimo dos respuestas por pregunta",
+      "quote": "necesita al menos 2 respuestas con texto.",
+      "file": "js/pages/gestion-examenes.js"
+    },
+    {
+      "claim": "Una respuesta correcta marcada",
+      "quote": "no tiene ninguna respuesta marcada como correcta.",
+      "file": "js/pages/gestion-examenes.js"
+    },
+    {
+      "claim": "Porcentaje entre 1 y 100",
+      "quote": "El tiempo debe ser mínimo 1 minuto y el porcentaje entre 1 y 100.",
+      "file": "js/pages/gestion-examenes.js"
+    },
+    {
+      "claim": "Código de examen único",
+      "quote": "Ya existe un examen con el código",
+      "file": "js/pages/gestion-examenes.js"
+    },
+    {
+      "claim": "Temporizador y cierre automático",
+      "quote": "if (tiempo <= 0) {\n        clearInterval(intervalo)\n        displayTimer.textContent = '¡Tiempo!'\n        terminarExamen()",
+      "file": "examen/examen.js"
+    },
+    {
+      "claim": "El examen también se termina con un botón",
+      "quote": "botonTerminar.addEventListener('click', terminarExamen)",
+      "file": "examen/examen.js"
+    },
+    {
+      "claim": "Resultado y aprobación",
+      "quote": "const aprueba            = porcentajeObtenido >= examenSeleccionado.porcentaje",
+      "file": "examen/examen.js"
+    },
+    {
+      "claim": "Revisión de respuestas correctas, incorrectas y omitidas",
+      "quote": "estadoPorPregunta.push('omitida')",
+      "file": "examen/examen.js"
+    },
+    {
+      "claim": "Datos iniciales: dos exámenes",
+      "quote": "id: 'exam-py-001',",
+      "file": "js/utils/seed.js"
+    },
+    {
+      "claim": "Usuario administrador inicial",
+      "quote": "email:    'admin@acme.edu.co',",
+      "file": "js/utils/seed.js"
+    },
+    {
+      "claim": "Tarjeta del catálogo",
+      "quote": "${examen.preguntas.length} preguntas",
+      "file": "js/pages/catalogo.js"
+    },
+    {
+      "claim": "Registro del estudiante con nombre e identificación",
+      "quote": "const datosEstudiante = { nombre: usuarioNombre, identificacion: usuarioIdentificacion }",
+      "file": "js/pages/registro.js"
+    }
+  ],
+  "layout": "showcase",
+  "hero": {
+    "demo": "demos/acme-school/index.html",
+    "title": "Demo de Acme School",
+    "caption_es": "Pruébala aquí mismo: es la aplicación real. Para el módulo de administración usa el usuario de prueba admin@acme.edu.co con la contraseña admin123. Los datos se guardan solo en tu navegador.",
+    "caption_en": "Try it right here: this is the real app. For the admin module use the test user admin@acme.edu.co with the password admin123. Data is stored only in your browser."
+  },
+  "blocks": [
+    {
+      "src": "../assets/img/casos/acme-login.webp",
+      "alt_es": "Pantalla de inicio de sesión de Acme School",
+      "alt_en": "Acme School sign-in screen",
+      "caption_es": "Inicio de sesión del módulo privado.",
+      "caption_en": "Private module sign-in."
+    },
+    {
+      "src": "../assets/img/casos/acme-catalogo.webp",
+      "alt_es": "Catálogo público de exámenes de Acme School",
+      "alt_en": "Acme School public exam catalog",
+      "caption_es": "Catálogo público de exámenes.",
+      "caption_en": "Public exam catalog."
+    }
+  ]
+}

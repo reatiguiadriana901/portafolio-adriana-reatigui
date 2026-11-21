@@ -1,0 +1,220 @@
+{
+  "order": 9,
+  "slug": "poster-fallas-poligonales",
+  "core": "N-09",
+  "litho": "conglomerate",
+  "titles": {
+    "steps": {
+      "es": "Qué buscamos",
+      "en": "What we set out to do"
+    },
+    "results": {
+      "es": "Conclusiones",
+      "en": "Conclusions"
+    },
+    "blocks": {
+      "es": "Lo que hicimos",
+      "en": "What we did"
+    }
+  },
+  "stackLabel": {
+    "es": "Temas",
+    "en": "Topics"
+  },
+  "es": {
+    "eyebrow": "Póster · XX Congreso Colombiano de Geología · 2025",
+    "title": "Fallas poligonales y atributos sísmicos",
+    "subtitle": "Cuenca Outer Rough · Grupo Hordaland (Mioceno)",
+    "summary": "Caracterizamos con atributos sísmicos el sistema de fallas poligonales del Grupo Hordaland, en la cuenca Outer Rough, y evaluamos su posible relación con estructuras de colapso asociadas a disolución. Lo presentamos como póster en el XX Congreso Colombiano de Geología (CCG2025).",
+    "context": [
+      "Las fallas poligonales son fallas extensionales que se forman en sedimentos finos por compactación y pérdida de volumen, sin necesidad de un control tectónico regional.",
+      "En el Grupo Hordaland (Mioceno) de la cuenca Outer Rough se han identificado estas fallas junto con posibles rasgos de colapso y karstificación. El trabajo partió de la hipótesis de que esos colapsos se relacionan con procesos de disolución asociados al patrón de fallamiento poligonal."
+    ],
+    "role": [],
+    "stats": [],
+    "steps": [
+      {
+        "title": "Delimitar los horizontes sísmicos",
+        "text": "Identificar y delimitar los horizontes sísmicos que controlan la formación de las fallas poligonales."
+      },
+      {
+        "title": "Caracterizar las fallas",
+        "text": "Describir la geometría, la distribución y la nucleación de las fallas poligonales."
+      },
+      {
+        "title": "Relacionar fallas y colapsos",
+        "text": "Evaluar la relación entre las fallas poligonales y las estructuras de colapso del límite superior de la unidad."
+      }
+    ],
+    "results": [
+      "Las fallas poligonales del Grupo Hordaland están controladas por la estratigrafía local.",
+      "Su geometría y su distribución reflejan un proceso diagenético más que tectónico.",
+      "La cercanía entre las fallas y los colapsos del techo de la unidad sugiere una relación directa. Los colapsos podrían estar relacionados con la actividad previa de las fallas, que habrían actuado como conductos para fluidos que favorecieron la disolución y la pérdida de soporte interno."
+    ],
+    "intro": "Con atributos sísmicos caracterizamos el sistema de fallas poligonales del Grupo Hordaland y evaluamos si se relaciona con posibles colapsos por disolución en el techo de la unidad.",
+    "blocks": [
+      {
+        "step": "Método",
+        "title": "De los datos a la interpretación",
+        "text": "Revisión de la información geológica, datos sísmicos 3D y registros de pozo, interpretación con atributos sísmicos, caracterización de las fallas y análisis de los colapsos."
+      },
+      {
+        "step": "Horizontes",
+        "title": "Los horizontes que controlan las fallas",
+        "text": "En la Inline 635 se interpretaron los horizontes H1, H2 y H3, que controlan la formación de las fallas poligonales. Abajo, cada horizonte visto en planta."
+      },
+      {
+        "step": "Fallas",
+        "title": "Tres tipos de fallas",
+        "text": "En la Inline 635 y la Crossline 555 las fallas se clasificaron en tres tipos; al lado, la deformación horizontal por niveles de profundidad."
+      },
+      {
+        "step": "Atributos",
+        "title": "Señales de colapso",
+        "text": "En el corte A–A′ aparecen reflectores caóticos, eventos sísmicos desconectados y reflectores con geometría cóncava, que apuntan a un posible colapso estructural."
+      },
+      {
+        "step": "Interpretación",
+        "title": "Colapsos en el techo de la unidad",
+        "text": "El corte interpretado ubica las posibles zonas de colapso, en rojo, en el techo de la unidad y junto a las fallas."
+      }
+    ]
+  },
+  "en": {
+    "eyebrow": "Poster · 20th Colombian Geological Congress · 2025",
+    "title": "Polygonal faults and seismic attributes",
+    "subtitle": "Outer Rough Basin · Hordaland Group (Miocene)",
+    "summary": "We used seismic attributes to characterize the polygonal fault system of the Hordaland Group, in the Outer Rough Basin, and assessed its possible link with collapse structures related to dissolution. We presented it as a poster at the 20th Colombian Geological Congress (CCG2025).",
+    "context": [
+      "Polygonal faults are extensional faults that form in fine-grained sediments through compaction and volume loss, without the need for regional tectonic control.",
+      "In the Hordaland Group (Miocene) of the Outer Rough Basin these faults have been identified together with possible collapse and karst features. The work started from the hypothesis that those collapses are related to dissolution processes associated with the polygonal fault pattern."
+    ],
+    "role": [],
+    "stats": [],
+    "steps": [
+      {
+        "title": "Outline the seismic horizons",
+        "text": "Identify and outline the seismic horizons that control the formation of the polygonal faults."
+      },
+      {
+        "title": "Characterize the faults",
+        "text": "Describe the geometry, distribution and nucleation of the polygonal faults."
+      },
+      {
+        "title": "Relate faults and collapses",
+        "text": "Assess the relationship between the polygonal faults and the collapse structures at the upper boundary of the unit."
+      }
+    ],
+    "results": [
+      "The polygonal faults of the Hordaland Group are controlled by the local stratigraphy.",
+      "Their geometry and distribution reflect a diagenetic rather than a tectonic process.",
+      "The proximity between the faults and the collapses at the top of the unit suggests a direct relationship. The collapses could be related to earlier fault activity, with the faults acting as conduits for fluids that favored dissolution and the loss of internal support."
+    ],
+    "intro": "Using seismic attributes, we characterized the polygonal fault system of the Hordaland Group and assessed whether it is related to possible dissolution collapses at the top of the unit.",
+    "blocks": [
+      {
+        "step": "Method",
+        "title": "From data to interpretation",
+        "text": "A review of the geological information, 3D seismic data and well logs, interpretation with seismic attributes, characterization of the faults, and analysis of the collapses."
+      },
+      {
+        "step": "Horizons",
+        "title": "The horizons that control the faults",
+        "text": "Horizons H1, H2 and H3, which control the formation of the polygonal faults, were interpreted on Inline 635. Below, each horizon in map view."
+      },
+      {
+        "step": "Faults",
+        "title": "Three fault types",
+        "text": "On Inline 635 and Crossline 555 the faults were classified into three types; beside them, the horizontal strain by depth level."
+      },
+      {
+        "step": "Attributes",
+        "title": "Signs of collapse",
+        "text": "Section A–A′ shows chaotic reflectors, disconnected seismic events and reflectors with concave geometry, which point to a possible structural collapse."
+      },
+      {
+        "step": "Interpretation",
+        "title": "Collapses at the top of the unit",
+        "text": "The interpreted section places the possible collapse zones, in red, at the top of the unit and next to the faults."
+      }
+    ]
+  },
+  "stack": [
+    {
+      "es": "Interpretación sísmica",
+      "en": "Seismic interpretation"
+    },
+    {
+      "es": "Atributos sísmicos",
+      "en": "Seismic attributes"
+    },
+    {
+      "es": "Geología estructural",
+      "en": "Structural geology"
+    }
+  ],
+  "team": [
+    {
+      "name": "Kevin Tarazona"
+    },
+    {
+      "name": "Adriana Reatigui"
+    },
+    {
+      "name": "Dilan Martínez Sánchez"
+    }
+  ],
+  "links": [],
+  "images": [],
+  "note": {
+    "es": "Autores de la Universidad Industrial de Santander (UIS).",
+    "en": "Authors from the Universidad Industrial de Santander (UIS)."
+  },
+  "layout": "showcase",
+  "hero": {
+    "src": "../assets/img/casos/poster-ccg2025.webp",
+    "full": "../assets/img/casos/poster-ccg2025-grande.webp",
+    "portrait": true,
+    "alt_es": "Póster completo: Caracterización de sistemas de fallas poligonales asociado a unidades con posible influencia kárstica mediante el uso de atributos sísmicos, en la cuenca Outer Rough",
+    "alt_en": "Full poster: Characterization of polygonal fault systems associated with units with possible karst influence using seismic attributes, in the Outer Rough Basin",
+    "caption_es": "El póster completo, tal como lo presentamos en el XX Congreso Colombiano de Geología. Toca la imagen para verla en tamaño completo.",
+    "caption_en": "The full poster, as we presented it at the 20th Colombian Geological Congress. Tap the image to see it full size."
+  },
+  "blocks": [
+    {
+      "src": "../assets/img/casos/poster-metodologia.webp",
+      "alt_es": "Diagrama de los cinco pasos de la metodología",
+      "alt_en": "Diagram of the five steps of the methodology",
+      "caption_es": "Figura 2. Metodología.",
+      "caption_en": "Figure 2. Methodology."
+    },
+    {
+      "src": "../assets/img/casos/poster-horizontes.webp",
+      "alt_es": "Inline 635 con los horizontes H1, H2 y H3, y los tres horizontes en planta",
+      "alt_en": "Inline 635 with horizons H1, H2 and H3, and the three horizons in map view",
+      "caption_es": "Figura 3. Horizontes sísmicos que controlan la formación de fallas poligonales.",
+      "caption_en": "Figure 3. Seismic horizons that control the formation of polygonal faults."
+    },
+    {
+      "src": "../assets/img/casos/poster-secciones.webp",
+      "alt_es": "Inline 635 y Crossline 555 con fallas de tres tipos y su deformación horizontal",
+      "alt_en": "Inline 635 and Crossline 555 with three fault types and their horizontal strain",
+      "caption_es": "Figura 4. Secciones sísmicas con deformación lateral discretizada.",
+      "caption_en": "Figure 4. Seismic sections with discretized lateral strain."
+    },
+    {
+      "src": "../assets/img/casos/poster-atributos.webp",
+      "alt_es": "Mapa del horizonte con la línea A–A′ y el corte A–A′ con reflectores caóticos, eventos desconectados y reflectores cóncavos, señalado como posible colapso estructural",
+      "alt_en": "Horizon map with line A–A′ and section A–A′ with chaotic reflectors, disconnected events and concave reflectors, flagged as a possible structural collapse",
+      "caption_es": "Figura 5. Horizonte sísmico interpretado.",
+      "caption_en": "Figure 5. Interpreted seismic horizon."
+    },
+    {
+      "src": "../assets/img/casos/poster-colapsos.webp",
+      "alt_es": "Corte interpretado con zonas de colapso en rojo junto a las fallas",
+      "alt_en": "Interpreted section with collapse zones in red next to the faults",
+      "caption_es": "Figura 6. Corte interpretado de zona de interés.",
+      "caption_en": "Figure 6. Interpreted section of the area of interest."
+    }
+  ]
+}

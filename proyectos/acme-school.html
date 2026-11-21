@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!-- Generado por tools/build_cases.py a partir de tools/cases/acme-school.json: edita el JSON, no este archivo -->
+<html lang="es" data-motion="on" data-title-es="Acme School · Adriana Reatigui" data-title-en="Acme School · Adriana Reatigui">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#2d3a47">
+  <title>Acme School · Adriana Reatigui</title>
+  <meta name="description" content="Acme School permite crear y administrar exámenes y que los estudiantes los presenten en línea. Tiene un módulo privado para el personal y un módulo público para estudiantes. Funciona sin backend: guarda los datos en localStorage.">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..700&amp;family=Fira+Code:wght@400..500&amp;family=Fraunces:ital,opsz,wght@0,9..144,500..700;1,9..144,500&amp;display=swap">
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/case.css">
+  <script>
+    // Idioma elegido en el portafolio, antes de pintar la página (js/case.js hace el resto)
+    try {
+      if (/[?&]lang=en\b/.test(location.search) || (!/[?&]lang=es\b/.test(location.search) && localStorage.getItem('portafolio:idioma') === 'en')) document.documentElement.lang = 'en';
+    } catch (error) {
+      // Sin almacenamiento: queda en español
+    }
+  </script>
+  <script type="module" src="../js/case.js"></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#contenido"><span lang="es">Saltar al contenido</span><span lang="en">Skip to content</span></a>
+
+  <header class="header case-header theme-dark">
+    <div class="header__bar">
+      <a class="case-back" href="../index.html#proyectos"><span aria-hidden="true">←</span> <span lang="es">Volver a proyectos</span><span lang="en">Back to projects</span></a>
+      <a class="header__brand" href="../index.html">Adriana Reatigui</a>
+      <button class="lang-toggle" type="button" aria-label="Ver la página en inglés">EN</button>
+    </div>
+  </header>
+
+  <main class="case case--showcase" id="contenido">
+    <div class="case__inner">
+      <header class="show-hero">
+        <span class="case-hero__id"><span class="case-hero2__core" data-litho="sandstone" aria-hidden="true"></span><span lang="es">Núcleo N-06</span><span lang="en">Core N-06</span></span>
+        <p class="case-hero__eyebrow" lang="es">Aplicación web · 2026</p><p class="case-hero__eyebrow" lang="en">Web application · 2026</p>
+        <h1 class="show-hero__title">Acme School</h1>
+        <p class="show-hero__subtitle" lang="es">Plataforma de exámenes en línea hecha con JavaScript vanilla</p><p class="show-hero__subtitle" lang="en">An online exam platform built with vanilla JavaScript</p>
+        <p class="show-hero__intro" lang="es">Acme School permite crear y administrar exámenes y que los estudiantes los presenten en línea. Tiene un módulo privado para el personal y un módulo público para estudiantes. Funciona sin backend: guarda los datos en localStorage.</p><p class="show-hero__intro" lang="en">Acme School lets staff create and manage exams and lets students take them online. It has a private module for staff and a public module for students. It runs without a backend and stores its data in localStorage.</p>
+      </header>
+      <figure class="show-media show-media--app"><div class="show-demo"><iframe src="demos/acme-school/index.html" title="Demo de Acme School" loading="lazy"></iframe></div><figcaption><span lang="es">Pruébala aquí mismo: es la aplicación real. Para el módulo de administración usa el usuario de prueba admin@acme.edu.co con la contraseña admin123. Los datos se guardan solo en tu navegador.</span><span lang="en">Try it right here: this is the real app. For the admin module use the test user admin@acme.edu.co with the password admin123. Data is stored only in your browser.</span></figcaption></figure>
+
+      <ul class="case-stats">
+        <li class="case-stat"><span class="case-stat__value">2</span><span class="case-stat__label" lang="es">módulos: privado y público</span><span class="case-stat__label" lang="en">modules: private and public</span></li>
+        <li class="case-stat"><span class="case-stat__value">7</span><span class="case-stat__label" lang="es">páginas HTML</span><span class="case-stat__label" lang="en">HTML pages</span></li>
+        <li class="case-stat"><span class="case-stat__value">2</span><span class="case-stat__label" lang="es">exámenes de ejemplo (JS-001 y PY-001)</span><span class="case-stat__label" lang="en">sample exams (JS-001 and PY-001)</span></li>
+        <li class="case-stat"><span class="case-stat__value">5</span><span class="case-stat__label" lang="es">preguntas en cada examen de ejemplo</span><span class="case-stat__label" lang="en">questions in each sample exam</span></li>
+      </ul>
+      <section class="case-section" aria-labelledby="blocks">
+        <h2 class="case-section__title" id="blocks"><span lang="es">Lo que hice</span><span lang="en">What I did</span></h2>
+        <article class="show-block"><div class="show-block__text"><span class="show-block__step"><span lang="es">Módulo privado</span><span lang="en">Private module</span></span><h3 class="show-block__title"><span lang="es">Inicio de sesión</span><span lang="en">Sign-in</span></h3><p lang="es">Los administradores entran para crear exámenes con preguntas dinámicas y gestionar usuarios.</p><p lang="en">Admins sign in to create exams with dynamic questions and manage users.</p></div><figure class="show-media"><a href="../assets/img/casos/acme-login.webp" target="_blank" rel="noopener"><img src="../assets/img/casos/acme-login.webp" alt="Pantalla de inicio de sesión de Acme School" data-alt-es="Pantalla de inicio de sesión de Acme School" data-alt-en="Acme School sign-in screen" loading="lazy" decoding="async"></a><figcaption><span lang="es">Inicio de sesión del módulo privado.</span><span lang="en">Private module sign-in.</span></figcaption></figure></article>
+        <article class="show-block show-block--flip"><div class="show-block__text"><span class="show-block__step"><span lang="es">Módulo público</span><span lang="en">Public module</span></span><h3 class="show-block__title"><span lang="es">Catálogo de exámenes</span><span lang="en">Exam catalog</span></h3><p lang="es">Los estudiantes eligen un examen del catálogo y lo presentan con temporizador.</p><p lang="en">Students pick an exam from the catalog and take it with a timer.</p></div><figure class="show-media"><a href="../assets/img/casos/acme-catalogo.webp" target="_blank" rel="noopener"><img src="../assets/img/casos/acme-catalogo.webp" alt="Catálogo público de exámenes de Acme School" data-alt-es="Catálogo público de exámenes de Acme School" data-alt-en="Acme School public exam catalog" loading="lazy" decoding="async"></a><figcaption><span lang="es">Catálogo público de exámenes.</span><span lang="en">Public exam catalog.</span></figcaption></figure></article>
+      </section>
+      <section class="case-section" aria-labelledby="results">
+        <h2 class="case-section__title" id="results"><span lang="es">Qué hace</span><span lang="en">What it does</span></h2>
+        <ul class="show-results" lang="es"><li>Inicio de sesión con protección de rutas privadas y cierre de sesión.</li><li>CRUD de usuarios con búsqueda, correo único, contraseña de mínimo 6 caracteres y nombre de mínimo 3.</li><li>CRUD de exámenes con mínimo una pregunta, mínimo dos respuestas por pregunta y una respuesta correcta marcada.</li><li>Código de examen único y porcentaje de aprobación entre 1 y 100.</li><li>Revisión final con respuestas correctas, incorrectas y omitidas marcadas por pregunta.</li><li>Datos iniciales creados automáticamente: un usuario administrador y dos exámenes.</li></ul><ul class="show-results" lang="en"><li>Sign-in with private route protection and sign-out.</li><li>User CRUD with search, unique email, a password of at least 6 characters and a name of at least 3.</li><li>Exam CRUD requiring at least one question, at least two answers per question and one answer marked as correct.</li><li>Unique exam code and a passing percentage between 1 and 100.</li><li>Final review marking correct, incorrect and skipped answers for each question.</li><li>Initial data created automatically: one administrator user and two exams.</li></ul>
+      </section>
+      <section class="case-section" aria-labelledby="facts">
+        <h2 class="case-section__title" id="facts"><span lang="es">Ficha técnica</span><span lang="en">Project details</span></h2>
+        <dl class="case-facts">
+          <div><dt><span lang="es">Tecnologías</span><span lang="en">Technologies</span></dt><dd><ul class="chips"><li class="chip">HTML5</li><li class="chip">CSS3</li><li class="chip">JavaScript (ES6+)</li><li class="chip">localStorage</li></ul></dd></div>
+          <div><dt><span lang="es">Equipo</span><span lang="en">Team</span></dt><dd>Santiago Becerra, <a href="https://github.com/reatiguiadriana901" target="_blank" rel="noopener">Adriana Reatigui</a>, Cristian Solano</dd></div>
+          <div><dt><span lang="es">Enlaces</span><span lang="en">Links</span></dt><dd class="case-links"><a class="button button--ghost" href="https://github.com/reatiguiadriana901/ProyectoAcmesSchool_JavaScript_Becerra_Reatigui_Solano" target="_blank" rel="noopener"><span lang="es">Repositorio en GitHub</span><span lang="en">GitHub repository</span> <span aria-hidden="true">↗</span></a></dd></div>
+        </dl>
+      </section>
+      <nav class="case-pager" aria-label="Otros proyectos">
+        <a class="case-pager__link case-pager__link--prev" href="talentflow-ai.html"><span class="case-pager__hint"><span lang="es">← Anterior</span><span lang="en">← Previous</span></span><span class="case-pager__name">TalentFlow AI</span></a>
+        <a class="case-pager__link case-pager__link--next" href="java-poo.html"><span class="case-pager__hint"><span lang="es">Siguiente →</span><span lang="en">Next →</span></span><span class="case-pager__name"><span lang="es">Práctica Java POO</span><span lang="en">Java OOP Practice</span></span></a>
+      </nav>
+    </div>
+  </main>
+
+  <footer class="footer theme-dark">
+    <p class="footer__credits">Adriana Reatigui · <span lang="es">Geóloga y desarrolladora de software</span><span lang="en">Geologist and software developer</span></p>
+  </footer>
+
+  <!-- Fondo animado: corte geológico (fx/cross-section.js) -->
+  <canvas class="cross-section" id="cross-section" aria-hidden="true"></canvas>
+</body>
+
+</html>

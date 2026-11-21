@@ -1,0 +1,293 @@
+{
+  "order": 7,
+  "slug": "java-poo",
+  "core": "N-07",
+  "litho": "shale",
+  "titles": {
+    "results": {
+      "es": "Qué hace",
+      "en": "What it does"
+    }
+  },
+  "es": {
+    "eyebrow": "Java · 2026",
+    "title": "Práctica Java POO",
+    "subtitle": "Cinco ejercicios de consola sobre programación orientada a objetos",
+    "summary": "Práctica de Java desarrollada en Campuslands con cinco programas de consola: cajero automático, registro académico, tienda online, agenda de contactos y sistema de notas con curva. Aplica clases, herencia, colecciones, excepciones y manejo de archivos de texto.",
+    "context": [
+      "La práctica reúne ejercicios sobre los pilares de la programación orientada a objetos. Cada ejercicio incluye una versión base y sus expansiones.",
+      "Todos siguen la misma organización: clases de datos y lógica, una clase de gestión con el Scanner y los menús, y una clase Main que la inicia. Una clase Principal permite abrir cualquiera de los cinco desde un menú."
+    ],
+    "role": [
+      "Soy la autora de los cinco ejercicios."
+    ],
+    "stats": [
+      {
+        "value": "5",
+        "label": "ejercicios de consola"
+      },
+      {
+        "value": "3",
+        "label": "intentos de PIN en el cajero"
+      },
+      {
+        "value": "5",
+        "label": "últimos movimientos que guarda cada cuenta"
+      },
+      {
+        "value": "10%",
+        "label": "descuento en la tienda si el subtotal supera 1000"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Cajero automático",
+        "text": "Inicio de sesión con titular y PIN, consulta de saldo, retiro, depósito, transferencia e historial. Usa herencia: Cuenta (abstracta), CuentaBancaria, CuentaAhorro y CuentaCorriente."
+      },
+      {
+        "title": "Registro académico",
+        "text": "Estudiantes con asignaturas, promedio y faltas. Un estudiante aprueba con promedio de 6 o más y menos de 10 faltas. El reporte del curso se guarda en un archivo .txt."
+      },
+      {
+        "title": "Tienda online",
+        "text": "Catálogo filtrable por categoría, carrito, inventario con stock y factura con descuento. ProductoAlimenticio y ProductoElectronico heredan de Producto."
+      },
+      {
+        "title": "Agenda de contactos",
+        "text": "Registra, busca, lista y elimina contactos, valida teléfono y correo, los organiza por grupo y los guarda en agenda.txt."
+      },
+      {
+        "title": "Sistema de notas con curva",
+        "text": "Calcula la nota final con ponderaciones de 30%, 30% y 40%. Si el promedio del curso es menor a 6, se elige entre tres tipos de curva y se muestran estadísticas."
+      }
+    ],
+    "results": [
+      "Cuenta de ahorro que suma un interés de 2% sobre cada depósito.",
+      "Cuenta corriente con sobregiro de hasta 100000.",
+      "Validación de teléfono de 10 dígitos numéricos y de correo con arroba y punto.",
+      "Búsqueda parcial de contactos por nombre, sin distinguir mayúsculas.",
+      "Estadísticas de la curva: nueva media, desviación estándar y alumnos que aprueban gracias a ella.",
+      "Manejo de InputMismatchException al ingresar valores numéricos."
+    ],
+    "intro": "Práctica de Java desarrollada en Campuslands: cajero automático, registro académico, tienda online, agenda de contactos y sistema de notas con curva. Aplica clases, herencia, colecciones, excepciones y manejo de archivos de texto."
+  },
+  "en": {
+    "eyebrow": "Java · 2026",
+    "title": "Java OOP Practice",
+    "subtitle": "Five console exercises on object-oriented programming",
+    "summary": "A Java practice project developed at Campuslands with five console programs: ATM, academic records, online store, contact book and a grading system with a curve. It applies classes, inheritance, collections, exceptions and text file handling.",
+    "context": [
+      "The practice project gathers exercises on the pillars of object-oriented programming. Each exercise includes a base version and its expansions.",
+      "All of them share the same structure: data and logic classes, a management class with the Scanner and menus, and a Main class that starts it. A Principal class opens any of the five from a menu."
+    ],
+    "role": [
+      "I wrote all five exercises."
+    ],
+    "stats": [
+      {
+        "value": "5",
+        "label": "console exercises"
+      },
+      {
+        "value": "3",
+        "label": "PIN attempts at the ATM"
+      },
+      {
+        "value": "5",
+        "label": "latest transactions kept per account"
+      },
+      {
+        "value": "10%",
+        "label": "store discount when the subtotal exceeds 1000"
+      }
+    ],
+    "steps": [
+      {
+        "title": "ATM",
+        "text": "Sign-in with account holder and PIN, balance check, withdrawal, deposit, transfer and history. It uses inheritance: Cuenta (abstract), CuentaBancaria, CuentaAhorro and CuentaCorriente."
+      },
+      {
+        "title": "Academic records",
+        "text": "Students with subjects, average and absences. A student passes with an average of 6 or more and fewer than 10 absences. The course report is saved to a .txt file."
+      },
+      {
+        "title": "Online store",
+        "text": "Catalog filterable by category, cart, inventory with stock and an invoice with discount. ProductoAlimenticio and ProductoElectronico inherit from Producto."
+      },
+      {
+        "title": "Contact book",
+        "text": "Adds, searches, lists and deletes contacts, validates phone and email, groups contacts and saves them to agenda.txt."
+      },
+      {
+        "title": "Grading system with a curve",
+        "text": "Calculates the final grade weighted 30%, 30% and 40%. If the course average is below 6, one of three curve types is chosen and statistics are shown."
+      }
+    ],
+    "results": [
+      "Savings account that adds 2% interest to each deposit.",
+      "Checking account with an overdraft of up to 100000.",
+      "Validation of a 10-digit numeric phone number and of an email with an at sign and a dot.",
+      "Partial, case-insensitive contact search by name.",
+      "Curve statistics: new average, standard deviation and students who pass thanks to the curve.",
+      "Handling of InputMismatchException when numeric values are entered."
+    ],
+    "intro": "A Java practice project developed at Campuslands: ATM, academic records, online store, contact book and a grading system with a curve. It applies classes, inheritance, collections, exceptions and text file handling."
+  },
+  "stack": [
+    "Java",
+    "Maven",
+    "IntelliJ IDEA"
+  ],
+  "team": [
+    {
+      "name": "Adriana Reatigui",
+      "url": "https://github.com/reatiguiadriana901"
+    }
+  ],
+  "links": [
+    {
+      "url": "https://github.com/reatiguiadriana901/PRACTICA_1_JAVA_POO",
+      "label_es": "Repositorio en GitHub",
+      "label_en": "GitHub repository"
+    }
+  ],
+  "images": [],
+  "sources": [
+    {
+      "claim": "Qué es y dónde se hizo",
+      "quote": "Proyecto de práctica en Java desarrollado en Campuslands. Reúne cinco ejercicios de consola",
+      "file": "README.md"
+    },
+    {
+      "claim": "Autoría",
+      "quote": "## Autora\n\nAdriana Reatigui",
+      "file": "README.md"
+    },
+    {
+      "claim": "Organización de cada ejercicio",
+      "quote": "**Clase de gestión:** concentra el `Scanner`, los menús y los mensajes por consola.",
+      "file": "README.md"
+    },
+    {
+      "claim": "IntelliJ IDEA",
+      "quote": "Abrir el proyecto en IntelliJ IDEA.",
+      "file": "README.md"
+    },
+    {
+      "claim": "Maven",
+      "quote": "<maven.compiler.source>21</maven.compiler.source>",
+      "file": "pom.xml"
+    },
+    {
+      "claim": "Menú Principal con cinco ejercicios",
+      "quote": "System.out.print(\"Elija un ejercicio: \");",
+      "file": "src/main/java/Principal/Principal.java"
+    },
+    {
+      "claim": "Tres intentos de PIN",
+      "quote": "for (int i = 1; i <= 3; i++) {",
+      "file": "src/main/java/CajeroAutomatico/GestionCajero.java"
+    },
+    {
+      "claim": "Últimos 5 movimientos",
+      "quote": "if (movimientos.size() > 5) {",
+      "file": "src/main/java/CajeroAutomatico/CuentaBancaria.java"
+    },
+    {
+      "claim": "Interés de 2% en cuenta de ahorro",
+      "quote": "double interes = monto * tasaInteres;",
+      "file": "src/main/java/CajeroAutomatico/CuentaAhorro.java"
+    },
+    {
+      "claim": "Tasa de interés 0.02",
+      "quote": "tasaInteres = 0.02;",
+      "file": "src/main/java/CajeroAutomatico/CuentaAhorro.java"
+    },
+    {
+      "claim": "Sobregiro de 100000",
+      "quote": "limiteSobregiro = 100000;",
+      "file": "src/main/java/CajeroAutomatico/CuentaCorriente.java"
+    },
+    {
+      "claim": "Cuenta abstracta",
+      "quote": "public abstract class Cuenta {",
+      "file": "src/main/java/CajeroAutomatico/Cuenta.java"
+    },
+    {
+      "claim": "Regla de aprobación del registro académico",
+      "quote": "return promedio >= 6 && faltas < 10;",
+      "file": "src/main/java/RegistroAcademico/Estudiante.java"
+    },
+    {
+      "claim": "Reporte en archivo de texto",
+      "quote": "// Expansión 9: guarda el reporte en un archivo .txt (true si se pudo)",
+      "file": "src/main/java/RegistroAcademico/Curso.java"
+    },
+    {
+      "claim": "Descuento de 10% sobre 1000",
+      "quote": "private static final double MONTO_PARA_DESCUENTO = 1000;\n    private static final double PORCENTAJE_DESCUENTO = 0.10;",
+      "file": "src/main/java/TiendaOnline/Carrito.java"
+    },
+    {
+      "claim": "Herencia de productos",
+      "quote": "public class ProductoAlimenticio extends Producto {",
+      "file": "src/main/java/TiendaOnline/ProductoAlimenticio.java"
+    },
+    {
+      "claim": "Validación de teléfono de 10 dígitos numéricos",
+      "quote": "public static final int LONGITUD_TELEFONO = 10;",
+      "file": "src/main/java/AgendaContactos/Agenda.java"
+    },
+    {
+      "claim": "Validación de correo",
+      "quote": "return email.contains(\"@\") && email.contains(\".\");",
+      "file": "src/main/java/AgendaContactos/Agenda.java"
+    },
+    {
+      "claim": "Búsqueda parcial sin distinguir mayúsculas",
+      "quote": "if (c.getNombre().toLowerCase().contains(texto.toLowerCase())) {",
+      "file": "src/main/java/AgendaContactos/Agenda.java"
+    },
+    {
+      "claim": "Persistencia en agenda.txt",
+      "quote": "private static final String ARCHIVO = \"agenda.txt\";",
+      "file": "src/main/java/AgendaContactos/Agenda.java"
+    },
+    {
+      "claim": "Ponderaciones 30, 30 y 40",
+      "quote": "return notaParcial1 * 0.30 + notaParcial2 * 0.30 + examenFinal * 0.40;",
+      "file": "src/main/java/SistemaNotas/Alumno.java"
+    },
+    {
+      "claim": "Curva solo si el promedio es menor a 6",
+      "quote": "private static final double PROMEDIO_PARA_CURVA = 6;",
+      "file": "src/main/java/SistemaNotas/GestionNotas.java"
+    },
+    {
+      "claim": "Tres tipos de curva",
+      "quote": "System.out.println(\"3. Basada en el mejor alumno\");",
+      "file": "src/main/java/SistemaNotas/GestionNotas.java"
+    },
+    {
+      "claim": "Manejo de InputMismatchException",
+      "quote": "} catch (InputMismatchException e) {",
+      "file": "src/main/java/SistemaNotas/GestionNotas.java"
+    },
+    {
+      "claim": "Estadísticas de la curva",
+      "quote": "System.out.println(\"Pasaron de reprobado a aprobado gracias a la curva: \" + curso.contarAprobadosPorCurva());",
+      "file": "src/main/java/SistemaNotas/GestionNotas.java"
+    },
+    {
+      "claim": "Desviación estándar de la curva",
+      "quote": "return Math.sqrt(suma / alumnos.size());",
+      "file": "src/main/java/SistemaNotas/Curso.java"
+    }
+  ],
+  "layout": "showcase",
+  "hero": {
+    "code": "datos/java-poo-code.json",
+    "caption_es": "El código real de los cinco ejercicios y del menú que los abre: elige una pestaña y toca cualquier clase para leerla.",
+    "caption_en": "The real code of the five exercises and the menu that opens them: pick a tab and tap any class to read it."
+  }
+}

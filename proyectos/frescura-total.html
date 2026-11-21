@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!-- Generado por tools/build_cases.py a partir de tools/cases/frescura-total.json: edita el JSON, no este archivo -->
+<html lang="es" data-motion="on" data-title-es="Frescura Total · Adriana Reatigui" data-title-en="Frescura Total · Adriana Reatigui">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#2d3a47">
+  <title>Frescura Total · Adriana Reatigui</title>
+  <meta name="description" content="Escrito en Java 21 con MySQL, lleva cada producto desde el proveedor hasta la entrega al cliente. Prioriza los lotes que vencen primero, aísla los que tienen problemas de calidad y permite rastrear a qué clientes llegó cada lote.">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..700&amp;family=Fira+Code:wght@400..500&amp;family=Fraunces:ital,opsz,wght@0,9..144,500..700;1,9..144,500&amp;display=swap">
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/case.css">
+  <script>
+    // Idioma elegido en el portafolio, antes de pintar la página (js/case.js hace el resto)
+    try {
+      if (/[?&]lang=en\b/.test(location.search) || (!/[?&]lang=es\b/.test(location.search) && localStorage.getItem('portafolio:idioma') === 'en')) document.documentElement.lang = 'en';
+    } catch (error) {
+      // Sin almacenamiento: queda en español
+    }
+  </script>
+  <script type="module" src="../js/case.js"></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#contenido"><span lang="es">Saltar al contenido</span><span lang="en">Skip to content</span></a>
+
+  <header class="header case-header theme-dark">
+    <div class="header__bar">
+      <a class="case-back" href="../index.html#proyectos"><span aria-hidden="true">←</span> <span lang="es">Volver a proyectos</span><span lang="en">Back to projects</span></a>
+      <a class="header__brand" href="../index.html">Adriana Reatigui</a>
+      <button class="lang-toggle" type="button" aria-label="Ver la página en inglés">EN</button>
+    </div>
+  </header>
+
+  <main class="case case--showcase" id="contenido">
+    <div class="case__inner">
+      <header class="show-hero">
+        <span class="case-hero__id"><span class="case-hero2__core" data-litho="shale" aria-hidden="true"></span><span lang="es">Núcleo N-02</span><span lang="en">Core N-02</span></span>
+        <p class="case-hero__eyebrow" lang="es">Java · 2026 · En equipo de tres</p><p class="case-hero__eyebrow" lang="en">Java · 2026 · Team of three</p>
+        <h1 class="show-hero__title">Frescura Total</h1>
+        <p class="show-hero__subtitle" lang="es">ERP de consola para una bodega de alimentos</p><p class="show-hero__subtitle" lang="en">Console ERP for a food warehouse</p>
+        <p class="show-hero__intro" lang="es">Escrito en Java 21 con MySQL, lleva cada producto desde el proveedor hasta la entrega al cliente. Prioriza los lotes que vencen primero, aísla los que tienen problemas de calidad y permite rastrear a qué clientes llegó cada lote.</p><p class="show-hero__intro" lang="en">Written in Java 21 with MySQL, it follows each product from the supplier to delivery to the customer. It prioritizes the lots that expire first, isolates those with quality problems, and traces which customers received each lot.</p>
+      </header>
+      <figure class="show-media show-media--app"><div class="sqlv" data-sql="datos/frescura-total-code.json"><p class="n8n__fallback"><span lang="es">Activa JavaScript para explorar el código.</span><span lang="en">Turn on JavaScript to explore the code.</span></p></div><figcaption><span lang="es">El código Java real del proyecto, por módulo: elige una pestaña y toca cualquier clase para leerla.</span><span lang="en">The project&#x27;s real Java code, by module: pick a tab and tap any class to read it.</span></figcaption></figure>
+
+      <ul class="case-stats">
+        <li class="case-stat"><span class="case-stat__value">22</span><span class="case-stat__label" lang="es">tablas en la base de datos</span><span class="case-stat__label" lang="en">database tables</span></li>
+        <li class="case-stat"><span class="case-stat__value">4</span><span class="case-stat__label" lang="es">módulos: Inventario, Ventas, Proveedores y Logística</span><span class="case-stat__label" lang="en">modules: Inventory, Sales, Suppliers and Logistics</span></li>
+        <li class="case-stat"><span class="case-stat__value">4</span><span class="case-stat__label" lang="es">estados de lote</span><span class="case-stat__label" lang="en">lot statuses</span></li>
+      </ul>
+      <section class="case-section" aria-labelledby="blocks">
+        <h2 class="case-section__title" id="blocks"><span lang="es">Cómo está hecho</span><span lang="en">How it is built</span></h2>
+        <article class="show-block"><div class="show-block__text"><span class="show-block__step"><span lang="es">Módulos</span><span lang="en">Modules</span></span><h3 class="show-block__title"><span lang="es">Cuatro módulos conectados</span><span lang="en">Four connected modules</span></h3><p lang="es">Inventario, ventas, proveedores y logística comparten la misma base de datos.</p><p lang="en">Inventory, sales, suppliers and logistics share the same database.</p></div><figure class="show-media"><a href="https://raw.githubusercontent.com/Eidan210/Frescura-Total-Proyecto-Java/HEAD/docs/assets/modules.svg" target="_blank" rel="noopener"><img src="https://raw.githubusercontent.com/Eidan210/Frescura-Total-Proyecto-Java/HEAD/docs/assets/modules.svg" alt="Módulos: Inventario, Ventas, Proveedores y Logística" data-alt-es="Módulos: Inventario, Ventas, Proveedores y Logística" data-alt-en="Modules: Inventory, Sales, Suppliers and Logistics" loading="lazy" decoding="async"></a><figcaption><span lang="es">Los cuatro módulos de la aplicación.</span><span lang="en">The four modules of the application.</span></figcaption></figure></article>
+        <article class="show-block show-block--flip"><div class="show-block__text"><span class="show-block__step"><span lang="es">Flujo</span><span lang="en">Flow</span></span><h3 class="show-block__title"><span lang="es">Del proveedor a la entrega</span><span lang="en">From supplier to delivery</span></h3><p lang="es">El lote entra, se vende por FEFO, se factura con código QR y sale en una ruta de entrega.</p><p lang="en">The lot comes in, is sold FEFO, is invoiced with a QR code and leaves on a delivery route.</p></div><figure class="show-media"><a href="https://raw.githubusercontent.com/Eidan210/Frescura-Total-Proyecto-Java/HEAD/docs/assets/flow.svg" target="_blank" rel="noopener"><img src="https://raw.githubusercontent.com/Eidan210/Frescura-Total-Proyecto-Java/HEAD/docs/assets/flow.svg" alt="Proveedor, lote, venta, factura, ruta y entrega" data-alt-es="Proveedor, lote, venta, factura, ruta y entrega" data-alt-en="Supplier, lot, sale, invoice, route and delivery" loading="lazy" decoding="async"></a><figcaption><span lang="es">Flujo del negocio, del proveedor a la entrega.</span><span lang="en">Business flow, from supplier to delivery.</span></figcaption></figure></article>
+        <article class="show-block"><div class="show-block__text"><span class="show-block__step"><span lang="es">Arquitectura</span><span lang="en">Architecture</span></span><h3 class="show-block__title"><span lang="es">MVC con DAO</span><span lang="en">MVC with DAO</span></h3><p lang="es">Cada módulo separa vista, controlador, servicio y acceso a datos con JDBC.</p><p lang="en">Each module separates view, controller, service and JDBC data access.</p></div><figure class="show-media"><a href="https://raw.githubusercontent.com/Eidan210/Frescura-Total-Proyecto-Java/HEAD/docs/assets/architecture.svg" target="_blank" rel="noopener"><img src="https://raw.githubusercontent.com/Eidan210/Frescura-Total-Proyecto-Java/HEAD/docs/assets/architecture.svg" alt="Main, Controller, View, Service, DAO y MySQL" data-alt-es="Main, Controller, View, Service, DAO y MySQL" data-alt-en="Main, Controller, View, Service, DAO and MySQL" loading="lazy" decoding="async"></a><figcaption><span lang="es">Arquitectura MVC con DAO.</span><span lang="en">MVC architecture with DAO.</span></figcaption></figure></article>
+        <article class="show-block show-block--flip"><div class="show-block__text"><span class="show-block__step"><span lang="es">Clases</span><span lang="en">Classes</span></span><h3 class="show-block__title"><span lang="es">El modelo en Java</span><span lang="en">The Java model</span></h3><p lang="es">Las entidades de cada módulo, del lote y su inspección de calidad hasta la factura y la ruta de entrega.</p><p lang="en">The entities of each module, from the lot and its quality inspection to the invoice and the delivery route.</p></div><figure class="show-media"><a href="https://raw.githubusercontent.com/Eidan210/Frescura-Total-Proyecto-Java/HEAD/docs/diagrama_clases.png" target="_blank" rel="noopener"><img src="https://raw.githubusercontent.com/Eidan210/Frescura-Total-Proyecto-Java/HEAD/docs/diagrama_clases.png" alt="Diagrama de clases: entidades de inventario, proveedores, ventas y logística" data-alt-es="Diagrama de clases: entidades de inventario, proveedores, ventas y logística" data-alt-en="Class diagram: inventory, suppliers, sales and logistics entities" loading="lazy" decoding="async"></a><figcaption><span lang="es">Diagrama de clases del modelo de dominio.</span><span lang="en">Class diagram of the domain model.</span></figcaption></figure></article>
+        <article class="show-block"><div class="show-block__text"><span class="show-block__step"><span lang="es">Base de datos</span><span lang="en">Database</span></span><h3 class="show-block__title"><span lang="es">22 tablas en MySQL</span><span lang="en">22 MySQL tables</span></h3><p lang="es">El diagrama entidad-relación del modelo completo.</p><p lang="en">The entity-relationship diagram of the full model.</p></div><figure class="show-media"><a href="https://raw.githubusercontent.com/Eidan210/Frescura-Total-Proyecto-Java/HEAD/docs/diagrama_er.png" target="_blank" rel="noopener"><img src="https://raw.githubusercontent.com/Eidan210/Frescura-Total-Proyecto-Java/HEAD/docs/diagrama_er.png" alt="Diagrama entidad-relación de la base de datos" data-alt-es="Diagrama entidad-relación de la base de datos" data-alt-en="Entity-relationship diagram of the database" loading="lazy" decoding="async"></a><figcaption><span lang="es">Diagrama entidad-relación.</span><span lang="en">Entity-relationship diagram.</span></figcaption></figure></article>
+      </section>
+      <section class="case-section" aria-labelledby="results">
+        <h2 class="case-section__title" id="results"><span lang="es">Qué hace</span><span lang="en">What it does</span></h2>
+        <ul class="show-results" lang="es"><li>Inventario por lotes con despacho FEFO, cuarentena, inspección de calidad, registro de mermas y revisión de vencimientos.</li><li>Trazabilidad de lotes: permite saber a qué clientes llegó cada lote.</li><li>Ventas con clientes, estados de venta y facturas con código QR.</li><li>Gestión de proveedores y logística con rutas de entrega, vehículos y conductores.</li><li>Base de datos de 22 tablas con datos de prueba y pruebas automatizadas de reglas de negocio.</li></ul><ul class="show-results" lang="en"><li>Lot-based inventory with FEFO dispatch, quarantine, quality inspection, waste records and expiration checks.</li><li>Lot traceability: it shows which customers received each lot.</li><li>Sales with customers, sale statuses and invoices with a QR code.</li><li>Supplier management and logistics with delivery routes, vehicles and drivers.</li><li>A 22-table database with test data and automated tests for business rules.</li></ul>
+      </section>
+      <section class="case-section" aria-labelledby="facts">
+        <h2 class="case-section__title" id="facts"><span lang="es">Ficha técnica</span><span lang="en">Project details</span></h2>
+        <dl class="case-facts">
+          <div><dt><span lang="es">Tecnologías</span><span lang="en">Technologies</span></dt><dd><ul class="chips"><li class="chip">Java 21</li><li class="chip">Maven</li><li class="chip">MySQL</li><li class="chip">JDBC</li><li class="chip">MVC + DAO</li><li class="chip">ZXing</li><li class="chip">JUnit</li></ul></dd></div>
+          <div><dt><span lang="es">Equipo</span><span lang="en">Team</span></dt><dd><a href="https://github.com/Eidan210" target="_blank" rel="noopener">Eidan210</a>, <a href="https://github.com/reatiguiadriana901" target="_blank" rel="noopener">reatiguiadriana901</a>, <a href="https://github.com/sergioRepository" target="_blank" rel="noopener">sergioRepository</a></dd></div>
+          <div><dt><span lang="es">Enlaces</span><span lang="en">Links</span></dt><dd class="case-links"><a class="button button--ghost" href="https://github.com/Eidan210/Frescura-Total-Proyecto-Java" target="_blank" rel="noopener"><span lang="es">Repositorio en GitHub</span><span lang="en">GitHub repository</span> <span aria-hidden="true">↗</span></a></dd></div>
+        </dl>
+      </section>
+      <nav class="case-pager" aria-label="Otros proyectos">
+        <a class="case-pager__link case-pager__link--prev" href="campus-ops.html"><span class="case-pager__hint"><span lang="es">← Anterior</span><span lang="en">← Previous</span></span><span class="case-pager__name">Campus OPS</span></a>
+        <a class="case-pager__link case-pager__link--next" href="as-techshop.html"><span class="case-pager__hint"><span lang="es">Siguiente →</span><span lang="en">Next →</span></span><span class="case-pager__name">AS_TechShop</span></a>
+      </nav>
+    </div>
+  </main>
+
+  <footer class="footer theme-dark">
+    <p class="footer__credits">Adriana Reatigui · <span lang="es">Geóloga y desarrolladora de software</span><span lang="en">Geologist and software developer</span></p>
+  </footer>
+
+  <!-- Fondo animado: corte geológico (fx/cross-section.js) -->
+  <canvas class="cross-section" id="cross-section" aria-hidden="true"></canvas>
+</body>
+
+</html>

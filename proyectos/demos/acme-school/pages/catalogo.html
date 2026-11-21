@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acme School — Catálogo de Exámenes</title>
+    <link rel="icon" type="image/png" href="../assets/1988007.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/login.css" />
+    <link rel="stylesheet" href="../css/catalogo.css" />
+</head>
+<body>
+
+    <nav class="navbar-public">
+        <div class="nav-brand">
+            <img class="brand-logo" src="../assets/1988007.png" alt="Acme School logo" />
+            <span>Acme School</span>
+        </div>
+        <div class="nav-actions">
+            <a href="catalogo.html" class="nav-link-public nav-link-active">Buscar examen</a>
+            <a href="../index.html" class="btn btn-outline btn-sm">Login</a>
+        </div>
+    </nav>
+
+    <main class="catalogo-main">
+        <section class="catalogo-container">
+            <div class="banner">
+                <div class="banner_content">
+                    <span class="banner_tag">MÓDULO PÚBLICO</span>
+                    <h1 class="banner_title">Selecciona un examen disponible</h1>
+                    <p class="banner_subtitle">Elige una prueba, registra tus datos y responde dentro del tiempo establecido.</p>
+                </div>
+            </div>
+
+            <div class="catalogo_grid" id="catalogo_grid"></div>
+        </section>
+    </main>
+
+    <script type="module" src="../js/utils/storage.js"></script>
+    <script type="module" src="../js/utils/seed.js"></script>
+    <script src="../js/pages/catalogo.js"></script>
+</body>
+</html>

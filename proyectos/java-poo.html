@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!-- Generado por tools/build_cases.py a partir de tools/cases/java-poo.json: edita el JSON, no este archivo -->
+<html lang="es" data-motion="on" data-title-es="Práctica Java POO · Adriana Reatigui" data-title-en="Java OOP Practice · Adriana Reatigui">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#2d3a47">
+  <title>Práctica Java POO · Adriana Reatigui</title>
+  <meta name="description" content="Práctica de Java desarrollada en Campuslands: cajero automático, registro académico, tienda online, agenda de contactos y sistema de notas con curva. Aplica clases, herencia, colecciones, excepciones y manejo de archivos de texto.">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..700&amp;family=Fira+Code:wght@400..500&amp;family=Fraunces:ital,opsz,wght@0,9..144,500..700;1,9..144,500&amp;display=swap">
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/case.css">
+  <script>
+    // Idioma elegido en el portafolio, antes de pintar la página (js/case.js hace el resto)
+    try {
+      if (/[?&]lang=en\b/.test(location.search) || (!/[?&]lang=es\b/.test(location.search) && localStorage.getItem('portafolio:idioma') === 'en')) document.documentElement.lang = 'en';
+    } catch (error) {
+      // Sin almacenamiento: queda en español
+    }
+  </script>
+  <script type="module" src="../js/case.js"></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#contenido"><span lang="es">Saltar al contenido</span><span lang="en">Skip to content</span></a>
+
+  <header class="header case-header theme-dark">
+    <div class="header__bar">
+      <a class="case-back" href="../index.html#proyectos"><span aria-hidden="true">←</span> <span lang="es">Volver a proyectos</span><span lang="en">Back to projects</span></a>
+      <a class="header__brand" href="../index.html">Adriana Reatigui</a>
+      <button class="lang-toggle" type="button" aria-label="Ver la página en inglés">EN</button>
+    </div>
+  </header>
+
+  <main class="case case--showcase" id="contenido">
+    <div class="case__inner">
+      <header class="show-hero">
+        <span class="case-hero__id"><span class="case-hero2__core" data-litho="shale" aria-hidden="true"></span><span lang="es">Núcleo N-07</span><span lang="en">Core N-07</span></span>
+        <p class="case-hero__eyebrow">Java · 2026</p>
+        <h1 class="show-hero__title"><span lang="es">Práctica Java POO</span><span lang="en">Java OOP Practice</span></h1>
+        <p class="show-hero__subtitle" lang="es">Cinco ejercicios de consola sobre programación orientada a objetos</p><p class="show-hero__subtitle" lang="en">Five console exercises on object-oriented programming</p>
+        <p class="show-hero__intro" lang="es">Práctica de Java desarrollada en Campuslands: cajero automático, registro académico, tienda online, agenda de contactos y sistema de notas con curva. Aplica clases, herencia, colecciones, excepciones y manejo de archivos de texto.</p><p class="show-hero__intro" lang="en">A Java practice project developed at Campuslands: ATM, academic records, online store, contact book and a grading system with a curve. It applies classes, inheritance, collections, exceptions and text file handling.</p>
+      </header>
+      <figure class="show-media show-media--app"><div class="sqlv" data-sql="datos/java-poo-code.json"><p class="n8n__fallback"><span lang="es">Activa JavaScript para explorar el código.</span><span lang="en">Turn on JavaScript to explore the code.</span></p></div><figcaption><span lang="es">El código real de los cinco ejercicios y del menú que los abre: elige una pestaña y toca cualquier clase para leerla.</span><span lang="en">The real code of the five exercises and the menu that opens them: pick a tab and tap any class to read it.</span></figcaption></figure>
+
+      <ul class="case-stats">
+        <li class="case-stat"><span class="case-stat__value">5</span><span class="case-stat__label" lang="es">ejercicios de consola</span><span class="case-stat__label" lang="en">console exercises</span></li>
+        <li class="case-stat"><span class="case-stat__value">3</span><span class="case-stat__label" lang="es">intentos de PIN en el cajero</span><span class="case-stat__label" lang="en">PIN attempts at the ATM</span></li>
+        <li class="case-stat"><span class="case-stat__value">5</span><span class="case-stat__label" lang="es">últimos movimientos que guarda cada cuenta</span><span class="case-stat__label" lang="en">latest transactions kept per account</span></li>
+        <li class="case-stat"><span class="case-stat__value">10%</span><span class="case-stat__label" lang="es">descuento en la tienda si el subtotal supera 1000</span><span class="case-stat__label" lang="en">store discount when the subtotal exceeds 1000</span></li>
+      </ul>
+      <section class="case-section" aria-labelledby="results">
+        <h2 class="case-section__title" id="results"><span lang="es">Qué hace</span><span lang="en">What it does</span></h2>
+        <ul class="show-results" lang="es"><li>Cuenta de ahorro que suma un interés de 2% sobre cada depósito.</li><li>Cuenta corriente con sobregiro de hasta 100000.</li><li>Validación de teléfono de 10 dígitos numéricos y de correo con arroba y punto.</li><li>Búsqueda parcial de contactos por nombre, sin distinguir mayúsculas.</li><li>Estadísticas de la curva: nueva media, desviación estándar y alumnos que aprueban gracias a ella.</li><li>Manejo de InputMismatchException al ingresar valores numéricos.</li></ul><ul class="show-results" lang="en"><li>Savings account that adds 2% interest to each deposit.</li><li>Checking account with an overdraft of up to 100000.</li><li>Validation of a 10-digit numeric phone number and of an email with an at sign and a dot.</li><li>Partial, case-insensitive contact search by name.</li><li>Curve statistics: new average, standard deviation and students who pass thanks to the curve.</li><li>Handling of InputMismatchException when numeric values are entered.</li></ul>
+      </section>
+      <section class="case-section" aria-labelledby="facts">
+        <h2 class="case-section__title" id="facts"><span lang="es">Ficha técnica</span><span lang="en">Project details</span></h2>
+        <dl class="case-facts">
+          <div><dt><span lang="es">Tecnologías</span><span lang="en">Technologies</span></dt><dd><ul class="chips"><li class="chip">Java</li><li class="chip">Maven</li><li class="chip">IntelliJ IDEA</li></ul></dd></div>
+          <div><dt><span lang="es">Equipo</span><span lang="en">Team</span></dt><dd><a href="https://github.com/reatiguiadriana901" target="_blank" rel="noopener">Adriana Reatigui</a></dd></div>
+          <div><dt><span lang="es">Enlaces</span><span lang="en">Links</span></dt><dd class="case-links"><a class="button button--ghost" href="https://github.com/reatiguiadriana901/PRACTICA_1_JAVA_POO" target="_blank" rel="noopener"><span lang="es">Repositorio en GitHub</span><span lang="en">GitHub repository</span> <span aria-hidden="true">↗</span></a></dd></div>
+        </dl>
+      </section>
+      <nav class="case-pager" aria-label="Otros proyectos">
+        <a class="case-pager__link case-pager__link--prev" href="acme-school.html"><span class="case-pager__hint"><span lang="es">← Anterior</span><span lang="en">← Previous</span></span><span class="case-pager__name">Acme School</span></a>
+        <a class="case-pager__link case-pager__link--next" href="poster-fallas-poligonales.html"><span class="case-pager__hint"><span lang="es">Siguiente →</span><span lang="en">Next →</span></span><span class="case-pager__name"><span lang="es">Fallas poligonales y atributos sísmicos</span><span lang="en">Polygonal faults and seismic attributes</span></span></a>
+      </nav>
+    </div>
+  </main>
+
+  <footer class="footer theme-dark">
+    <p class="footer__credits">Adriana Reatigui · <span lang="es">Geóloga y desarrolladora de software</span><span lang="en">Geologist and software developer</span></p>
+  </footer>
+
+  <!-- Fondo animado: corte geológico (fx/cross-section.js) -->
+  <canvas class="cross-section" id="cross-section" aria-hidden="true"></canvas>
+</body>
+
+</html>

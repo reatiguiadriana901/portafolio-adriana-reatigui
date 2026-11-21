@@ -9,6 +9,7 @@ Soy geóloga (Universidad Industrial de Santander) y estoy terminando el Técnic
 - **Un corte geológico animado de fondo**: capas plegadas y fallas normales que avanzan despacio. Al bajar por la página bajas también por el subsuelo.
 - **Una presentación al abrir la página**: suben los estratos, cada uno con una parte de mi stack, y aparecen mi nombre y mi rol. Sale una vez por sesión y se puede saltar.
 - **Proyectos en una caja de núcleos de perforación**: cada núcleo abre la ficha de un proyecto de software o de geociencias.
+- **Una página por proyecto** con el trabajo real: los workflows de n8n, el SQL y el código Java en visores interactivos, una demo en vivo de Acme School y el póster del congreso completo.
 - **Habilidades como una columna estratigráfica**, de la superficie (frontend) al núcleo (datos y automatización).
 - **Español e inglés**, con un botón para cambiar de idioma.
 - **Lapilli**, un T-Rex en pixel art con piqueta de geóloga, se presenta al abrir la página y acompaña el recorrido con datos curiosos de geología.
@@ -26,12 +27,17 @@ js/main.js          arranca cada módulo en orden
 js/state.js · bus.js · loop.js · motion.js · i18n.js
                     estado compartido, eventos, un solo requestAnimationFrame, pausa e idiomas
 js/intro.js         presentación a pantalla completa
+js/case.js          páginas de cada proyecto: idioma, paleta y fondo animado
+js/n8n-viewer.js · sql-viewer.js
+                    visores de los workflows de n8n y del código (SQL y Java)
+proyectos/          páginas de cada proyecto (las genera tools/build_cases.py)
 js/fx/              corte geológico de fondo, hallazgos del recorrido, íconos y partículas
 js/ui/              navegación, caja de núcleos, apariciones y ajustes
 js/scene/           mide la página y convierte el scroll en la ruta de Lapilli
 js/mascot/          sprites de Lapilli, su animación y lo que dice
 js/data/            textos en inglés, frases de Lapilli y paletas
-tools/              servidor local sin caché y scripts de Python para datos e imágenes
+tools/              servidor local sin caché, generador de las páginas de proyecto y scripts de datos e imágenes
+tools/cases/        contenido de cada página de proyecto, en español e inglés (JSON)
 ```
 
 ## Verlo en local
@@ -48,6 +54,12 @@ Luego abre http://127.0.0.1:5501. Este servidor no guarda caché, así que siemp
 - `?lang=en` abre el sitio en inglés.
 - `?motion=off` lo muestra sin animaciones.
 - `?debug` deja `window.__pf.state`, `bus` y `loop` en la consola.
+
+Las páginas de proyecto se escriben en `tools/cases/<proyecto>.json` y se generan con:
+
+```bash
+py -3.12 tools/build_cases.py
+```
 
 ## Contacto
 

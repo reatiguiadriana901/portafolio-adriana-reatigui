@@ -1,0 +1,255 @@
+{
+  "order": 4,
+  "slug": "asogasinga",
+  "core": "N-04",
+  "litho": "conglomerate",
+  "titles": {
+    "results": {
+      "es": "Qué hace",
+      "en": "What it does"
+    }
+  },
+  "es": {
+    "eyebrow": "Base de datos · 2026 · Individual",
+    "title": "Sistema ASOGASINGA",
+    "subtitle": "Base de datos para el control ganadero de una asociación",
+    "summary": "Base de datos relacional en MySQL para una asociación de ganaderos. Centraliza socios, fincas, ganado, producción de leche, vacunación, personal y alimentación, con lógica de negocio en el servidor y usuarios con permisos limitados.",
+    "context": [
+      "La asociación necesita optimizar la lógica del negocio dentro del servidor de base de datos y proteger la información. El sistema cubre socios y fincas, inventario de ganado, producción de leche, vacunación, personal y alimentación.",
+      "El proyecto pasa las reglas del negocio al servidor y separa los permisos por tipo de usuario, de modo que cada persona acceda solo a lo que necesita."
+    ],
+    "role": [
+      "Soy la autora de este proyecto académico de base de datos, desarrollado en Campuslands."
+    ],
+    "stats": [
+      {
+        "value": "12",
+        "label": "tablas del esquema base"
+      },
+      {
+        "value": "5",
+        "label": "funciones"
+      },
+      {
+        "value": "5",
+        "label": "procedimientos almacenados"
+      },
+      {
+        "value": "4",
+        "label": "triggers"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Modelo de datos",
+        "text": "Doce tablas con llaves primarias y foráneas: socios, municipios, fincas, tipos de ganado, ganado, veterinarios, vacunas, vacunación, producción de leche, empleados, alimentos y alimentación."
+      },
+      {
+        "title": "Funciones y procedimientos",
+        "text": "Cinco funciones calculan edad en meses, litros por finca, peso promedio por raza, ganado por socio y costo de alimentación. Cinco procedimientos registran producción y vacunación, trasladan ganado, ajustan salarios y reportan el gasto en alimento."
+      },
+      {
+        "title": "Reglas con triggers",
+        "text": "Cuatro triggers rechazan pesos fuera del rango definido, impiden repetir una vacuna en menos de 30 días y guardan una auditoría de los cambios de salario."
+      },
+      {
+        "title": "Eventos programados",
+        "text": "Un evento mensual elimina los registros de auditoría con más de seis meses y otro consolida cada semana la producción de leche por finca."
+      },
+      {
+        "title": "Usuarios y permisos",
+        "text": "Cinco usuarios (administrador, personal de salud animal, encargado de finca, recursos humanos y auditor) reciben los permisos de su función."
+      }
+    ],
+    "results": [
+      "Registro de producción de leche solo para animales de tipo lechero y sexo hembra.",
+      "Validación automática del peso del animal y del intervalo entre vacunas.",
+      "Auditoría de cambios de salario con salario anterior, nuevo y diferencia.",
+      "Resumen semanal de litros por finca generado por un evento programado.",
+      "El encargado de finca no tiene permisos sobre la tabla de empleados; el auditor solo tiene lectura."
+    ],
+    "intro": "Base de datos relacional en MySQL para una asociación de ganaderos. Centraliza socios, fincas, ganado, producción de leche, vacunación, personal y alimentación, con lógica de negocio en el servidor y usuarios con permisos limitados."
+  },
+  "en": {
+    "eyebrow": "Database · 2026 · Individual project",
+    "title": "ASOGASINGA System",
+    "subtitle": "Database for an association's livestock management",
+    "summary": "Relational MySQL database for a cattle farmers' association. It centralizes members, farms, livestock, milk production, vaccination, staff and feeding, with server-side business logic and limited-permission users.",
+    "context": [
+      "The association needs to optimize its business logic inside the database server and protect its information. The system covers members and farms, livestock inventory, milk production, vaccination, staff and feeding.",
+      "The project moves the business rules to the server and separates permissions by user type, so each person only accesses what they need."
+    ],
+    "role": [
+      "I am the author of this academic database project, developed at Campuslands."
+    ],
+    "stats": [
+      {
+        "value": "12",
+        "label": "tables in the base schema"
+      },
+      {
+        "value": "5",
+        "label": "functions"
+      },
+      {
+        "value": "5",
+        "label": "stored procedures"
+      },
+      {
+        "value": "4",
+        "label": "triggers"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Data model",
+        "text": "Twelve tables with primary and foreign keys: members, municipalities, farms, livestock types, livestock, veterinarians, vaccines, vaccination, milk production, employees, feed and feeding."
+      },
+      {
+        "title": "Functions and procedures",
+        "text": "Five functions compute age in months, liters per farm, average weight per breed, livestock per member and feeding cost. Five procedures record production and vaccination, move livestock, adjust salaries and report feed spending."
+      },
+      {
+        "title": "Trigger rules",
+        "text": "Four triggers reject weights outside the defined range, prevent repeating a vaccine within 30 days and keep an audit of salary changes."
+      },
+      {
+        "title": "Scheduled events",
+        "text": "A monthly event deletes audit records older than six months and a weekly one consolidates milk production per farm."
+      },
+      {
+        "title": "Users and permissions",
+        "text": "Five users (administrator, animal health staff, farm manager, human resources and auditor) receive the permissions their function needs."
+      }
+    ],
+    "results": [
+      "Milk production can only be recorded for dairy-type female animals.",
+      "Automatic validation of animal weight and of the interval between vaccines.",
+      "Salary change audit with previous salary, new salary and difference.",
+      "Weekly liters-per-farm summary generated by a scheduled event.",
+      "The farm manager has no permissions on the employees table; the auditor has read-only access."
+    ],
+    "intro": "Relational MySQL database for a cattle farmers' association. It centralizes members, farms, livestock, milk production, vaccination, staff and feeding, with server-side business logic and limited-permission users."
+  },
+  "stack": [
+    "MySQL 8",
+    "SQL",
+    "Procedimientos almacenados",
+    "Funciones",
+    "Triggers",
+    "Eventos programados",
+    "Usuarios y privilegios"
+  ],
+  "team": [
+    {
+      "name": "Adriana Reatigui",
+      "url": "https://github.com/reatiguiadriana901"
+    }
+  ],
+  "links": [
+    {
+      "url": "https://github.com/reatiguiadriana901/Sistema-ASOGASINGA",
+      "label_es": "Repositorio en GitHub",
+      "label_en": "GitHub repository"
+    }
+  ],
+  "images": [],
+  "sources": [
+    {
+      "claim": "Alcance del sistema",
+      "quote": "centraliza y automatiza la gestión de socios, fincas, inventario de ganado, producción de leche, vacunación, personal y alimentación",
+      "file": "README.md"
+    },
+    {
+      "claim": "Necesidad del negocio",
+      "quote": "ASOGASINGA necesita optimizar la lógica del negocio dentro del servidor de base de datos y garantizar la seguridad de la información.",
+      "file": "README.md"
+    },
+    {
+      "claim": "Autoría",
+      "quote": "**Adriana Reatigui** – Proyecto académico de Base de Datos (Campuslands)",
+      "file": "README.md"
+    },
+    {
+      "claim": "12 tablas del esquema base (12 CREATE TABLE)",
+      "quote": "CREATE TABLE alimentacion",
+      "file": "estructura_base.sql"
+    },
+    {
+      "claim": "Tablas de apoyo",
+      "quote": "CREATE TABLE IF NOT EXISTS resumen_semanal_fincas",
+      "file": "Triggers_eventos.sql"
+    },
+    {
+      "claim": "5 funciones (ejemplo)",
+      "quote": "CREATE FUNCTION fn_CostoTotalAlimentacion(",
+      "file": "Funciones.sql"
+    },
+    {
+      "claim": "5 procedimientos (ejemplo)",
+      "quote": "CREATE PROCEDURE sp_ReporteGastoAlimento (",
+      "file": "Procedimientos_almacenados.sql"
+    },
+    {
+      "claim": "Triggers de peso separados en INSERT y UPDATE (4 triggers en total)",
+      "quote": "CREATE TRIGGER trg_ValidarPesoGanado_Update",
+      "file": "Triggers_eventos.sql"
+    },
+    {
+      "claim": "Rechazo de pesos fuera de rango",
+      "quote": "IF NEW.peso <= 0 OR NEW.peso >= 1500.00 THEN",
+      "file": "Triggers_eventos.sql"
+    },
+    {
+      "claim": "Intervalo mínimo de 30 días entre vacunas",
+      "quote": "DATEDIFF(NEW.fecha_aplicacion, v_ultima_fecha) < 30",
+      "file": "Triggers_eventos.sql"
+    },
+    {
+      "claim": "Trigger de auditoría de salarios",
+      "quote": "CREATE TRIGGER trg_AuditarAumentoSalario",
+      "file": "Triggers_eventos.sql"
+    },
+    {
+      "claim": "Depuración de auditoría con más de 6 meses",
+      "quote": "WHERE fecha_modificacion < NOW() - INTERVAL 6 MONTH;",
+      "file": "Triggers_eventos.sql"
+    },
+    {
+      "claim": "Evento semanal de producción por finca",
+      "quote": "CREATE EVENT evt_CierreSemanalProduccionLeche",
+      "file": "Triggers_eventos.sql"
+    },
+    {
+      "claim": "5 usuarios (ejemplo)",
+      "quote": "CREATE USER IF NOT EXISTS 'usuario_auditor'@'%'",
+      "file": "creacion_gestion_usuarios.sql"
+    },
+    {
+      "claim": "Auditor solo lectura",
+      "quote": "GRANT SELECT ON ASOGASINGA.* TO 'auditor_externo';",
+      "file": "creacion_gestion_usuarios.sql"
+    },
+    {
+      "claim": "Recursos humanos limitado a empleados",
+      "quote": "GRANT SELECT, INSERT, UPDATE, DELETE ON ASOGASINGA.empleados TO 'recurso_humanos';",
+      "file": "creacion_gestion_usuarios.sql"
+    },
+    {
+      "claim": "Encargado de finca sin permisos sobre empleados (solo ganado, producción y alimentación)",
+      "quote": "GRANT SELECT, INSERT, UPDATE ON ASOGASINGA.produccion_leche TO 'encargado_de_Finca';",
+      "file": "creacion_gestion_usuarios.sql"
+    },
+    {
+      "claim": "Producción solo para lecheras hembra",
+      "quote": "ELSEIF LOWER(v_nombre_tipo) = 'lechero' AND LOWER(v_sexo) = 'hembra' THEN",
+      "file": "Procedimientos_almacenados.sql"
+    }
+  ],
+  "layout": "showcase",
+  "hero": {
+    "sql": "datos/asogasinga-sql.json",
+    "caption_es": "Todo el SQL real del proyecto: tablas, funciones, procedimientos, triggers, eventos y usuarios. Las contraseñas de ejemplo van tapadas.",
+    "caption_en": "All the project's real SQL: tables, functions, procedures, triggers, events and users. Sample passwords are masked."
+  }
+}
