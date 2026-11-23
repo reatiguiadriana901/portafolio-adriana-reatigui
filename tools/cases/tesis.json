@@ -1,0 +1,157 @@
+{
+  "order": 8,
+  "slug": "tesis",
+  "core": "N-08",
+  "litho": "limestone",
+  "layout": "showcase",
+  "es": {
+    "eyebrow": "Trabajo de grado · Geología UIS · 2026",
+    "title": "Volcanes que siguen fallas",
+    "subtitle": "Control estructural de los conos del Campo Volcánico Monogenético Isnos–San Agustín (Huila)",
+    "intro": "Medí la forma de 20 conos volcánicos sobre un modelo digital de elevación y la comparé con las fallas y los lineamientos de la región. En 15 de los 19 conos aptos, el eje del volcán sigue a una estructura.",
+    "stats": [
+      {
+        "value": "20",
+        "label": "conos medidos"
+      },
+      {
+        "value": "15 de 19",
+        "label": "alineados con una falla o un lineamiento"
+      },
+      {
+        "value": "6,6°",
+        "label": "de desfase medio"
+      },
+      {
+        "value": "4 de 19",
+        "label": "paralelos al SHmax actual"
+      }
+    ],
+    "blocks": [
+      {
+        "step": "Paso 1",
+        "title": "Medir cada volcán",
+        "text": "Delimité cada cono sobre las curvas de nivel y le ajusté un rectángulo: su eje mayor (WM) marca la elongación y su eje menor (Wm), el ancho. En los conos abiertos también medí hacia dónde mira la brecha."
+      },
+      {
+        "step": "Paso 2",
+        "title": "Compararlo con las estructuras",
+        "text": "Calculé el desfase angular (Δθ) entre el eje de cada cono y la estructura asociada. Con menos de 15°, el cono queda alineado: así se ve en el mapa, con el desfase de cada uno."
+      },
+      {
+        "step": "En video",
+        "title": "El campo volcánico desde Google Earth",
+        "text": "Para la sustentación preparé un recorrido en Google Earth. Ayuda a ver los conos en el relieve antes de entrar en los números."
+      }
+    ],
+    "code": "La orientación de un cono es una línea, no una flecha: 30° es lo mismo que 210°. Por eso la media se calcula con el método del ángulo doble. Estas son dos funciones de mi notebook de morfometría, con las que hice las rosas de orientación:",
+    "results": [
+      "15 de 19 conos aptos se alinean con una falla o un lineamiento, con un desfase medio de 6,6°.",
+      "El lineamiento E-W reúne 7 conos; la Falla Oritoguaz, 4; la Falla La Plata, 3, y la Falla San Agustín, 1.",
+      "La elongación media de los conos es de 72,3° (ENE).",
+      "Solo 4 de 19 conos son paralelos al SHmax actual (104° ± 15°)."
+    ]
+  },
+  "en": {
+    "eyebrow": "Undergraduate thesis · Geology, UIS · 2026",
+    "title": "Volcanoes that follow faults",
+    "subtitle": "Structural control of the cones of the Isnos–San Agustín Monogenetic Volcanic Field (Huila, Colombia)",
+    "intro": "I measured the shape of 20 volcanic cones on a digital elevation model and compared it with the faults and lineaments of the region. In 15 of the 19 suitable cones, the volcano's axis follows a structure.",
+    "stats": [
+      {
+        "value": "20",
+        "label": "cones measured"
+      },
+      {
+        "value": "15 of 19",
+        "label": "aligned with a fault or lineament"
+      },
+      {
+        "value": "6.6°",
+        "label": "mean offset"
+      },
+      {
+        "value": "4 of 19",
+        "label": "parallel to the present-day SHmax"
+      }
+    ],
+    "blocks": [
+      {
+        "step": "Step 1",
+        "title": "Measure each volcano",
+        "text": "I outlined each cone on the contour lines and fitted a rectangle to it: its long axis (WM) gives the elongation and its short axis (Wm), the width. For breached cones I also measured where the breach faces."
+      },
+      {
+        "step": "Step 2",
+        "title": "Compare it with the structures",
+        "text": "I calculated the angular offset (Δθ) between each cone's axis and its associated structure. Below 15°, the cone counts as aligned: the map shows it, with the offset of each one."
+      },
+      {
+        "step": "On video",
+        "title": "The volcanic field from Google Earth",
+        "text": "For my thesis defense I prepared a Google Earth fly-through. It helps to see the cones in the relief before going into the numbers."
+      }
+    ],
+    "code": "A cone's orientation is a line, not an arrow: 30° is the same as 210°. That is why the mean is calculated with the double-angle method. These are two functions from my morphometry notebook, which I used to build the rose diagrams:",
+    "results": [
+      "15 of 19 suitable cones line up with a fault or a lineament, with a mean offset of 6.6°.",
+      "The E-W lineament gathers 7 cones; the Oritoguaz Fault, 4; the La Plata Fault, 3; and the San Agustín Fault, 1.",
+      "The mean cone elongation is 72.3° (ENE).",
+      "Only 4 of 19 cones are parallel to the present-day SHmax (104° ± 15°)."
+    ]
+  },
+  "hero": {
+    "src": "../assets/img/tesis/mapa-sintesis.webp",
+    "alt_es": "Mapa de síntesis del campo volcánico con fallas, familias de lineamientos y el eje de cada cono",
+    "alt_en": "Synthesis map of the volcanic field with faults, lineament families and the axis of each cone",
+    "caption_es": "Mapa de síntesis: fallas, familias de lineamientos y el eje de cada cono, coloreado según la estructura a la que se asocia. El círculo muestra el SHmax regional (104°).",
+    "caption_en": "Synthesis map: faults, lineament families and the axis of each cone, colored by its associated structure. The circle shows the regional SHmax (104°)."
+  },
+  "blocks": [
+    {
+      "src": "../assets/img/tesis/delimitacion.webp",
+      "alt_es": "Delimitación de un cono con su rectángulo, eje mayor y eje menor, y azimut de la brecha de otro cono",
+      "alt_en": "Outline of a cone with its rectangle, long axis and short axis, and the breach azimuth of another cone",
+      "caption_es": "(A) Delimitación, rectángulo y ejes de un cono. (B) Azimut de la brecha.",
+      "caption_en": "(A) Outline, rectangle and axes of a cone. (B) Breach azimuth."
+    },
+    {
+      "src": "../assets/img/tesis/desfase.webp",
+      "alt_es": "Mapa con el eje de cada cono, su estructura asociada y el desfase angular",
+      "alt_en": "Map with each cone's axis, its associated structure and the angular offset",
+      "caption_es": "Eje de cada cono con su desfase (Δθ) y la estructura a la que se asocia.",
+      "caption_en": "Each cone's axis with its offset (Δθ) and its associated structure."
+    },
+    {
+      "video": "../assets/video/la-gorda.mp4",
+      "caption_es": "Recorrido en Google Earth preparado para la sustentación.",
+      "caption_en": "Google Earth fly-through prepared for the thesis defense."
+    }
+  ],
+  "code": {
+    "source": "def angulo_agudo(a, b):\n    \"\"\"Ángulo agudo (0–90°) entre dos orientaciones sin sentido (0–180°).\"\"\"\n    d = abs(a - b) % 180\n    return min(d, 180 - d)\n\n\ndef media_axial(azimuts, pesos=None):\n    \"\"\"Media de orientaciones sin sentido por el método del ángulo doble, y su longitud resultante R (0–1).\"\"\"\n    a = np.radians(np.asarray(azimuts, float) * 2)\n    w = np.ones_like(a) if pesos is None else np.asarray(pesos, float)\n    c, s = (w * np.cos(a)).sum() / w.sum(), (w * np.sin(a)).sum() / w.sum()\n    return np.degrees(np.arctan2(s, c) / 2) % 180, np.hypot(c, s)",
+    "media": {
+      "src": "../assets/img/tesis/rosetas.webp",
+      "alt_es": "Rosas de orientación del azimut de elongación de 20 conos y del azimut de 6 brechas",
+      "alt_en": "Rose diagrams of the elongation azimuth of 20 cones and the azimuth of 6 breaches",
+      "caption_es": "Rosas hechas en Python: (A) elongación de los 20 conos, con la media axial de 72,3°; (B) azimut de las 6 brechas.",
+      "caption_en": "Rose diagrams made in Python: (A) elongation of the 20 cones, with the 72.3° axial mean; (B) azimuth of the 6 breaches."
+    }
+  },
+  "stack": [
+    "Python",
+    "NumPy",
+    "GeoPandas",
+    "Rasterio",
+    "Jupyter",
+    "ArcGIS Pro",
+    "QGIS"
+  ],
+  "team": [],
+  "links": [],
+  "images": [],
+  "note": {
+    "es": "Directora: Dayana Andrea Schonwalder-Angel, PhD. El código completo está disponible bajo solicitud.",
+    "en": "Supervisor: Dayana Andrea Schonwalder-Angel, PhD. The full code is available on request."
+  }
+}

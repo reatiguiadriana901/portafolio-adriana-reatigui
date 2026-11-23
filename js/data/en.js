@@ -119,7 +119,7 @@ export const EN = {
   'p.javapoo.repo': 'View the Java OOP practice repository (opens in a new tab)',
 
   'p.thesis.tag': 'Undergraduate thesis',
-  'p.thesis.title': 'Morphometry of a volcanic field',
+  'p.thesis.title': 'Volcanoes that follow faults',
   'p.thesis.subtitle': 'Geology thesis · Universidad Industrial de Santander',
   'p.thesis.desc': 'Morphometric and morphostructural analysis of the cones of the Isnos–San Agustín Monogenetic Volcanic Field (Huila, Colombia). I measured 20 cones on a digital elevation model and compared their orientation with faults and lineaments: 15 of 19 suitable cones line up with a structure, with a mean offset of 6.6°.',
   'p.thesis.team': 'Advisor: Dayana Andrea Schonwalder-Angel, PhD · Code available on request',
