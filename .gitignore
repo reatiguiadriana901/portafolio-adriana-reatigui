@@ -6,13 +6,5 @@
 __pycache__/
 *.pyc
 
-# Figuras de la tesis: aún no se publican
+# Figuras viejas de la tesis, que ya no se usan
 assets/img/tesis-*.webp
-
-# Mapas, figuras y video de la tesis: no se publican hasta que Adriana lo confirme
-assets/img/tesis/
-assets/video/
-
-# Página de la tesis: se publica cuando la directora apruebe las figuras
-proyectos/tesis.html
-tools/cases/tesis.json
