@@ -368,46 +368,6 @@ html[data-motion="off"] .terminal__line {
   font-weight: 700;
 }
 
-/* Fotos de campo como polaroids. En modo ruta van junto al recorrido (fx/landmarks.js). */
-.field-photos {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: var(--space-5);
-  margin-top: var(--space-7);
-}
-
-html[data-mode="route"] .field-photos {
-  display: none;
-}
-
-.field-photos__item {
-  width: min(100%, 220px);
-  margin: 0;
-  padding: 8px 8px 0;
-  background: #fffdf8;
-  box-shadow: var(--shadow);
-  rotate: -2deg;
-}
-
-.field-photos__item:nth-child(2) {
-  rotate: 2deg;
-}
-
-.field-photos__item img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-.field-photos__item figcaption {
-  padding: 6px 2px 10px;
-  color: var(--midnight);
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  text-align: center;
-}
-
 .about h3 {
   margin-top: var(--space-7);
 }

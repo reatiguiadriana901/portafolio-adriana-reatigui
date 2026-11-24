@@ -7,7 +7,7 @@ import { on, emit } from '../bus.js';
 import { addTask } from '../loop.js';
 import { paintIcon } from './icons.js';
 import { pointAtY } from '../scene/route.js';
-import { LANDMARKS, PHOTOS } from '../data/lines.js';
+import { LANDMARKS } from '../data/lines.js';
 import { pick } from '../i18n.js';
 
 const SPACING = 520; // distancia aproximada entre hallazgos (px)
@@ -40,22 +40,13 @@ function place() {
   clear();
   const { segments, lanes, spriteW, viewport } = state.layout;
   let next = 0;
-  const photos = [...PHOTOS];
   segments.forEach((segment) => {
     // En las secciones oscuras la escena queda tapada, así que ahí no van
     if (segment.kind !== 'section' || segment.el.classList.contains('theme-dark')) return;
-    let first = true;
     for (let y = segment.top + MARGIN; y < segment.bottom - MARGIN; y += SPACING) {
       const point = pointAtY(y);
       if (!point) continue;
       const lane = point.x < viewport.w / 2 ? lanes.left : lanes.right;
-      // El primer hallazgo de cada sección es una foto de campo, mientras queden
-      if (first && photos.length) {
-        first = false;
-        items.push(makePhoto(photos.shift(), lane, y));
-        continue;
-      }
-      first = false;
       // Del lado del carril con más espacio, sin tocar a Lapilli
       const toRight = lane.x1 - point.x >= point.x - lane.x0;
       const x = toRight ? point.x + spriteW / 2 + GAP : point.x - spriteW / 2 - GAP - SIZE;
@@ -80,24 +71,6 @@ function makeItem({ sprite, label, line }, x, y) {
   el.style.setProperty('--delay', `${(items.length % 5) * -0.6}s`);
   layer.append(el);
   return { el, tag, label, x: x + SIZE / 2, y, line, found: false };
-}
-
-// Foto de campo de Adriana, como una polaroid pegada en el mapa; Lapilli pasa por delante
-function makePhoto({ src, w, h, caption, line }, lane, y) {
-  const width = Math.max(140, Math.min(210, lane.x1 - lane.x0 - 60));
-  const height = Math.round((width * h) / w);
-  const el = document.createElement('figure');
-  el.className = 'polaroid';
-  el.style.width = `${width}px`;
-  const img = document.createElement('img');
-  Object.assign(img, { src, alt: '', width, height, loading: 'lazy' });
-  const tag = document.createElement('figcaption');
-  tag.textContent = pick(caption);
-  el.append(img, tag);
-  const x = lane.x0 + (lane.x1 - lane.x0 - width) / 2;
-  el.style.transform = `translate(${Math.round(x)}px, ${Math.round(y - height)}px) rotate(${items.length % 2 ? 3 : -3}deg)`;
-  layer.append(el);
-  return { el, tag, label: caption, x: x + width / 2, y, line, found: false };
 }
 
 function update() {
