@@ -59,11 +59,3 @@ export const LANDMARKS = [
   { sprite: 'drop', label: { es: 'petróleo', en: 'oil' }, line: { es: 'El petróleo migra hasta quedar atrapado en una trampa.', en: 'Oil migrates until it gets caught in a trap.' } },
   { sprite: 'fern', label: { es: 'helecho', en: 'fern' }, line: { es: 'Los helechos ya existían antes que los dinosaurios.', en: 'Ferns existed before the dinosaurs.' } },
 ];
-
-// Fotos de campo de Adriana: fx/landmarks.js las pone como polaroids junto al
-// recorrido (en escritorio) y Lapilli comenta cada una al pasar
-export const PHOTOS = [
-  { src: 'assets/img/campo-afloramiento.webp', w: 703, h: 900, caption: { es: 'Frente a un afloramiento', en: 'Facing an outcrop' }, line: { es: '¡Adriana en una salida de campo, leyendo las capas de un afloramiento!', en: 'Adriana on a field trip, reading the layers of an outcrop!' } },
-  { src: 'assets/img/campo-costa.webp', w: 679, h: 900, caption: { es: 'Salida de campo a la costa', en: 'Field trip to the coast' }, line: { es: 'Salida de campo a la costa: la arena también cuenta su historia.', en: 'A field trip to the coast: the sand tells its own story too.' } },
-  { src: 'assets/img/campo-volcan.webp', w: 900, h: 506, caption: { es: 'Un volcán nevado y su lago', en: 'A snowy volcano and its lake' }, line: { es: 'Un estratovolcán nevado: crece con muchas erupciones a lo largo del tiempo.', en: 'A snowy stratovolcano: it grows through many eruptions over time.' } },
-];
