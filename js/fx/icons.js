@@ -82,6 +82,18 @@ const ICONS = {
     'T.TkbkkbkT.T', '.TkkkTTkkkT.', 'T.TkkTTkkT.T', '.TkkkTTkkkT.',
     'T.TkkTTkkT.T', '..TkkTTkkT..', '...TTTTTT...', '............',
   ],
+  // Engranaje: automatización
+  gear: [
+    '.....TT.....', '.TT..TT..TT.', '.TTTTTTTTTT.', '..TTTttTTT..',
+    '..TTt..tTT..', 'TTTt....tTTT', 'TTTt....tTTT', '..TTt..tTT..',
+    '..TTTttTTT..', '.TTTTTTTTTT.', '.TT..TT..TT.', '.....TT.....',
+  ],
+  // Taza de café humeante: backend con Java
+  cup: [
+    '...t..t.....', '....t..t....', '...t..t.....', '............',
+    '.dddddddd...', '.dTTTTTTd...', '.dlllllldddd', '.dlllllld..d',
+    '.dlllllldddd', '..dlllld....', '...dddd.....', '.kkkkkkkkk..',
+  ],
   // Ventana de terminal con su prompt
   terminal: [
     'tttttttttttt', 'tltbtttttttt', 'txxxxxxxxxxt', 'txbxxxxxxxxt',

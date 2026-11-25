@@ -1010,6 +1010,12 @@ html:not(.js) .cross-section {
   .show-block--flip .show-block__text {
     order: 2;
   }
+
+  /* Una figura muy ancha, como un corte geológico: el texto arriba y la figura a todo el ancho */
+  .show-block--wide {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-4);
+  }
 }
 
 .show-block .show-media {

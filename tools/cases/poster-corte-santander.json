@@ -1,0 +1,160 @@
+{
+  "order": 9,
+  "slug": "poster-corte-santander",
+  "core": "N-09",
+  "litho": "conglomerate",
+  "layout": "showcase",
+  "titles": {
+    "blocks": {
+      "es": "Lo que hicimos",
+      "en": "What we did"
+    },
+    "results": {
+      "es": "Conclusiones",
+      "en": "Conclusions"
+    }
+  },
+  "stackLabel": {
+    "es": "Temas",
+    "en": "Topics"
+  },
+  "es": {
+    "eyebrow": "Póster · XVI Semana Técnica de Geología · 2024",
+    "title": "Corte geológico del Macizo de Santander",
+    "subtitle": "Valle Medio del Magdalena · Macizo de Santander · Subcuenca de Málaga",
+    "intro": "Elaboramos y digitalizamos un corte geológico a escala 1:100.000 para definir los estilos estructurales entre el Valle Medio del Magdalena y la Subcuenca de Málaga. Lo hicimos en el marco del Semillero de Geología Estructural y Tectónica (SEGET) de la UIS.",
+    "summary": "Elaboramos y digitalizamos un corte geológico a escala 1:100.000 para definir los estilos estructurales entre el Valle Medio del Magdalena y la Subcuenca de Málaga.",
+    "role": [],
+    "stats": [],
+    "blocks": [
+      {
+        "step": "Zona",
+        "title": "Del Magdalena Medio a Málaga",
+        "text": "El corte cruza el Anticlinorio de Los Yariguíes, la Mesa de Los Santos, el Macizo de Santander y la Subcuenca de Málaga, con fallas regionales como La Salina, Suárez y Bucaramanga."
+      },
+      {
+        "step": "Método",
+        "title": "Cuatro pasos",
+        "text": "Revisamos los modelos estructurales propuestos; identificamos estratificación, vergencias de fallas, pliegues y espesores; digitalizamos el corte con las planchas 119, 120, 135 y 136 de INGEOMINAS, y definimos los dominios estructurales."
+      },
+      {
+        "step": "Resultado",
+        "title": "Tres dominios estructurales",
+        "text": "Dos dominios compresivos, al este del Valle Medio del Magdalena (Anticlinorio de Los Yariguíes) y en la Subcuenca de Málaga, y uno transpresivo en el Macizo de Santander. Toca el corte para verlo en grande."
+      }
+    ],
+    "results": [
+      "Al este del Valle Medio del Magdalena el régimen es compresivo, con deformación thin-skinned: las fallas afectan sobre todo la cobertura sedimentaria.",
+      "En el Macizo de Santander domina la transpresión, con deformación thick-skinned, como en la Falla de Bucaramanga y sus splays de medio a alto ángulo.",
+      "En la Subcuenca de Málaga predominan las fallas inversas y se combinan los dos estilos.",
+      "Identificar los estilos estructurales es clave para construir modelos de evolución geológica de una región.",
+      "El corte se basa en planchas de INGEOMINAS a escala 1:100.000, así que puede faltar precisión cartográfica; hacen falta fuentes más detalladas."
+    ]
+  },
+  "en": {
+    "eyebrow": "Poster · 16th Geology Technical Week · 2024",
+    "title": "Geological cross-section of the Santander Massif",
+    "subtitle": "Middle Magdalena Valley · Santander Massif · Málaga Sub-basin",
+    "intro": "We built and digitized a 1:100,000 geological cross-section to define the structural styles between the Middle Magdalena Valley and the Málaga Sub-basin. We did it as part of the Structural Geology and Tectonics student research group (SEGET) at UIS.",
+    "summary": "We built and digitized a 1:100,000 geological cross-section to define the structural styles between the Middle Magdalena Valley and the Málaga Sub-basin.",
+    "role": [],
+    "stats": [],
+    "blocks": [
+      {
+        "step": "Area",
+        "title": "From the Middle Magdalena to Málaga",
+        "text": "The section crosses the Los Yariguíes Anticlinorium, the Mesa de Los Santos, the Santander Massif and the Málaga Sub-basin, with regional faults such as La Salina, Suárez and Bucaramanga."
+      },
+      {
+        "step": "Method",
+        "title": "Four steps",
+        "text": "We reviewed the proposed structural models; identified bedding, fault vergence, folds and thicknesses; digitized the section from INGEOMINAS sheets 119, 120, 135 and 136; and defined the structural domains."
+      },
+      {
+        "step": "Result",
+        "title": "Three structural domains",
+        "text": "Two compressional domains, east of the Middle Magdalena Valley (Los Yariguíes Anticlinorium) and in the Málaga Sub-basin, and one transpressional domain in the Santander Massif. Tap the section to see it full size."
+      }
+    ],
+    "results": [
+      "East of the Middle Magdalena Valley the regime is compressional, with thin-skinned deformation: the faults mostly affect the sedimentary cover.",
+      "In the Santander Massif transpression dominates, with thick-skinned deformation, as in the Bucaramanga Fault and its medium- to high-angle splays.",
+      "In the Málaga Sub-basin reverse faults predominate and both styles combine.",
+      "Identifying the structural styles is key to building models of a region's geological evolution.",
+      "The section is based on 1:100,000 INGEOMINAS sheets, so it may lack cartographic precision; more detailed sources are needed."
+    ]
+  },
+  "hero": {
+    "src": "../assets/img/casos/corte-poster.webp",
+    "full": "../assets/img/casos/corte-poster-grande.webp",
+    "portrait": true,
+    "alt_es": "Póster completo: Corte geológico 1:100.000 y estilos estructurales del Macizo de Santander y cuencas adyacentes del Valle Medio del Magdalena y Málaga",
+    "alt_en": "Full poster: 1:100,000 geological cross-section and structural styles of the Santander Massif and the adjacent Middle Magdalena Valley and Málaga basins",
+    "caption_es": "El póster completo que presentamos en la XVI Semana Técnica de Geología (2024). Toca la imagen para verla en tamaño completo.",
+    "caption_en": "The full poster we presented at the 16th Geology Technical Week (2024). Tap the image to see it full size."
+  },
+  "blocks": [
+    {
+      "src": "../assets/img/casos/corte-localizacion.webp",
+      "alt_es": "Mapa de relieve de Santander con las fallas principales y la línea del corte en rojo",
+      "alt_en": "Relief map of Santander with the main faults and the section line in red",
+      "caption_es": "Fig. 1. Localización del área de estudio.",
+      "caption_en": "Fig. 1. Location of the study area."
+    },
+    {
+      "src": "../assets/img/casos/corte-metodologia.webp",
+      "alt_es": "Los cuatro pasos de la metodología",
+      "alt_en": "The four steps of the methodology",
+      "caption_es": "Metodología del póster.",
+      "caption_en": "The poster's methodology."
+    },
+    {
+      "src": "../assets/img/casos/corte-seccion.webp",
+      "wide": true,
+      "alt_es": "Sección geológica NW-SE con las unidades y las fallas, del Valle Medio del Magdalena a Málaga",
+      "alt_en": "NW–SE geological section with the units and faults, from the Middle Magdalena Valley to Málaga",
+      "caption_es": "Fig. 2. Sección geológica NW-SE.",
+      "caption_en": "Fig. 2. NW–SE geological section."
+    }
+  ],
+  "stack": [
+    {
+      "es": "Geología estructural",
+      "en": "Structural geology"
+    },
+    {
+      "es": "Cortes geológicos",
+      "en": "Geological cross-sections"
+    },
+    {
+      "es": "Tectónica",
+      "en": "Tectonics"
+    }
+  ],
+  "team": [
+    {
+      "name": "Cristina Lizcano"
+    },
+    {
+      "name": "Adriana Reatigui"
+    },
+    {
+      "name": "Santiago Angulo"
+    },
+    {
+      "name": "Bredman Sang"
+    },
+    {
+      "name": "Francisco Velandia"
+    },
+    {
+      "name": "Giovanny Jiménez"
+    }
+  ],
+  "links": [],
+  "images": [],
+  "note": {
+    "es": "Semillero de Geología Estructural y Tectónica (SEGET), Escuela de Geología, Universidad Industrial de Santander.",
+    "en": "Structural Geology and Tectonics student research group (SEGET), School of Geology, Universidad Industrial de Santander."
+  }
+}
