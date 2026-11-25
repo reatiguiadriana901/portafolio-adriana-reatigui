@@ -955,6 +955,7 @@ html:not(.js) .cross-section {
 }
 
 .show-media a,
+.show-media__frame,
 .show-media__video {
   display: block;
   overflow: hidden;

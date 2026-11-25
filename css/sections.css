@@ -853,9 +853,10 @@ html[data-motion="off"] .terminal__line {
   text-align: left;
 }
 
-.passion--trait {
+/* Más específico que .passion (que viene después en este archivo) para que gane el alto */
+.traits .passion--trait {
   --gem: var(--blush);
-  min-height: 220px;
+  min-height: 270px;
 }
 
 .traits .passion--trait:nth-child(4n + 2) { --gem: var(--sage); }

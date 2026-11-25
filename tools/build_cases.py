@@ -347,13 +347,17 @@ def media_html(media):
         inner = f'<video class="show-media__video" src="{src}" controls preload="metadata" playsinline></video>'
     else:
         src = esc(media["src"])
-        # "full": una versión más grande, la que se abre al tocar la imagen
-        href = esc(media.get("full", media["src"]))
-        inner = (
-            f'<a href="{href}" target="_blank" rel="noopener">'
+        img = (
             f'<img src="{src}" alt="{esc(media["alt_es"])}" data-alt-es="{esc(media["alt_es"])}" '
-            f'data-alt-en="{esc(media["alt_en"])}" loading="lazy" decoding="async"></a>'
+            f'data-alt-en="{esc(media["alt_en"])}" loading="lazy" decoding="async">'
         )
+        if media.get("zoom", True):
+            # "full": una versión más grande, la que se abre al tocar la imagen
+            href = esc(media.get("full", media["src"]))
+            inner = f'<a href="{href}" target="_blank" rel="noopener">{img}</a>'
+        else:
+            # "zoom": false para una imagen de baja resolución, que se vería borrosa en grande
+            inner = f'<div class="show-media__frame">{img}</div>'
     # "portrait": imágenes verticales (un póster) más angostas, para que no ocupen varias pantallas
     portrait = " show-media--portrait" if media.get("portrait") else ""
     return f'<figure class="show-media{portrait}">{inner}{caption}</figure>'
