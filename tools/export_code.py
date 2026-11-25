@@ -25,13 +25,6 @@ LABELS = {
     "logistics": ("Logística", "Logistics"),
     "common": ("Común", "Shared"),
     "general": ("Arranque", "Entry point"),
-    # Práctica Java POO, en el orden del menú principal
-    "Principal": ("Menú", "Menu"),
-    "CajeroAutomatico": ("Cajero automático", "ATM"),
-    "RegistroAcademico": ("Registro académico", "Academic records"),
-    "TiendaOnline": ("Tienda online", "Online store"),
-    "AgendaContactos": ("Agenda de contactos", "Contact book"),
-    "SistemaNotas": ("Sistema de notas", "Grades"),
 }
 
 

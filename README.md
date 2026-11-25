@@ -9,7 +9,7 @@ Soy geóloga (Universidad Industrial de Santander) y estoy terminando el Técnic
 - **Un corte geológico animado de fondo**: capas plegadas y fallas normales que avanzan despacio. Al bajar por la página bajas también por el subsuelo.
 - **Una presentación al abrir la página**: suben los estratos, cada uno con una parte de mi stack, y aparecen mi nombre y mi rol. Sale una vez por sesión y se puede saltar.
 - **Proyectos en una caja de núcleos de perforación**: cada núcleo abre la ficha de un proyecto de software o de geociencias.
-- **Una página por proyecto** con el trabajo real: los workflows de n8n, el SQL y el código Java en visores interactivos, una demo en vivo de Acme School, los mapas y el código de la tesis, y el póster del congreso completo.
+- **Una página por proyecto** con el trabajo real: los workflows de n8n, el SQL y el código Java en visores interactivos, una demo en vivo de Acme School, los mapas y el código de la tesis, y dos pósters de geología completos.
 - **Habilidades como una columna estratigráfica**, de la superficie (frontend) al núcleo (datos y automatización).
 - **Español e inglés**, con un botón para cambiar de idioma.
 - **Lapilli**, un T-Rex en pixel art con piqueta de geóloga, se presenta al abrir la página y acompaña el recorrido con datos curiosos de geología.

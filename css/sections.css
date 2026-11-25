@@ -325,19 +325,21 @@ html[data-motion="off"] .terminal__line {
   }
 }
 
-/* "Ahora mismo": lo que estoy haciendo hoy */
+/* "Ahora mismo": lo que estoy haciendo hoy, en un recuadro oscuro para que resalte */
 .now {
   max-width: 760px;
   margin: var(--space-7) auto 0;
   padding: var(--space-5) var(--space-6);
-  border-left: 4px solid var(--color-highlight);
-  background: var(--color-surface);
+  border-left: 6px solid var(--blush);
+  background: var(--midnight);
+  color: var(--vanilla);
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  box-shadow: var(--shadow);
 }
 
 .about .now__title {
   margin: 0 0 var(--space-3);
-  color: var(--color-heading);
+  color: var(--blush);
   font-family: var(--font-mono);
   font-size: 0.85rem;
   font-weight: 500;
@@ -363,7 +365,7 @@ html[data-motion="off"] .terminal__line {
   content: "›";
   position: absolute;
   left: 0;
-  color: var(--color-accent);
+  color: var(--blush);
   font-family: var(--font-mono);
   font-weight: 700;
 }
@@ -372,15 +374,24 @@ html[data-motion="off"] .terminal__line {
   margin-top: var(--space-7);
 }
 
+/* "Donde se cruzan la tierra y el código": una tarjeta con encabezado oscuro;
+   cada fila pone una materia de la carrera frente a dónde la uso hoy */
 .crossover {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  box-shadow: var(--shadow);
   font-size: 0.98rem;
 }
 
 .crossover th {
-  padding: var(--space-2) var(--space-3);
-  color: var(--color-heading);
+  padding: var(--space-3) var(--space-5);
+  background: var(--midnight);
+  color: var(--vanilla);
   font-family: var(--font-mono);
   font-size: 0.8rem;
   font-weight: 500;
@@ -388,13 +399,59 @@ html[data-motion="off"] .terminal__line {
 }
 
 .crossover td {
-  padding: var(--space-3);
+  width: 50%;
+  padding: var(--space-4) var(--space-5);
   border-top: 1px solid var(--color-border);
+  line-height: 1.55;
   vertical-align: top;
 }
 
-.crossover td:first-child {
-  color: var(--color-text-muted);
+.crossover tbody tr:first-child td {
+  border-top: 0;
+}
+
+.crossover tbody tr:nth-child(even) td {
+  background: color-mix(in oklab, var(--sage) 10%, var(--color-surface));
+}
+
+/* La materia o la tecnología de cada celda */
+.crossover__tag {
+  display: block;
+  margin-bottom: var(--space-1);
+  color: var(--color-label);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+}
+
+.crossover td + td .crossover__tag {
+  color: var(--color-accent);
+}
+
+/* En pantallas anchas, una flecha une la materia con su uso */
+@media (min-width: 681px) {
+  .crossover td + td {
+    position: relative;
+    padding-left: var(--space-6);
+    border-left: 1px dashed var(--color-border);
+  }
+
+  .crossover td + td::before {
+    content: "→";
+    content: "→" / "";
+    position: absolute;
+    top: var(--space-4);
+    left: -0.75em;
+    display: grid;
+    place-items: center;
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 50%;
+    background: var(--blush);
+    color: var(--midnight);
+    font-size: 0.85rem;
+    line-height: 1;
+  }
 }
 
 .facts {
@@ -420,6 +477,14 @@ html[data-motion="off"] .terminal__line {
 .facts dd {
   margin: var(--space-1) 0 0;
   font-size: 0.95rem;
+}
+
+/* Mención discreta: auxiliaturas y semilleros en la UIS */
+.facts .facts__note {
+  margin-top: var(--space-2);
+  color: var(--color-text-muted);
+  font-size: 0.82rem;
+  line-height: 1.45;
 }
 
 .values {
@@ -453,19 +518,31 @@ html[data-motion="off"] .terminal__line {
 
   .crossover tr {
     display: block;
-    padding-block: var(--space-2);
     border-top: 1px solid var(--color-border);
+  }
+
+  .crossover tbody tr:first-child {
+    border-top: 0;
   }
 
   .crossover td {
     display: block;
-    padding: var(--space-1) 0;
+    width: auto;
+    padding: var(--space-3) var(--space-4);
     border: 0;
   }
 
-  .crossover td:last-child::before {
-    content: "→ ";
+  .crossover td + td {
+    padding-top: 0;
+  }
+
+  .crossover td + td::before {
+    content: "↓";
+    content: "↓" / "";
+    display: block;
+    margin-bottom: var(--space-1);
     color: var(--color-accent);
+    font-family: var(--font-mono);
   }
 }
 
@@ -728,12 +805,13 @@ html[data-motion="off"] .terminal__line {
 }
 
 /* Cada capa con el color y el símbolo de su roca, como en una columna estratigráfica:
-   arenisca, lutita, caliza, conglomerado y, en la veta, roca ígnea */
+   arenisca, lutita, caliza, conglomerado, una matriz fina y, en la veta, roca ígnea */
 .stratum:nth-child(1) { border-color: var(--color-stratum-1); background: var(--litho-sandstone), var(--color-sandstone); }
 .stratum:nth-child(2) { border-color: var(--color-stratum-2); background: var(--litho-shale), var(--color-shale); }
 .stratum:nth-child(3) { border-color: var(--color-stratum-3); background: var(--litho-limestone), var(--color-limestone); }
 .stratum:nth-child(4) { border-color: var(--color-stratum-4); background: var(--litho-conglomerate), var(--color-conglomerate); }
-.stratum:nth-child(5) { border-color: var(--color-highlight); background: var(--litho-igneous), var(--color-igneous); }
+.stratum:nth-child(5) { border-color: color-mix(in oklab, var(--misty) 50%, var(--midnight)); background: var(--litho-shale), color-mix(in oklab, var(--misty) 22%, var(--vanilla)); }
+.stratum:nth-child(6) { border-color: var(--color-highlight); background: var(--litho-igneous), var(--color-igneous); }
 
 .stratum__name {
   margin: 0;
@@ -763,38 +841,68 @@ html[data-motion="off"] .terminal__line {
   text-align: center;
 }
 
-.gems {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+/* Cualidades: cartas que se voltean como las muestras de Intereses (.passion)
+   y por detrás cuentan por qué tengo cada una */
+.traits {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: var(--space-4);
   margin: var(--space-5) 0 0;
   padding: 0;
   list-style: none;
+  text-align: left;
 }
 
-.gem {
+.passion--trait {
   --gem: var(--blush);
-  display: grid;
-  place-items: center;
-  width: 172px;
+  min-height: 220px;
+}
+
+.traits .passion--trait:nth-child(4n + 2) { --gem: var(--sage); }
+.traits .passion--trait:nth-child(4n + 3) { --gem: var(--misty); }
+.traits .passion--trait:nth-child(4n + 4) { --gem: var(--rosewood); }
+
+.passion--trait .passion__face {
+  border-top-color: var(--gem);
+}
+
+/* No son muestras: sin etiqueta M-0x */
+.passion--trait .passion__face--front::after {
+  content: none;
+}
+
+.passion--trait h4 {
+  margin: 0;
+  color: var(--color-heading);
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+}
+
+/* Un cristal hexagonal del color de la carta */
+.trait__gem {
+  width: 46px;
   aspect-ratio: 1.15;
-  padding: var(--space-4) var(--space-5);
   clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
   background:
     linear-gradient(135deg, rgb(255 255 255 / 0.55), transparent 45%),
-    linear-gradient(315deg, rgb(45 58 71 / 0.12), transparent 50%),
-    color-mix(in oklab, var(--gem) 55%, var(--vanilla));
-  color: var(--midnight);
-  font-family: var(--font-display);
-  font-weight: 600;
-  line-height: 1.25;
-  text-align: center;
+    linear-gradient(315deg, rgb(45 58 71 / 0.15), transparent 50%),
+    color-mix(in oklab, var(--gem) 70%, var(--vanilla));
 }
 
-.gem:nth-child(2) { --gem: var(--sage); }
-.gem:nth-child(3) { --gem: var(--misty); }
-.gem:nth-child(4) { --gem: var(--rosewood); }
+.passion--trait .passion__face--back {
+  overflow: auto;
+  align-items: flex-start;
+  background: color-mix(in oklab, var(--gem) 14%, var(--color-surface));
+  text-align: left;
+}
+
+.passion__face .trait__why {
+  color: var(--color-label);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
 
 /* ---------- Intereses: muestras que se voltean ---------- */
 

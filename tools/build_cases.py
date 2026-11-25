@@ -378,7 +378,8 @@ def showcase_body(case):
     blocks = ""
     for index, (a, b) in enumerate(zip(es.get("blocks", []), en.get("blocks", []))):
         media = case["blocks"][index]
-        side = " show-block--flip" if index % 2 else ""
+        # "wide": una figura muy ancha (un corte geológico) va debajo del texto, a todo el ancho
+        side = " show-block--wide" if media.get("wide") else (" show-block--flip" if index % 2 else "")
         blocks += (
             f'        <article class="show-block{side}">'
             f'<div class="show-block__text"><span class="show-block__step">{inline(a["step"], b["step"])}</span>'

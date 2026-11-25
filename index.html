@@ -138,7 +138,7 @@
         <p class="eyebrow" aria-hidden="true"><span class="eyebrow__index">01</span>sobre-mi.md</p>
         <h2 id="sobre-mi-titulo" data-i18n="about.title">Sobre mí</h2>
         <div class="about__intro">
-          <p class="about__text" data-i18n="about.p1">Soy geóloga de la Universidad Industrial de Santander y estoy terminando el Técnico en Desarrollo de Software en Campuslands. Hoy programo sobre todo en Java, diseño bases de datos y automatizo procesos con n8n, y uso Python para analizar datos geoespaciales.</p>
+          <p class="about__text" data-i18n="about.p1">Soy geóloga de la Universidad Industrial de Santander y estoy cursando el Técnico en Desarrollo de Software en Campuslands. Hoy programo sobre todo en Java, diseño bases de datos y automatizo procesos con n8n, y uso Python para analizar datos geoespaciales.</p>
           <figure class="about__portrait reveal">
             <img src="assets/img/retrato-acuarela.webp" width="480" height="676" loading="lazy"
               alt="Retrato en acuarela de Adriana con sombrero de campo y camisa a cuadros" data-i18n-attr="alt:about.portraitAlt">
@@ -151,8 +151,8 @@
         <div class="now">
           <h3 class="now__title" data-i18n="about.nowTitle">Ahora mismo</h3>
           <ul class="now__list">
-            <li data-i18n="about.now1">Terminando el Técnico en Desarrollo de Software en Campuslands.</li>
-            <li data-i18n="about.now2">Construyendo aplicaciones en Java con MySQL, como Frescura Total.</li>
+            <li data-i18n="about.now1">Cursando el Técnico en Desarrollo de Software en Campuslands, que termino en 2027.</li>
+            <li data-i18n="about.now2">Aprendiendo Spring Boot para construir el backend de aplicaciones en Java.</li>
             <li data-i18n="about.now3">Abierta a oportunidades en desarrollo de software, datos y geociencias.</li>
           </ul>
         </div>
@@ -161,26 +161,27 @@
         <table class="crossover">
           <thead>
             <tr>
-              <th scope="col" data-i18n="about.crossGeo">En geología aprendí a…</th>
-              <th scope="col" data-i18n="about.crossDev">En desarrollo lo aplico para…</th>
+              <th scope="col" data-i18n="about.crossGeo">En Geología (UIS) aprendí a…</th>
+              <th scope="col" data-i18n="about.crossDev">En el software lo aplico para…</th>
             </tr>
           </thead>
+          <!-- Cada fila: una materia de la carrera y dónde la uso hoy -->
           <tbody>
             <tr>
-              <td data-i18n="about.cross1a">Leer capas y entender cómo se construye un sistema de abajo hacia arriba</td>
-              <td data-i18n="about.cross1b">Diseñar bases de datos y aplicaciones por capas, con estructura clara</td>
+              <td><span class="crossover__tag" data-i18n="about.cross1tag">Estratigrafía</span><span data-i18n="about.cross1a">Leer una sucesión de capas en orden y reconstruir cómo se formó.</span></td>
+              <td><span class="crossover__tag">Java · MVC + DAO</span><span data-i18n="about.cross1b">Organizar una aplicación por capas, cada una con su función, como en Frescura Total.</span></td>
             </tr>
             <tr>
-              <td data-i18n="about.cross2a">Trabajar con datos de campo incompletos y validarlos</td>
-              <td data-i18n="about.cross2b">Escribir validaciones y consultas que protegen la integridad de la información</td>
+              <td><span class="crossover__tag" data-i18n="about.cross2tag">Campo I y II</span><span data-i18n="about.cross2a">Tomar datos en campo, revisarlos y descartar los que no son confiables.</span></td>
+              <td><span class="crossover__tag">MySQL · triggers</span><span data-i18n="about.cross2b">Validar los datos antes de guardarlos, con restricciones y triggers, como en ASOGASINGA.</span></td>
             </tr>
             <tr>
-              <td data-i18n="about.cross3a">Procesar datos geoespaciales con SIG y estadística</td>
-              <td data-i18n="about.cross3b">Automatizar análisis con Python y dejar resultados reproducibles</td>
+              <td><span class="crossover__tag" data-i18n="about.cross3tag">Geoestadística y SIG</span><span data-i18n="about.cross3a">Analizar datos espaciales y medir patrones con estadística.</span></td>
+              <td><span class="crossover__tag">Python</span><span data-i18n="about.cross3b">Automatizar el análisis de mi tesis en notebooks reproducibles: rosas de orientación y estadística circular.</span></td>
             </tr>
             <tr>
-              <td data-i18n="about.cross4a">Ser rigurosa con la evidencia antes de sacar conclusiones</td>
-              <td data-i18n="about.cross4b">Probar, depurar y documentar antes de dar algo por terminado</td>
+              <td><span class="crossover__tag" data-i18n="about.cross4tag">Geología estructural</span><span data-i18n="about.cross4a">Entender cómo se conectan fallas, pliegues y esfuerzos en un mismo sistema.</span></td>
+              <td><span class="crossover__tag">n8n · PostgreSQL</span><span data-i18n="about.cross4b">Conectar servicios, datos e IA en flujos automáticos, como en Campus OPS y TalentFlow AI.</span></td>
             </tr>
           </tbody>
         </table>
@@ -189,7 +190,8 @@
           <div>
             <dt data-i18n="about.education">Formación</dt>
             <dd data-i18n="about.educationGeo">Geología, Universidad Industrial de Santander (2021–2026)</dd>
-            <dd data-i18n="about.educationSoft">Técnico en Desarrollo de Software, Campuslands (2026–actualidad)</dd>
+            <dd data-i18n="about.educationSoft">Técnico en Desarrollo de Software, Campuslands (2026–2027)</dd>
+            <dd class="facts__note" data-i18n="about.educationExtra">En la UIS fui auxiliar de Sedimentología y de Geología para Ingenieros, y participé en semilleros de investigación como el SEGET (Geología Estructural y Tectónica).</dd>
           </div>
           <div>
             <dt data-i18n="about.languages">Idiomas</dt>
@@ -234,10 +236,10 @@
             <button class="core" type="button" aria-expanded="false" aria-controls="p-asogasinga"><span class="core__id">N-04</span><span class="core__name">ASOGASINGA</span></button>
             <button class="core" type="button" aria-expanded="false" aria-controls="p-talentflow"><span class="core__id">N-05</span><span class="core__name">TalentFlow AI</span></button>
             <button class="core" type="button" aria-expanded="false" aria-controls="p-acme"><span class="core__id">N-06</span><span class="core__name">Acme School</span></button>
-            <button class="core" type="button" aria-expanded="false" aria-controls="p-javapoo"><span class="core__id">N-07</span><span class="core__name" data-i18n="core.javapoo">Práctica Java POO</span></button>
             <p class="core-box__group" data-i18n="projects.groupGeo">Geociencias</p>
-            <button class="core" type="button" aria-expanded="false" aria-controls="p-thesis"><span class="core__id">N-08</span><span class="core__name" data-i18n="core.thesis">Tesis: campo volcánico</span></button>
-            <button class="core" type="button" aria-expanded="false" aria-controls="p-poster"><span class="core__id">N-09</span><span class="core__name" data-i18n="core.poster">Póster: fallas poligonales</span></button>
+            <button class="core" type="button" aria-expanded="false" aria-controls="p-thesis"><span class="core__id">N-07</span><span class="core__name" data-i18n="core.thesis">Tesis: volcanes y fallas</span></button>
+            <button class="core" type="button" aria-expanded="false" aria-controls="p-poster"><span class="core__id">N-08</span><span class="core__name" data-i18n="core.poster">Póster: fallas poligonales</span></button>
+            <button class="core" type="button" aria-expanded="false" aria-controls="p-corte"><span class="core__id">N-09</span><span class="core__name" data-i18n="core.corte">Póster: corte de Santander</span></button>
           </div>
 
           <div class="core-box__panels">
@@ -337,21 +339,6 @@
               <a class="specimen__link" href="https://github.com/reatiguiadriana901/ProyectoAcmesSchool_JavaScript_Becerra_Reatigui_Solano" target="_blank" rel="noopener" aria-label="Ver el repositorio de Acme School (se abre en otra pestaña)" data-i18n-attr="aria-label:p.acme.repo"><span data-i18n="projects.repo">Ver repositorio</span> <span aria-hidden="true">↗</span></a>
             </article>
 
-            <article class="specimen" id="p-javapoo" data-rex="Herencia, colecciones y excepciones en Java, todo en consola." data-rex-en="Inheritance, collections and exceptions in Java, all in the console.">
-              <p class="specimen__tag"><span>Java</span><span>2026</span></p>
-              <h3 class="specimen__title" data-i18n="core.javapoo">Práctica Java POO</h3>
-              <p class="specimen__subtitle" data-i18n="p.javapoo.subtitle">Programación orientada a objetos</p>
-              <p class="specimen__description" data-i18n="p.javapoo.desc">Cinco ejercicios de consola en Java que aplican herencia, colecciones, excepciones y manejo de archivos.</p>
-              <ul class="chips">
-                <li class="chip">Java</li>
-                <li class="chip" data-i18n="chip.oop">POO</li>
-                <li class="chip" data-i18n="chip.collections">Colecciones</li>
-                <li class="chip" data-i18n="chip.exceptions">Excepciones</li>
-              </ul>
-              <a class="specimen__link specimen__link--case" href="proyectos/java-poo.html"><span data-i18n="projects.case">Ver caso completo</span> <span aria-hidden="true">→</span></a>
-              <a class="specimen__link" href="https://github.com/reatiguiadriana901/PRACTICA_1_JAVA_POO" target="_blank" rel="noopener" aria-label="Ver el repositorio de Práctica Java POO (se abre en otra pestaña)" data-i18n-attr="aria-label:p.javapoo.repo"><span data-i18n="projects.repo">Ver repositorio</span> <span aria-hidden="true">↗</span></a>
-            </article>
-
             <article class="specimen" id="p-thesis" data-rex="15 de 19 conos aptos se alinean con una falla o un lineamiento." data-rex-en="15 of 19 suitable cones line up with a fault or a lineament.">
               <p class="specimen__tag"><span data-i18n="p.thesis.tag">Trabajo de grado</span><span>2026</span></p>
               <h3 class="specimen__title" data-i18n="p.thesis.title">Volcanes que siguen fallas</h3>
@@ -382,6 +369,20 @@
               <p class="specimen__team" data-i18n="p.poster.team">Con Kevin Tarazona y Dilan Martínez Sánchez · UIS</p>
               <a class="specimen__link specimen__link--case" href="proyectos/poster-fallas-poligonales.html"><span data-i18n="projects.case">Ver caso completo</span> <span aria-hidden="true">→</span></a>
             </article>
+
+            <article class="specimen" id="p-corte" data-rex="En el Valle Medio del Magdalena la deformación es thin-skinned; en el Macizo de Santander, thick-skinned." data-rex-en="Thin-skinned in the Middle Magdalena Valley, thick-skinned in the Santander Massif.">
+              <p class="specimen__tag"><span data-i18n="p.corte.tag">Semana Técnica</span><span>2024</span></p>
+              <h3 class="specimen__title" data-i18n="p.corte.title">Corte geológico del Macizo de Santander</h3>
+              <p class="specimen__subtitle" data-i18n="p.corte.subtitle">Póster · XVI Semana Técnica de Geología</p>
+              <p class="specimen__description" data-i18n="p.corte.desc">Elaboramos un corte geológico a escala 1:100.000 entre el Valle Medio del Magdalena y la Subcuenca de Málaga, e identificamos tres dominios estructurales: dos compresivos y uno transpresivo, en el Macizo de Santander.</p>
+              <ul class="chips">
+                <li class="chip" data-i18n="chip.structural">Geología estructural</li>
+                <li class="chip" data-i18n="chip.crossSections">Cortes geológicos</li>
+                <li class="chip" data-i18n="chip.tectonics">Tectónica</li>
+              </ul>
+              <p class="specimen__team" data-i18n="p.corte.team">Con Cristina Lizcano, Santiago Angulo, Bredman Sang, Francisco Velandia y Giovanny Jiménez · SEGET, UIS</p>
+              <a class="specimen__link specimen__link--case" href="proyectos/poster-corte-santander.html"><span data-i18n="projects.case">Ver caso completo</span> <span aria-hidden="true">→</span></a>
+            </article>
           </div>
         </div>
       </div>
@@ -408,9 +409,11 @@
             </ul>
           </li>
           <li class="stratum">
-            <p class="stratum__name"><span class="stratum__layer" data-i18n="skills.subsurface">Subsuelo</span><span data-i18n="skills.backend">Backend con Java</span></p>
+            <p class="stratum__name"><span class="stratum__layer" data-i18n="skills.subsurface">Subsuelo</span>Backend</p>
             <ul class="chips">
               <li class="chip" data-i18n="chip.javaOop">Java 21 (POO)</li>
+              <li class="chip">Spring Boot</li>
+              <li class="chip">Python</li>
               <li class="chip">Maven</li>
               <li class="chip">JDBC</li>
               <li class="chip">MVC + DAO</li>
@@ -428,11 +431,19 @@
           <li class="stratum">
             <p class="stratum__name"><span class="stratum__layer" data-i18n="skills.core">Núcleo</span><span data-i18n="skills.dataAuto">Datos y automatización</span></p>
             <ul class="chips">
-              <li class="chip">Python</li>
+              <li class="chip">NumPy</li>
+              <li class="chip">GeoPandas</li>
               <li class="chip">Jupyter</li>
               <li class="chip">n8n</li>
-              <li class="chip">Docker</li>
+              <li class="chip" data-i18n="chip.gemini">IA con Gemini</li>
+            </ul>
+          </li>
+          <li class="stratum">
+            <p class="stratum__name"><span class="stratum__layer" data-i18n="skills.matrix">Matriz</span><span data-i18n="skills.workflow">Forma de trabajo</span></p>
+            <ul class="chips">
               <li class="chip">Git</li>
+              <li class="chip">GitHub</li>
+              <li class="chip">Docker</li>
               <li class="chip">Scrum</li>
             </ul>
           </li>
@@ -441,19 +452,53 @@
             <ul class="chips">
               <li class="chip">ArcGIS Pro</li>
               <li class="chip">QGIS</li>
-              <li class="chip" data-i18n="chip.dem">Análisis de DEM</li>
+              <li class="chip" data-i18n="chip.geoMapping">Cartografía geológica</li>
+              <li class="chip" data-i18n="chip.crossSections">Cortes geológicos</li>
             </ul>
           </li>
         </ol>
 
-        <!-- Habilidades blandas como cristales: cada una con su color -->
+        <!-- Cualidades: cada carta se voltea y cuenta por qué la tengo -->
         <div class="soft-skills">
           <h3 data-i18n="skills.softTitle">También me caracteriza</h3>
-          <ul class="gems">
-            <li class="gem reveal"><span data-i18n="skills.soft1">Pensamiento analítico</span></li>
-            <li class="gem reveal"><span data-i18n="skills.soft2">Resolución de problemas</span></li>
-            <li class="gem reveal"><span data-i18n="skills.soft3">Trabajo en equipo con Scrum</span></li>
-            <li class="gem reveal"><span data-i18n="skills.soft4">Aprendizaje continuo</span></li>
+          <p class="passions__hint" data-i18n="skills.softHint">Pasa el cursor o toca una carta para ver por qué.</p>
+          <ul class="traits">
+            <li class="passion passion--trait reveal" tabindex="0">
+              <div class="passion__inner">
+                <div class="passion__face passion__face--front"><span class="trait__gem" aria-hidden="true"></span><h4 data-i18n="skills.trait1">Pensamiento crítico</h4></div>
+                <div class="passion__face passion__face--back"><p class="trait__why" data-i18n="skills.why">Por qué</p><p data-i18n="skills.trait1Why">En mi tesis no di por hecho que los conos seguían el esfuerzo regional: lo puse a prueba y solo 4 de 19 lo hacen.</p></div>
+              </div>
+            </li>
+            <li class="passion passion--trait reveal" tabindex="0">
+              <div class="passion__inner">
+                <div class="passion__face passion__face--front"><span class="trait__gem" aria-hidden="true"></span><h4 data-i18n="skills.trait2">Rigor con los datos</h4></div>
+                <div class="passion__face passion__face--back"><p class="trait__why" data-i18n="skills.why">Por qué</p><p data-i18n="skills.trait2Why">Antes de sacar conclusiones depuré 526 trazos hasta quedarme con 32 lineamientos.</p></div>
+              </div>
+            </li>
+            <li class="passion passion--trait reveal" tabindex="0">
+              <div class="passion__inner">
+                <div class="passion__face passion__face--front"><span class="trait__gem" aria-hidden="true"></span><h4 data-i18n="skills.trait3">Gestión del tiempo</h4></div>
+                <div class="passion__face passion__face--back"><p class="trait__why" data-i18n="skills.why">Por qué</p><p data-i18n="skills.trait3Why">Terminé mi tesis de Geología mientras cursaba el Técnico en Desarrollo de Software en Campuslands.</p></div>
+              </div>
+            </li>
+            <li class="passion passion--trait reveal" tabindex="0">
+              <div class="passion__inner">
+                <div class="passion__face passion__face--front"><span class="trait__gem" aria-hidden="true"></span><h4 data-i18n="skills.trait4">Aprendizaje autónomo</h4></div>
+                <div class="passion__face passion__face--back"><p class="trait__why" data-i18n="skills.why">Por qué</p><p data-i18n="skills.trait4Why">Pasé de la geología al software y sigo sumando: Java, SQL, n8n y ahora Spring Boot.</p></div>
+              </div>
+            </li>
+            <li class="passion passion--trait reveal" tabindex="0">
+              <div class="passion__inner">
+                <div class="passion__face passion__face--front"><span class="trait__gem" aria-hidden="true"></span><h4 data-i18n="skills.trait5">Comunicar con claridad</h4></div>
+                <div class="passion__face passion__face--back"><p class="trait__why" data-i18n="skills.why">Por qué</p><p data-i18n="skills.trait5Why">Presenté pósters en el XX Congreso Colombiano de Geología y en la XVI Semana Técnica de Geología.</p></div>
+              </div>
+            </li>
+            <li class="passion passion--trait reveal" tabindex="0">
+              <div class="passion__inner">
+                <div class="passion__face passion__face--front"><span class="trait__gem" aria-hidden="true"></span><h4 data-i18n="skills.trait6">Resolver bajo presión</h4></div>
+                <div class="passion__face passion__face--back"><p class="trait__why" data-i18n="skills.why">Por qué</p><p data-i18n="skills.trait6Why">En la hackatón de Campuslands construimos Campus OPS, con IA y automatizaciones en n8n.</p></div>
+              </div>
+            </li>
           </ul>
         </div>
       </div>
@@ -464,7 +509,7 @@
       <div class="section__inner">
         <p class="eyebrow" aria-hidden="true"><span class="eyebrow__index">04</span>intereses.py</p>
         <h2 id="intereses-titulo" data-i18n="interests.title">Intereses</h2>
-        <p data-i18n="interests.intro">Temas en los que quiero seguir creciendo, entre las geociencias y los datos.</p>
+        <p data-i18n="interests.intro">Temas en los que quiero seguir creciendo, entre las geociencias, los datos y el backend.</p>
         <p class="passions__hint" data-i18n="interests.hint">Pasa el cursor o toca una muestra para leerla.</p>
         <ul class="passions__grid">
           <li class="passion reveal" tabindex="0">
@@ -530,6 +575,28 @@
               </div>
               <div class="passion__face passion__face--back">
                 <p data-i18n="interests.dbText">Modelado relacional con integridad: claves, restricciones, procedimientos y consultas analíticas.</p>
+              </div>
+            </div>
+          </li>
+          <li class="passion reveal" tabindex="0">
+            <div class="passion__inner">
+              <div class="passion__face passion__face--front">
+                <canvas class="pixel-icon" data-sprite="gear" width="16" height="16" aria-hidden="true"></canvas>
+                <h3 data-i18n="interests.auto">Automatización</h3>
+              </div>
+              <div class="passion__face passion__face--back">
+                <p data-i18n="interests.autoText">Convertir tareas repetitivas en flujos que corren solos, como los workflows de n8n de Campus OPS y TalentFlow AI.</p>
+              </div>
+            </div>
+          </li>
+          <li class="passion reveal" tabindex="0">
+            <div class="passion__inner">
+              <div class="passion__face passion__face--front">
+                <canvas class="pixel-icon" data-sprite="cup" width="16" height="16" aria-hidden="true"></canvas>
+                <h3 data-i18n="interests.backend">Backend con Java</h3>
+              </div>
+              <div class="passion__face passion__face--back">
+                <p data-i18n="interests.backendText">La parte del software que más disfruto: la lógica y los datos detrás de una aplicación. Ahora estoy aprendiendo Spring Boot.</p>
               </div>
             </div>
           </li>

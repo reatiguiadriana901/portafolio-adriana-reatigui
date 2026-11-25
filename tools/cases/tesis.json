@@ -1,8 +1,8 @@
 {
-  "order": 8,
+  "order": 7,
   "slug": "tesis",
-  "core": "N-08",
-  "litho": "limestone",
+  "core": "N-07",
+  "litho": "shale",
   "layout": "showcase",
   "es": {
     "eyebrow": "Trabajo de grado · Geología UIS · 2026",
