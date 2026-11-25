@@ -40,7 +40,7 @@
       {
         "step": "Resultado",
         "title": "Tres dominios estructurales",
-        "text": "Dos dominios compresivos, al este del Valle Medio del Magdalena (Anticlinorio de Los Yariguíes) y en la Subcuenca de Málaga, y uno transpresivo en el Macizo de Santander. Toca el corte para verlo en grande."
+        "text": "Dos dominios compresivos, al este del Valle Medio del Magdalena (Anticlinorio de Los Yariguíes) y en la Subcuenca de Málaga, y uno transpresivo en el Macizo de Santander."
       }
     ],
     "results": [
@@ -73,7 +73,7 @@
       {
         "step": "Result",
         "title": "Three structural domains",
-        "text": "Two compressional domains, east of the Middle Magdalena Valley (Los Yariguíes Anticlinorium) and in the Málaga Sub-basin, and one transpressional domain in the Santander Massif. Tap the section to see it full size."
+        "text": "Two compressional domains, east of the Middle Magdalena Valley (Los Yariguíes Anticlinorium) and in the Málaga Sub-basin, and one transpressional domain in the Santander Massif."
       }
     ],
     "results": [
@@ -114,7 +114,8 @@
       "alt_es": "Sección geológica NW-SE con las unidades y las fallas, del Valle Medio del Magdalena a Málaga",
       "alt_en": "NW–SE geological section with the units and faults, from the Middle Magdalena Valley to Málaga",
       "caption_es": "Fig. 2. Sección geológica NW-SE.",
-      "caption_en": "Fig. 2. NW–SE geological section."
+      "caption_en": "Fig. 2. NW–SE geological section.",
+      "zoom": false
     }
   ],
   "stack": [
